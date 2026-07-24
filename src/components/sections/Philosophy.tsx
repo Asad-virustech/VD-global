@@ -99,6 +99,7 @@ function PrincipleCard({ icon: Icon, title, description, index }: PrincipleCardP
 
 export function Philosophy() {
   return (
+    <>
     <Section className="bg-white">
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
@@ -152,23 +153,27 @@ export function Philosophy() {
             ))}
           </motion.div>
         </div>
+      </Container>
+    </Section>
 
-        {/* Featured quote */}
+    {/* Featured quote — full-width dark band */}
+    <Section bleed className="relative overflow-hidden bg-ink-900">
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-teal-500/20 blur-[110px]"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-400/40 to-transparent"
+      />
+      <Container>
         <motion.figure
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: 'easeOut' as const, delay: 0.05 }}
-          className="relative mt-16 overflow-hidden rounded-3xl bg-ink-900 px-6 py-14 text-center sm:mt-20 sm:px-10 sm:py-16"
+          className="relative mx-auto max-w-3xl text-center"
         >
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute -top-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-teal-500/20 blur-[100px]"
-          />
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-teal-400/50 to-transparent"
-          />
           <div className="relative mx-auto max-w-3xl">
             <Quote className="mx-auto h-8 w-8 text-teal-400" strokeWidth={1.5} />
             <blockquote className="mt-6 text-2xl font-bold leading-snug tracking-tight text-white sm:text-3xl lg:text-[2.5rem] lg:leading-[1.15] text-balance">
@@ -180,14 +185,18 @@ export function Philosophy() {
             </figcaption>
           </div>
         </motion.figure>
+      </Container>
+    </Section>
 
-        {/* Informational callout */}
+    {/* Informational callout — back on white */}
+    <Section className="bg-white">
+      <Container>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: 'easeOut' as const, delay: 0.1 }}
-          className="relative mt-6 overflow-hidden rounded-2xl border border-ink-100 bg-ink-50/60 p-8 sm:p-10"
+          className="relative overflow-hidden rounded-2xl border border-ink-100 bg-ink-50/60 p-8 sm:p-10"
         >
           <span
             aria-hidden="true"
@@ -205,5 +214,6 @@ export function Philosophy() {
         </motion.div>
       </Container>
     </Section>
+    </>
   );
 }
