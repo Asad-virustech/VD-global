@@ -25,16 +25,28 @@ const item: Variants = {
 export function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-white">
+      {/* base radial wash */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-radial-teal" aria-hidden="true" />
+      {/* premium grid that dissolves toward the edges */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-fade opacity-70" aria-hidden="true" />
+      {/* layered ambient lighting for atmospheric depth */}
       <div
-        className="pointer-events-none absolute -z-10 left-1/2 top-0 h-[480px] w-[680px] -translate-x-1/2 rounded-full bg-teal-200/30 blur-[120px]"
+        className="pointer-events-none absolute -z-10 left-1/2 top-[-10%] h-[560px] w-[780px] -translate-x-1/2 rounded-full bg-teal-300/25 blur-[130px]"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -z-10 right-0 top-1/3 h-[360px] w-[360px] rounded-full bg-teal-100/40 blur-[100px]"
+        className="pointer-events-none absolute -z-10 right-[-6%] top-1/4 h-[440px] w-[440px] rounded-full bg-teal-200/30 blur-[120px]"
         aria-hidden="true"
       />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid opacity-40" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute -z-10 left-[-8%] bottom-[-4%] h-[380px] w-[380px] rounded-full bg-teal-100/40 blur-[120px]"
+        aria-hidden="true"
+      />
+      {/* soft fade that carries the eye into the next section */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-ink-50/60"
+        aria-hidden="true"
+      />
 
       <div className="container-px flex min-h-[92vh] flex-col items-center justify-center py-20 lg:py-24">
         <div className="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-16">

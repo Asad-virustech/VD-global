@@ -65,6 +65,32 @@
       radial-gradient(55% 50% at 50% -5%, rgb(20 184 166 / 0.13) 0%, transparent 66%),
       radial-gradient(45% 45% at 82% 12%, rgb(45 212 191 / 0.08) 0%, transparent 72%);
   }
+
+  /* Soft teal ambient lighting layered over light section surfaces. */
+  .bg-aurora {
+    background-image:
+      radial-gradient(42% 55% at 10% -8%, rgb(20 184 166 / 0.10) 0%, transparent 58%),
+      radial-gradient(38% 52% at 90% 12%, rgb(45 212 191 / 0.07) 0%, transparent 62%);
+  }
+
+  /* Premium grid that dissolves toward the edges via a radial mask. */
+  .bg-grid-fade {
+    background-image:
+      linear-gradient(to right, rgb(15 23 42 / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(15 23 42 / 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 22%, #000 22%, transparent 78%);
+    mask-image: radial-gradient(ellipse 75% 65% at 50% 22%, #000 22%, transparent 78%);
+  }
+
+  /* Luxurious layered dark surface for premium sections. */
+  .surface-night {
+    background-color: #0b1220;
+    background-image:
+      radial-gradient(55% 45% at 50% -8%, rgb(20 184 166 / 0.13) 0%, transparent 62%),
+      radial-gradient(48% 55% at 100% 106%, rgb(13 148 136 / 0.10) 0%, transparent 58%),
+      linear-gradient(180deg, rgb(2 6 23 / 0) 55%, rgb(2 6 23 / 0.35) 100%);
+  }
 }
 
 /* Respect users who prefer reduced motion — neutralize CSS animation,

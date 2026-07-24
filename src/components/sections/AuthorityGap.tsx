@@ -76,7 +76,7 @@ function GapCard({ icon: Icon, title, description, index }: GapCardProps) {
 
 export function AuthorityGap() {
   return (
-    <Section className="bg-ink-50/40">
+    <Section className="bg-ink-50/40 bg-aurora">
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">

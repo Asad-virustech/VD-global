@@ -94,7 +94,7 @@ function StepIcon({ icon: Icon }: { icon: LucideIcon }) {
 
 export function AuthorityFrameworkSection() {
   return (
-    <Section className="bg-ink-50/40">
+    <Section className="bg-ink-50/40 bg-aurora">
       <Container>
         <SectionHeading
           align="center"

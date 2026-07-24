@@ -77,7 +77,7 @@ function ArticleCard({ category, title, description }: Article) {
 export function KnowledgeHubPreview() {
   return (
     <>
-      <Section className="bg-ink-50/40">
+      <Section className="bg-ink-50/40 bg-aurora">
         <Container>
         <SectionHeading
           align="center"
@@ -102,7 +102,7 @@ export function KnowledgeHubPreview() {
     </Section>
 
     {/* Bottom CTA — full-width dark band */}
-    <Section bleed className="relative overflow-hidden bg-ink-900">
+    <Section bleed className="relative overflow-hidden surface-night">
       <span
         aria-hidden="true"
         className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-teal-500/20 blur-[110px]"

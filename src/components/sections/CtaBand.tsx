@@ -35,7 +35,7 @@ export function CtaBand({ eyebrow, title, description, primary, secondary, child
   const SecondaryIcon = secondary?.icon;
 
   return (
-    <Section bleed className="relative overflow-hidden bg-ink-900">
+    <Section bleed className="relative overflow-hidden surface-night">
       <span
         aria-hidden="true"
         className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-teal-500/20 blur-[110px]"
