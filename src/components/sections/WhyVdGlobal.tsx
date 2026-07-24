@@ -13,6 +13,7 @@ import {
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
+import { IconTile } from '../ui/IconTile';
 
 type Value = {
   icon: LucideIcon;
@@ -84,9 +85,9 @@ function ValueCard({ icon: Icon, title, description }: Value) {
     >
       <span className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-teal-400 to-teal-600 transition-transform duration-500 ease-out group-hover:scale-x-100" />
 
-      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700 transition-colors duration-300 group-hover:bg-teal-100">
+      <IconTile size="md" hover>
         <Icon className="h-5 w-5" strokeWidth={1.75} />
-      </span>
+      </IconTile>
 
       <h3 className="mt-5 text-lg font-semibold text-ink-900">{title}</h3>
       <p className="mt-3 text-sm leading-relaxed text-ink-500">{description}</p>

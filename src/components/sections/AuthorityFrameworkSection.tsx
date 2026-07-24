@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
@@ -6,6 +5,7 @@ import { Search, ClipboardCheck, Map, Rocket, TrendingUp } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
+import { IconTile } from '../ui/IconTile';
 
 type Step = {
   icon: LucideIcon;
@@ -86,9 +86,9 @@ function StepBody({ index, title, description }: { index: number; title: string;
 
 function StepIcon({ icon: Icon }: { icon: LucideIcon }) {
   return (
-    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100">
+    <IconTile size="md" ring>
       <Icon className="h-5 w-5" strokeWidth={1.75} />
-    </span>
+    </IconTile>
   );
 }
 

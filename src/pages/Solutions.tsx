@@ -1,17 +1,28 @@
-import { PagePlaceholder } from '../components/sections/PagePlaceholder';
+import { useDocumentMeta } from '../../lib/useDocumentMeta';
 import { FIRM } from '../../content/site';
+import { SolutionsHero } from '../components/sections/solutions/SolutionsHero';
+import { AuthorityEcosystem } from '../components/sections/solutions/AuthorityEcosystem';
+import { SolutionsFlow } from '../components/sections/solutions/SolutionsFlow';
+import { ChoosingStrategy } from '../components/sections/solutions/ChoosingStrategy';
+import { WhyNoPackages } from '../components/sections/solutions/WhyNoPackages';
+import { SolutionsFaq } from '../components/sections/solutions/SolutionsFaq';
+import { SolutionsCta } from '../components/sections/solutions/SolutionsCta';
 
 export default function Solutions() {
+  useDocumentMeta({
+    title: 'Solutions — VD Global',
+    description: `${FIRM.name} helps businesses build long-term authority through strategy, PR, Wikipedia advisory, executive positioning, digital reputation and thought leadership — advisory-first, never predefined packages.`,
+  });
+
   return (
-    <PagePlaceholder
-      eyebrow="What We Do"
-      title="Advisory services for authority, credibility and trust."
-      description="Ethical PR, media strategy and Wikipedia advisory — designed for founders and businesses who want to build durable recognition. Detailed service descriptions arrive in an upcoming sprint."
-      badge="Solutions"
-      metaTitle="Solutions — VD Global"
-      metaDescription={`Solutions from ${FIRM.name}: ethical PR, media strategy and Wikipedia advisory for founders and businesses.`}
-      ctaTo="/assessment"
-      ctaLabel="Take the Authority Assessment"
-    />
+    <>
+      <SolutionsHero />
+      <AuthorityEcosystem />
+      <SolutionsFlow />
+      <ChoosingStrategy />
+      <WhyNoPackages />
+      <SolutionsFaq />
+      <SolutionsCta />
+    </>
   );
 }

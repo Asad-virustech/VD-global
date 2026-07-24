@@ -1,17 +1,28 @@
-import { PagePlaceholder } from '../components/sections/PagePlaceholder';
+import { useDocumentMeta } from '../../lib/useDocumentMeta';
 import { FIRM } from '../../content/site';
+import { AssessmentHero } from '../components/sections/assessment/AssessmentHero';
+import { WhyAuthorityMatters } from '../components/sections/assessment/WhyAuthorityMatters';
+import { WhatWeAssess } from '../components/sections/assessment/WhatWeAssess';
+import { AssessmentFramework } from '../components/sections/assessment/AssessmentFramework';
+import { CommonAuthorityGaps } from '../components/sections/assessment/CommonAuthorityGaps';
+import { AssessmentFaq } from '../components/sections/assessment/AssessmentFaq';
+import { AssessmentCta } from '../components/sections/assessment/AssessmentCta';
 
 export default function Assessment() {
+  useDocumentMeta({
+    title: 'Authority Assessment — VD Global',
+    description: `Understand how your business is currently perceived. ${FIRM.name}'s complimentary Authority Assessment evaluates your credibility, media presence, search visibility and reputation — with practical, honest recommendations.`,
+  });
+
   return (
-    <PagePlaceholder
-      eyebrow="Engage"
-      title="Evaluate your authority positioning."
-      description="The Authority Assessment helps you understand where you stand on recognition, credibility, authority and trust — and where to focus next. The interactive assessment arrives in an upcoming sprint."
-      badge="Authority Assessment"
-      metaTitle="Authority Assessment — VD Global"
-      metaDescription={`Assess your authority positioning with ${FIRM.name}. Evaluate recognition, credibility, authority and trust.`}
-      ctaTo="/contact"
-      ctaLabel="Request early access"
-    />
+    <>
+      <AssessmentHero />
+      <WhyAuthorityMatters />
+      <WhatWeAssess />
+      <AssessmentFramework />
+      <CommonAuthorityGaps />
+      <AssessmentFaq />
+      <AssessmentCta />
+    </>
   );
 }

@@ -4,6 +4,7 @@ import type { Variants } from 'framer-motion';
 import { Mail, MapPin } from 'lucide-react';
 import { FIRM, FOOTER_NAV, FOOTER_SOCIALS, FOOTER_COPYRIGHT } from '../../../content/site';
 import { Container } from '../ui/Container';
+import { Logo } from '../ui/Logo';
 
 const fade: Variants = {
   hidden: { opacity: 0, y: 12 },
@@ -23,22 +24,7 @@ export function Footer() {
         >
           {/* Brand */}
           <div className="lg:col-span-5">
-            <Link to="/" className="inline-flex items-center gap-2.5" aria-label={`${FIRM.name} home`}>
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-teal-700 text-white">
-                <svg viewBox="0 0 32 32" className="h-5 w-5" fill="none" aria-hidden="true">
-                  <path
-                    d="M9 10.5 L16 22 L23 10.5"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-              <span className="font-heading text-lg font-bold tracking-tight text-ink-900">
-                {FIRM.name}
-              </span>
-            </Link>
+            <Logo />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink-500">
               Helping businesses build recognition, credibility, authority, and trust through
               ethical advisory and strategic media guidance.

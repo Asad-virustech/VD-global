@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { NAV_ITEMS, FIRM } from '../../../content/site';
+import { NAV_ITEMS } from '../../../content/site';
 import { Button } from '../ui/Button';
+import { Logo } from '../ui/Logo';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,22 +34,7 @@ export function Navbar() {
       }`}
     >
       <nav className="container-px flex h-16 items-center justify-between lg:h-20">
-        <Link to="/" className="group flex items-center gap-2.5" aria-label={`${FIRM.name} home`}>
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-teal-700 text-white shadow-soft transition-transform duration-300 group-hover:scale-105">
-            <svg viewBox="0 0 32 32" className="h-5 w-5" fill="none" aria-hidden="true">
-              <path
-                d="M9 10.5 L16 22 L23 10.5"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-          <span className="font-heading text-lg font-bold tracking-tight text-ink-900">
-            {FIRM.name}
-          </span>
-        </Link>
+        <Logo />
 
         <div className="hidden items-center gap-1 lg:flex">
           {primaryNav.map((item) => (

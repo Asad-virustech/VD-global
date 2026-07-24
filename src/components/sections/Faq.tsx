@@ -1,18 +1,13 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import type { Variants } from 'framer-motion';
-import { Plus, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Button } from '../ui/Button';
+import { FaqAccordion } from '../ui/FaqAccordion';
+import type { FaqItem } from '../ui/FaqAccordion';
 
-type Faq = {
-  question: string;
-  answer: string;
-};
-
-const FAQS: Faq[] = [
+const FAQS: FaqItem[] = [
   {
     question: 'Do you guarantee Wikipedia approval?',
     answer:
@@ -51,56 +46,7 @@ const BOTTOM_NOTE = {
   button: 'Start Your Free Authority Assessment',
 };
 
-const list: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
-};
-
-function FaqRow({ question, answer, isOpen, onToggle }: Faq & { isOpen: boolean; onToggle: () => void }) {
-  return (
-    <motion.div variants={item} className="overflow-hidden rounded-2xl border border-ink-100 bg-white shadow-card">
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={isOpen}
-        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left sm:px-7 sm:py-6"
-      >
-        <span className="text-base font-semibold text-ink-900 sm:text-lg">{question}</span>
-        <span
-          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink-100 text-teal-700 transition-colors duration-300 ${
-            isOpen ? 'bg-teal-50 border-teal-200' : 'bg-white'
-          }`}
-        >
-          <motion.span
-            animate={{ rotate: isOpen ? 45 : 0 }}
-            transition={{ duration: 0.3, ease: 'easeOut' as const }}
-          >
-            <Plus className="h-4 w-4" strokeWidth={2} />
-          </motion.span>
-        </span>
-      </button>
-      <motion.div
-        initial={false}
-        animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-        transition={{ duration: 0.35, ease: 'easeInOut' as const }}
-        className="overflow-hidden"
-      >
-        <p className="px-6 pb-6 text-sm leading-relaxed text-ink-500 sm:px-7 sm:pb-7 sm:text-base">
-          {answer}
-        </p>
-      </motion.div>
-    </motion.div>
-  );
-}
-
 export function Faq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   return (
     <Section className="bg-white">
       <Container>
@@ -112,24 +58,8 @@ export function Faq() {
           className="mb-12 sm:mb-14"
         />
 
-        <motion.div
-          variants={list}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-80px' }}
-          className="mx-auto max-w-[850px] space-y-4"
-        >
-          {FAQS.map((faq, i) => (
-            <FaqRow
-              key={faq.question}
-              {...faq}
-              isOpen={openIndex === i}
-              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
-            />
-          ))}
-        </motion.div>
+        <FaqAccordion items={FAQS} />
 
-        {/* Bottom note */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

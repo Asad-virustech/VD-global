@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
+import { IconTile } from '../ui/IconTile';
 
 type Principle = {
   icon: LucideIcon;
@@ -82,9 +83,9 @@ function PrincipleCard({ icon: Icon, title, description, index }: PrincipleCardP
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
       className="group rounded-2xl border border-ink-100 bg-white p-6 shadow-card transition-colors duration-300 hover:border-teal-200 sm:p-7"
     >
-      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100 transition-colors duration-300 group-hover:bg-teal-100">
+      <IconTile size="md" ring hover>
         <Icon className="h-5 w-5" strokeWidth={1.75} />
-      </span>
+      </IconTile>
       <div className="mt-5 flex items-center gap-2">
         <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400">
           {String(index + 1).padStart(2, '0')}

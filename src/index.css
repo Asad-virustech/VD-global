@@ -22,6 +22,11 @@
   ::selection {
     @apply bg-teal-200 text-teal-900;
   }
+
+  /* Visible keyboard focus for links (buttons handle their own focus ring). */
+  a:focus-visible {
+    @apply outline-none ring-2 ring-teal-500 ring-offset-2;
+  }
 }
 
 @layer components {
@@ -57,5 +62,18 @@
 
   .bg-radial-teal {
     background: radial-gradient(60% 60% at 50% 0%, rgb(20 184 166 / 0.10) 0%, transparent 70%);
+  }
+}
+
+/* Respect users who prefer reduced motion — neutralize CSS animation,
+   transitions and smooth scroll. Framer Motion loops are guarded in-component. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Local tooling / editor config
+.claude/
+.vscode/
+.idea/
+
+# Environment & logs
+.env
+.env.*
+*.log
+
+# OS / misc
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel/

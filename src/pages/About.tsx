@@ -1,17 +1,32 @@
-import { PagePlaceholder } from '../components/sections/PagePlaceholder';
+import { useDocumentMeta } from '../../lib/useDocumentMeta';
 import { FIRM } from '../../content/site';
+import { AboutHero } from '../components/sections/about/AboutHero';
+import { WhyWeExist } from '../components/sections/about/WhyWeExist';
+import { WhatMakesUsDifferent } from '../components/sections/about/WhatMakesUsDifferent';
+import { HowWeThink } from '../components/sections/about/HowWeThink';
+import { AboutPhilosophy } from '../components/sections/about/AboutPhilosophy';
+import { WhoWeWorkWith } from '../components/sections/about/WhoWeWorkWith';
+import { OurPromise } from '../components/sections/about/OurPromise';
+import { AboutFaq } from '../components/sections/about/AboutFaq';
+import { AboutCta } from '../components/sections/about/AboutCta';
 
 export default function About() {
+  useDocumentMeta({
+    title: 'About — VD Global',
+    description: `${FIRM.name} is an Authority Advisory Firm built on ethical principles — helping credible founders and businesses earn Recognition, Credibility, Authority and Trust through honest, long-term advisory.`,
+  });
+
   return (
-    <PagePlaceholder
-      eyebrow="The Firm"
-      title="An Authority Advisory Firm built on ethical principles."
-      description="VD Global helps founders and businesses build Recognition, Credibility, Authority and Trust. The full story of the firm, its approach and its people arrives in an upcoming sprint."
-      badge="About"
-      metaTitle="About — VD Global"
-      metaDescription={`About ${FIRM.name}: an Authority Advisory Firm helping founders and businesses build Recognition, Credibility, Authority and Trust.`}
-      ctaTo="/contact"
-      ctaLabel="Start a conversation"
-    />
+    <>
+      <AboutHero />
+      <WhyWeExist />
+      <WhatMakesUsDifferent />
+      <HowWeThink />
+      <AboutPhilosophy />
+      <WhoWeWorkWith />
+      <OurPromise />
+      <AboutFaq />
+      <AboutCta />
+    </>
   );
 }

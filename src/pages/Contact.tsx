@@ -1,17 +1,30 @@
-import { PagePlaceholder } from '../components/sections/PagePlaceholder';
+import { useDocumentMeta } from '../../lib/useDocumentMeta';
 import { FIRM } from '../../content/site';
+import { ContactHero } from '../components/sections/contact/ContactHero';
+import { HowWeWork } from '../components/sections/contact/HowWeWork';
+import { ContactForm } from '../components/sections/contact/ContactForm';
+import { WaysToReachUs } from '../components/sections/contact/WaysToReachUs';
+import { WhatHappensNext } from '../components/sections/contact/WhatHappensNext';
+import { ContactFaq } from '../components/sections/contact/ContactFaq';
+import { TrustSection } from '../components/sections/contact/TrustSection';
+import { ContactCta } from '../components/sections/contact/ContactCta';
 
 export default function Contact() {
+  useDocumentMeta({
+    title: 'Contact — VD Global',
+    description: `Start a conversation with ${FIRM.name}. Request a complimentary consultation to discuss your authority goals — advisory-first, no obligation.`,
+  });
+
   return (
-    <PagePlaceholder
-      eyebrow="Start a Conversation"
-      title="Tell us about your authority goals."
-      description="If you're a founder or business looking to build recognition, credibility, authority and trust, we'd like to hear from you. A proper contact form and intake flow arrive in an upcoming sprint — for now, reach out by email."
-      badge="Contact"
-      metaTitle="Contact — VD Global"
-      metaDescription={`Get in touch with ${FIRM.name}. Email ${FIRM.email} to start a conversation about authority advisory.`}
-      ctaTo={`mailto:${FIRM.email}`}
-      ctaLabel="Email the team"
-    />
+    <>
+      <ContactHero />
+      <HowWeWork />
+      <ContactForm />
+      <WaysToReachUs />
+      <WhatHappensNext />
+      <ContactFaq />
+      <TrustSection />
+      <ContactCta />
+    </>
   );
 }

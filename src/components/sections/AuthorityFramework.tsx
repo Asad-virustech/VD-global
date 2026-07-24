@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 const NODES = [
   { label: 'Recognition', angle: -90 },
@@ -11,7 +11,6 @@ const NODES = [
 const SIZE = 460;
 const CENTER = SIZE / 2;
 const RADIUS = 168;
-const NODE_R = 34;
 
 function polar(angleDeg: number, r: number) {
   const rad = (angleDeg * Math.PI) / 180;
@@ -21,6 +20,8 @@ function polar(angleDeg: number, r: number) {
 const points = NODES.map((n) => polar(n.angle, RADIUS));
 
 export function AuthorityFramework() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.96 }}
@@ -102,15 +103,17 @@ export function AuthorityFramework() {
             <motion.div
               key={NODES[i].label}
               initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: [0, -6, 0] }}
+              animate={{ opacity: 1, y: prefersReducedMotion ? 0 : [0, -6, 0] }}
               transition={{
                 opacity: { duration: 0.5, delay: 0.4 + i * 0.1 },
-                y: {
-                  duration: 5,
-                  delay: i * 0.6,
-                  repeat: Infinity,
-                  ease: 'easeInOut' as const,
-                },
+                y: prefersReducedMotion
+                  ? { duration: 0 }
+                  : {
+                      duration: 5,
+                      delay: i * 0.6,
+                      repeat: Infinity,
+                      ease: 'easeInOut' as const,
+                    },
               }}
               style={{ left, top }}
               className="absolute -translate-x-1/2 -translate-y-1/2"
