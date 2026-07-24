@@ -33,11 +33,11 @@ export function IconTile({
   return (
     <span
       className={[
-        'flex items-center justify-center rounded-xl bg-teal-50 text-teal-700',
+        'flex items-center justify-center rounded-xl bg-gradient-to-br from-teal-50 to-teal-100/60 text-teal-700',
         sizes[size],
         shrink ? 'shrink-0' : '',
         ring ? 'ring-1 ring-inset ring-teal-100' : '',
-        hover ? 'transition-colors duration-300 group-hover:bg-teal-100' : '',
+        hover ? 'transition-all duration-300 group-hover:from-teal-100 group-hover:to-teal-200/70' : '',
         className,
       ]
         .filter(Boolean)
