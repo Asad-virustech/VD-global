@@ -12,7 +12,6 @@ import {
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
-import { IconTile } from '../ui/IconTile';
 
 type Feature = {
   icon: LucideIcon;
@@ -53,7 +52,7 @@ const list: Variants = {
 };
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 18 },
+  hidden: { opacity: 0, y: 16 },
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
 };
 
@@ -65,19 +64,19 @@ function FeatureCard({ icon: Icon, title, description, index }: FeatureCardProps
       variants={item}
       whileHover={{ y: -3 }}
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group flex items-start gap-4 rounded-2xl border border-ink-100 bg-white p-5 shadow-card transition-colors duration-300 hover:border-teal-200 sm:p-6"
+      className="group flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-xl backdrop-blur-sm transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.07] sm:p-6"
     >
-      <IconTile size="sm" shrink hover>
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/5 text-teal-300 ring-1 ring-inset ring-white/10 transition-colors duration-300 group-hover:bg-white/10">
         <Icon className="h-5 w-5" strokeWidth={1.75} />
-      </IconTile>
+      </span>
       <div className="min-w-0">
         <div className="flex items-center gap-2">
           <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400">
             {String(index + 1).padStart(2, '0')}
           </span>
-          <h3 className="text-base font-semibold text-ink-900">{title}</h3>
+          <h3 className="text-base font-semibold text-white">{title}</h3>
         </div>
-        <p className="mt-1.5 text-sm leading-relaxed text-ink-500">{description}</p>
+        <p className="mt-1.5 text-sm leading-relaxed text-ink-300">{description}</p>
       </div>
     </motion.article>
   );
@@ -85,7 +84,7 @@ function FeatureCard({ icon: Icon, title, description, index }: FeatureCardProps
 
 export function Assessment() {
   return (
-    <Section className="bg-white">
+    <Section className="relative overflow-hidden surface-night">
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left — headline, description, CTA */}
@@ -95,7 +94,7 @@ export function Assessment() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.5, ease: 'easeOut' as const }}
-              className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700"
+              className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-300"
             >
               Free Authority Assessment
             </motion.p>
@@ -105,7 +104,7 @@ export function Assessment() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.05 }}
-              className="mt-4 text-3xl font-bold leading-tight tracking-tight text-ink-900 sm:text-4xl lg:text-[2.75rem] text-balance"
+              className="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.75rem] text-balance"
             >
               Know Where You Stand Before You Invest.
             </motion.h2>
@@ -115,7 +114,7 @@ export function Assessment() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.12 }}
-              className="mt-6 max-w-lg space-y-4 text-base leading-relaxed text-ink-500 sm:text-lg"
+              className="mt-6 max-w-lg space-y-4 text-base leading-relaxed text-ink-300 sm:text-lg"
             >
               <p>Every business is different.</p>
               <p>
@@ -139,12 +138,12 @@ export function Assessment() {
                 Start Your Free Authority Assessment
                 <ArrowRight className="h-4 w-4" />
               </Button>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-500">
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-300">
                 Receive a personalized review of your current authority, credibility, and digital
                 presence.
               </p>
               <p className="mt-3 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-ink-400">
-                <Clock className="h-4 w-4 text-teal-600" strokeWidth={1.75} />
+                <Clock className="h-4 w-4 text-teal-300" strokeWidth={1.75} />
                 Typical response time: Within 24 hours.
               </p>
             </motion.div>

@@ -48,7 +48,7 @@ const BOTTOM_NOTE = {
 
 export function Faq() {
   return (
-    <Section className="bg-white">
+    <Section className="bg-white bg-aurora">
       <Container>
         <SectionHeading
           align="center"

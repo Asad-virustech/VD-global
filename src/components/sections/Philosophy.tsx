@@ -100,7 +100,7 @@ function PrincipleCard({ icon: Icon, title, description, index }: PrincipleCardP
 export function Philosophy() {
   return (
     <>
-    <Section className="bg-white">
+    <Section className="bg-white bg-aurora">
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">
@@ -189,7 +189,7 @@ export function Philosophy() {
     </Section>
 
     {/* Informational callout — back on white */}
-    <Section className="bg-white">
+    <Section className="bg-white bg-aurora">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
