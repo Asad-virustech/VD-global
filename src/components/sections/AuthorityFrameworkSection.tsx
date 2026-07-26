@@ -48,7 +48,7 @@ const STEPS: Step[] = [
 
 const CALLOUT = {
   title: 'Every business follows a different path.',
-  body: 'Some businesses are ready for strategic PR. Some are preparing for Wikipedia. Others simply need stronger credibility before taking the next step. Our responsibility isn\u2019t to sell every service. It\u2019s to recommend the right next step for your business.',
+  body: 'Some businesses are ready for strategic PR. Some are preparing for Wikipedia. Others simply need stronger credibility before taking the next step. Our responsibility isn’t to sell every service. It’s to recommend the right next step for your business.',
 };
 
 const grid: Variants = {
@@ -99,8 +99,8 @@ export function AuthorityFrameworkSection() {
         <SectionHeading
           align="center"
           eyebrow="Our Methodology"
-          title="The Authority Framework\u2122"
-          description="Authority isn\u2019t built overnight. It is built through a structured process that strengthens recognition, credibility, trust, and long-term visibility."
+          title="The Authority Framework™"
+          description="Authority isn’t built overnight. It is built through a structured process that strengthens recognition, credibility, trust, and long-term visibility."
           className="mb-12 sm:mb-14"
         />
 
