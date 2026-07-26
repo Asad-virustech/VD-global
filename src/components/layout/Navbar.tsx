@@ -24,6 +24,8 @@ export function Navbar() {
 
   const primaryNav = NAV_ITEMS.slice(0, 5);
   const moreNav = NAV_ITEMS.slice(5);
+  // The homepage hero is dark: use a light nav treatment until the user scrolls.
+  const onDark = location.pathname === '/' && !scrolled;
 
   return (
     <header
@@ -34,7 +36,7 @@ export function Navbar() {
       }`}
     >
       <nav className="container-px flex h-16 items-center justify-between lg:h-20">
-        <Logo />
+        <Logo light={onDark} />
 
         <div className="hidden items-center gap-1 lg:flex">
           {primaryNav.map((item) => (
@@ -45,8 +47,12 @@ export function Navbar() {
               className={({ isActive }) =>
                 `rounded-full px-3.5 py-2 text-sm font-medium transition-colors duration-200 ${
                   isActive
-                    ? 'text-teal-800'
-                    : 'text-ink-600 hover:text-ink-900'
+                    ? onDark
+                      ? 'text-teal-300'
+                      : 'text-teal-800'
+                    : onDark
+                      ? 'text-white/80 hover:text-white'
+                      : 'text-ink-600 hover:text-ink-900'
                 }`
               }
             >
@@ -55,7 +61,11 @@ export function Navbar() {
           ))}
 
           <div className="group relative">
-            <button className="flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-ink-600 transition-colors hover:text-ink-900">
+            <button
+              className={`flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+                onDark ? 'text-white/80 hover:text-white' : 'text-ink-600 hover:text-ink-900'
+              }`}
+            >
               More
               <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
             </button>
@@ -93,7 +103,9 @@ export function Navbar() {
         </div>
 
         <button
-          className="flex h-10 w-10 items-center justify-center rounded-xl text-ink-700 hover:bg-ink-100 lg:hidden"
+          className={`flex h-10 w-10 items-center justify-center rounded-xl lg:hidden ${
+            onDark ? 'text-white hover:bg-white/10' : 'text-ink-700 hover:bg-ink-100'
+          }`}
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}

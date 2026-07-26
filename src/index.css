@@ -91,6 +91,16 @@
       radial-gradient(48% 55% at 100% 106%, rgb(13 148 136 / 0.10) 0%, transparent 58%),
       linear-gradient(180deg, rgb(2 6 23 / 0) 55%, rgb(2 6 23 / 0.35) 100%);
   }
+
+  /* Faint light grid for dark/cinematic surfaces, dissolving via mask. */
+  .bg-grid-light {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: 58px 58px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 72% at 32% 18%, #000 18%, transparent 82%);
+    mask-image: radial-gradient(ellipse 80% 72% at 32% 18%, #000 18%, transparent 82%);
+  }
 }
 
 /* Respect users who prefer reduced motion — neutralize CSS animation,
