@@ -119,7 +119,7 @@ export function AuthorityFrameworkSection() {
               variants={cardVariant}
               whileHover={{ y: -3 }}
               transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-              className="group relative flex flex-col rounded-2xl border border-ink-100 bg-white p-6 shadow-card transition-shadow duration-300 hover:shadow-card-hover"
+              className="group relative flex flex-col rounded-2xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-6 shadow-card transition-shadow duration-300 hover:shadow-card-hover"
             >
               <StepIcon icon={step.icon} />
               <StepBody index={i} title={step.title} description={step.description} />
@@ -161,7 +161,7 @@ export function AuthorityFrameworkSection() {
               <div className="z-10 shrink-0">
                 <StepIcon icon={step.icon} />
               </div>
-              <div className="flex-1 rounded-2xl border border-ink-100 bg-white p-5 shadow-card">
+              <div className="flex-1 rounded-2xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-5 shadow-card">
                 <StepBody index={i} title={step.title} description={step.description} />
               </div>
             </motion.div>

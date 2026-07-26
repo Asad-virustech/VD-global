@@ -81,7 +81,7 @@ function PrincipleCard({ icon: Icon, title, description, index }: PrincipleCardP
       variants={item}
       whileHover={{ y: -3 }}
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group rounded-2xl border border-ink-100 bg-white p-6 shadow-card transition-colors duration-300 hover:border-teal-200 sm:p-7"
+      className="group rounded-2xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-6 shadow-card transition-colors duration-300 hover:border-teal-200 sm:p-7"
     >
       <IconTile size="md" ring hover>
         <Icon className="h-5 w-5" strokeWidth={1.75} />

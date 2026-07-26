@@ -56,7 +56,7 @@ function GapCard({ icon: Icon, title, description, index }: GapCardProps) {
       variants={item}
       whileHover={{ y: -3 }}
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group flex items-start gap-4 rounded-2xl border border-ink-100 bg-white p-5 shadow-card transition-colors duration-300 hover:border-teal-200 sm:p-6"
+      className="group flex items-start gap-4 rounded-2xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-5 shadow-card transition-colors duration-300 hover:border-teal-200 sm:p-6"
     >
       <IconTile size="sm" shrink hover>
         <Icon className="h-5 w-5" strokeWidth={1.75} />

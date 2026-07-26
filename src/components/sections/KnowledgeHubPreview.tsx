@@ -56,7 +56,7 @@ function ArticleCard({ category, title, description }: Article) {
       variants={card}
       whileHover={{ y: -4 }}
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-ink-100 bg-white p-7 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-8"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-7 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-8"
     >
       <span className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-teal-400 to-teal-600 transition-transform duration-500 ease-out group-hover:scale-x-100" />
       <span className="relative inline-flex w-fit items-center rounded-full border border-teal-100 bg-teal-50 px-3 py-1 text-xs font-medium text-teal-700">
