@@ -63,32 +63,53 @@ const card: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
 };
 
-function StageCard({ icon: Icon, label, title, description, priorities }: Stage) {
+function StageColumn({ stage, index, featured }: { stage: Stage; index: number; featured: boolean }) {
+  const Icon = stage.icon;
   return (
     <motion.article
       variants={card}
       whileHover={{ y: -4 }}
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-ink-100 bg-white p-7 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-8"
+      className={
+        featured
+          ? 'relative z-10 flex h-full flex-col overflow-hidden rounded-2xl border border-teal-200 bg-white p-8 shadow-card-hover ring-1 ring-teal-100 sm:p-9 lg:-my-4 lg:py-11'
+          : 'relative flex h-full flex-col overflow-hidden rounded-2xl border border-ink-100 bg-white/70 p-7 shadow-card backdrop-blur-sm sm:p-8'
+      }
     >
-      <span className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-teal-400 to-teal-600 transition-transform duration-500 ease-out group-hover:scale-x-100" />
+      {featured && (
+        <>
+          <span
+            aria-hidden="true"
+            className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-teal-400 to-teal-600"
+          />
+          <span className="absolute right-6 top-7 rounded-full bg-teal-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-teal-700">
+            Most common start
+          </span>
+        </>
+      )}
 
-      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700 transition-colors duration-300 group-hover:bg-teal-100">
+      <span
+        className={
+          featured
+            ? 'flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-b from-teal-500 to-teal-700 text-white shadow-teal-glow'
+            : 'flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100'
+        }
+      >
         <Icon className="h-5 w-5" strokeWidth={1.75} />
       </span>
 
       <span className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-teal-700">
-        {label}
+        {String(index + 1).padStart(2, '0')} · {stage.label}
       </span>
-      <h3 className="mt-2 text-lg font-semibold leading-snug text-ink-900">{title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-ink-500">{description}</p>
+      <h3 className="mt-2 text-lg font-semibold leading-snug text-ink-900">{stage.title}</h3>
+      <p className="mt-3 text-sm leading-relaxed text-ink-500">{stage.description}</p>
 
       <div className="mt-6 border-t border-ink-100 pt-5">
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400">
           Common priorities
         </p>
         <ul className="mt-3 space-y-2.5">
-          {priorities.map((priority) => (
+          {stage.priorities.map((priority) => (
             <li key={priority} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink-600">
               <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-600">
                 <Check className="h-3 w-3" strokeWidth={2.5} />
@@ -104,7 +125,7 @@ function StageCard({ icon: Icon, label, title, description, priorities }: Stage)
 
 export function ChoosingStrategy() {
   return (
-    <Section className="bg-ink-50/40">
+    <Section className="relative bg-white bg-aurora">
       <Container>
         <SectionHeading
           align="center"
@@ -114,15 +135,35 @@ export function ChoosingStrategy() {
           className="mb-12 sm:mb-14"
         />
 
+        {/* Continuum labels + spine */}
+        <div className="mx-auto mb-10 hidden max-w-3xl items-center gap-4 md:flex">
+          {['Early', 'Growing', 'Established'].map((label, i) => (
+            <div key={label} className="flex flex-1 items-center gap-4">
+              <div className="flex items-center gap-2.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-teal-500" />
+                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-500">
+                  {label}
+                </span>
+              </div>
+              {i < 2 && (
+                <span
+                  aria-hidden="true"
+                  className="h-px flex-1 bg-gradient-to-r from-teal-300/70 to-teal-300/30"
+                />
+              )}
+            </div>
+          ))}
+        </div>
+
         <motion.div
           variants={grid}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid gap-5 sm:gap-6 lg:grid-cols-3 lg:gap-7"
+          className="grid items-stretch gap-5 sm:gap-6 lg:grid-cols-3 lg:gap-7"
         >
-          {STAGES.map((stage) => (
-            <StageCard key={stage.label} {...stage} />
+          {STAGES.map((stage, i) => (
+            <StageColumn key={stage.label} stage={stage} index={i} featured={i === 1} />
           ))}
         </motion.div>
       </Container>

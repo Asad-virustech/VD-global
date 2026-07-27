@@ -25,7 +25,8 @@ const CAPABILITIES: Capability[] = [
   {
     icon: Compass,
     title: 'Authority Strategy',
-    description: 'Develop a roadmap based on your goals, industry and reputation.',
+    description:
+      'The foundation everything else builds on. We develop a roadmap based on your goals, industry and reputation — deciding what to build, in what order, and why it matters for the credibility you want to be known for.',
   },
   {
     icon: Newspaper,
@@ -60,73 +61,121 @@ const CAPABILITIES: Capability[] = [
   },
 ];
 
-const grid: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
-};
+const [lead, ...rest] = CAPABILITIES;
 
-const card: Variants = {
+const reveal: Variants = {
   hidden: { opacity: 0, y: 18 },
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
 };
 
-function CapabilityCard({ icon: Icon, title, description, index }: Capability & { index: number }) {
-  return (
-    <motion.article
-      variants={card}
-      whileHover={{ y: -4 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-ink-100 bg-white p-7 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-8"
-    >
-      <span className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-teal-400 to-teal-600 transition-transform duration-500 ease-out group-hover:scale-x-100" />
+const list: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+};
 
-      <div className="flex items-center justify-between">
-        <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700 transition-colors duration-300 group-hover:bg-teal-100">
-          <Icon className="h-5 w-5" strokeWidth={1.75} />
-        </span>
-        <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-300">
-          {String(index + 1).padStart(2, '0')}
-        </span>
-      </div>
-
-      <h3 className="mt-5 text-lg font-semibold text-ink-900">{title}</h3>
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-500">{description}</p>
-
-      {/* Learn More — placeholder affordance until individual solution pages exist */}
-      <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 transition-colors duration-300 group-hover:text-teal-800">
-        Learn more
-        <ArrowRight
-          className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
-          strokeWidth={1.75}
-        />
-      </span>
-    </motion.article>
-  );
-}
+const row: Variants = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
+};
 
 export function AuthorityEcosystem() {
+  const LeadIcon = lead.icon;
+
   return (
-    <Section className="bg-ink-50/40">
+    <Section className="relative bg-white bg-aurora">
       <Container>
         <SectionHeading
-          align="center"
           eyebrow="Our Authority Ecosystem"
           title="One Connected System, Not Separate Services."
           description="Authority isn't built through a single tactic. Each capability strengthens the others — which is why we advise on the whole ecosystem, then focus where it creates the most long-term value for you."
-          className="mb-12 sm:mb-14"
+          className="mb-14 sm:mb-16"
         />
 
-        <motion.div
-          variants={grid}
+        {/* Featured lead capability — the "lead story" of the well */}
+        <motion.article
+          variants={reveal}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7"
+          className="group relative overflow-hidden rounded-3xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-8 shadow-card sm:p-10 lg:p-12"
         >
-          {CAPABILITIES.map((capability, i) => (
-            <CapabilityCard key={capability.title} index={i} {...capability} />
-          ))}
-        </motion.div>
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-teal-100/50 blur-[100px]"
+          />
+          {/* Oversized ghost numeral */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-2 top-2 select-none font-heading text-[8rem] font-bold leading-none text-ink-100/70 sm:text-[10rem]"
+          >
+            01
+          </span>
+
+          <div className="relative grid gap-8 lg:grid-cols-[auto_1fr] lg:items-start lg:gap-10">
+            <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-b from-teal-500 to-teal-700 text-white shadow-teal-glow">
+              <LeadIcon className="h-7 w-7" strokeWidth={1.75} />
+            </span>
+            <div className="max-w-2xl">
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-700">
+                Where every engagement starts
+              </span>
+              <h3 className="mt-2 text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl text-balance">
+                {lead.title}
+              </h3>
+              <p className="mt-4 text-base leading-relaxed text-ink-500 sm:text-lg">
+                {lead.description}
+              </p>
+              <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 transition-colors duration-300 group-hover:text-teal-800">
+                Learn more
+                <ArrowRight
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                  strokeWidth={1.75}
+                />
+              </span>
+            </div>
+          </div>
+        </motion.article>
+
+        {/* The rest — an editorial index, not a card grid */}
+        <div className="mt-12 sm:mt-14">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-400">
+            The wider ecosystem
+          </p>
+          <motion.ul
+            variants={list}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-80px' }}
+            className="mt-4 border-t border-ink-100"
+          >
+            {rest.map((capability, i) => {
+              const Icon = capability.icon;
+              return (
+                <motion.li key={capability.title} variants={row}>
+                  <div className="group flex flex-col gap-3 border-b border-ink-100 py-6 sm:flex-row sm:items-center sm:gap-8 sm:py-7">
+                    <span className="w-10 shrink-0 font-heading text-2xl font-bold tabular-nums text-ink-200 transition-colors duration-300 group-hover:text-teal-500">
+                      {String(i + 2).padStart(2, '0')}
+                    </span>
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100 transition-colors duration-300 group-hover:bg-teal-100">
+                      <Icon className="h-5 w-5" strokeWidth={1.75} />
+                    </span>
+                    <h4 className="shrink-0 text-lg font-semibold text-ink-900 sm:w-56">
+                      {capability.title}
+                    </h4>
+                    <p className="flex-1 text-sm leading-relaxed text-ink-500">
+                      {capability.description}
+                    </p>
+                    <ArrowRight
+                      aria-hidden="true"
+                      className="hidden h-5 w-5 shrink-0 text-ink-300 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-teal-600 sm:block"
+                      strokeWidth={1.75}
+                    />
+                  </div>
+                </motion.li>
+              );
+            })}
+          </motion.ul>
+        </div>
       </Container>
     </Section>
   );
