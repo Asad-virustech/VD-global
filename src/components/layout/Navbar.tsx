@@ -24,8 +24,9 @@ export function Navbar() {
 
   const primaryNav = NAV_ITEMS.slice(0, 5);
   const moreNav = NAV_ITEMS.slice(5);
-  // The homepage hero is dark: use a light nav treatment until the user scrolls.
-  const onDark = location.pathname === '/' && !scrolled;
+  // Every page now opens on a dark cinematic hero: use the light nav treatment
+  // until the user scrolls, then revert to the solid white bar.
+  const onDark = !scrolled;
 
   return (
     <header
