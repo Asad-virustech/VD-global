@@ -75,9 +75,10 @@
   /* Present, premium alt surface — a soft cool paper tone with real
      separation from white, so sections read distinctly and white cards/panels
      gain contrast instead of dissolving. Background-color only, so it composes
-     with `bg-aurora` / `bg-grid-fade` overlays. */
+     with `bg-aurora` / `bg-grid-fade` overlays. A soft, dimmed brand-teal —
+     green-leaning so it reads as the logo hue turned down, never as blue. */
   .surface-alt {
-    background-color: #dceceb;
+    background-color: #cbe0d9;
   }
 
   /* Soft teal ambient lighting layered over light section surfaces. */

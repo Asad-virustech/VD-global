@@ -12,7 +12,6 @@ import {
 } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
-import { IconTile } from '../ui/IconTile';
 
 type Principle = {
   icon: LucideIcon;
@@ -75,24 +74,19 @@ const item: Variants = {
 
 type PrincipleCardProps = Principle & { index: number };
 
-function PrincipleCard({ icon: Icon, title, description, index }: PrincipleCardProps) {
+function PrincipleCard({ title, description, index }: PrincipleCardProps) {
   return (
     <motion.article
       variants={item}
-      whileHover={{ y: -3 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group rounded-2xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-6 shadow-card transition-colors duration-300 hover:border-teal-200 sm:p-7"
+      className="group flex gap-5 border-t border-ink-900/10 py-6 first:border-t-0 first:pt-0 sm:gap-8"
     >
-      <IconTile size="md" ring hover>
-        <Icon className="h-5 w-5" strokeWidth={1.75} />
-      </IconTile>
-      <div className="mt-5 flex items-center gap-2">
-        <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400">
-          {String(index + 1).padStart(2, '0')}
-        </span>
+      <span className="font-heading text-2xl font-bold tabular-nums text-teal-600/70 transition-colors duration-300 group-hover:text-teal-600">
+        {String(index + 1).padStart(2, '0')}
+      </span>
+      <div className="flex-1">
         <h3 className="text-lg font-semibold text-ink-900">{title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-ink-500">{description}</p>
       </div>
-      <p className="mt-2.5 text-sm leading-relaxed text-ink-500">{description}</p>
     </motion.article>
   );
 }
@@ -146,7 +140,7 @@ export function Philosophy() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-80px' }}
-            className="space-y-4"
+            className="lg:pt-1"
           >
             {PRINCIPLES.map((principle, i) => (
               <PrincipleCard key={principle.title} index={i} {...principle} />

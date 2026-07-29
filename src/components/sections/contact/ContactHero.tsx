@@ -5,7 +5,7 @@ export function ContactHero() {
   return (
     <PageHero
       label="Contact"
-      ghost="CONTACT"
+      index="06"
       title={
         <>
           Let&rsquo;s Start the <span className="text-teal-300">Conversation</span>.

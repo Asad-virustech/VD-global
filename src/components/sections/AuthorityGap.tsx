@@ -54,16 +54,14 @@ function GapCard({ icon: Icon, title, description, index }: GapCardProps) {
   return (
     <motion.article
       variants={item}
-      whileHover={{ y: -3 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group flex items-start gap-4 rounded-2xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-5 shadow-card transition-colors duration-300 hover:border-teal-200 sm:p-6"
+      className="group flex items-start gap-4 border-t border-ink-900/10 py-5 first:border-t-0 first:pt-0 sm:gap-5"
     >
       <IconTile size="sm" shrink hover>
         <Icon className="h-5 w-5" strokeWidth={1.75} />
       </IconTile>
-      <div className="min-w-0">
-        <div className="flex items-center gap-2">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400">
+      <div className="min-w-0 flex-1">
+        <div className="flex items-baseline gap-2">
+          <span className="font-heading text-sm font-bold tabular-nums text-teal-600/70">
             {String(index + 1).padStart(2, '0')}
           </span>
           <h3 className="text-base font-semibold text-ink-900">{title}</h3>
@@ -140,7 +138,7 @@ export function AuthorityGap() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-80px' }}
-            className="space-y-4"
+            className="lg:pt-1"
           >
             {cards.map((card, i) => (
               <GapCard key={card.title} index={i} {...card} />

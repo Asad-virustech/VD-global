@@ -1,18 +1,29 @@
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
+import type { LucideIcon } from 'lucide-react';
+import { Lightbulb, Compass, Hourglass } from 'lucide-react';
 import { Section } from '../../ui/Section';
 import { Container } from '../../ui/Container';
 
-const POINTS = [
+type Point = {
+  icon: LucideIcon;
+  term: string;
+  note: string;
+};
+
+const POINTS: Point[] = [
   {
+    icon: Lightbulb,
     term: 'Understanding first',
     note: 'A decision you understand is one you can stand behind later.',
   },
   {
+    icon: Compass,
     term: 'Strategy over tactics',
     note: 'Knowing why comes before knowing what — and prevents expensive detours.',
   },
   {
+    icon: Hourglass,
     term: 'Durable results',
     note: 'Informed choices compound; borrowed shortcuts rarely survive contact with scrutiny.',
   },
@@ -74,10 +85,13 @@ export function WhyEducationMatters() {
           viewport={{ once: true, margin: '-80px' }}
           className="mx-auto mt-12 grid max-w-4xl gap-y-8 border-t border-white/10 pt-10 sm:mt-14 sm:grid-cols-3 sm:gap-y-0 sm:divide-x sm:divide-white/10"
         >
-          {POINTS.map((point) => (
-            <motion.li key={point.term} variants={item} className="px-0 text-center sm:px-8">
-              <p className="text-base font-semibold text-white">{point.term}</p>
-              <p className="mt-2 text-sm leading-relaxed text-ink-400">{point.note}</p>
+          {POINTS.map(({ icon: Icon, term, note }) => (
+            <motion.li key={term} variants={item} className="flex flex-col items-center px-0 text-center sm:px-8">
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-teal-400 ring-1 ring-inset ring-white/10">
+                <Icon className="h-5 w-5" strokeWidth={1.75} />
+              </span>
+              <p className="mt-5 text-base font-semibold text-white">{term}</p>
+              <p className="mt-2 text-sm leading-relaxed text-ink-400">{note}</p>
             </motion.li>
           ))}
         </motion.ul>

@@ -70,7 +70,7 @@ const row: Variants = {
 function ArticleRow({ category, readTime, title, description }: Article) {
   return (
     <motion.article variants={row}>
-      <div className="group border-b border-ink-200/70 py-8 sm:py-9">
+      <div className="group border-b border-ink-900/10 py-8 sm:py-9">
         <div className="flex flex-wrap items-center gap-3">
           <span className="inline-flex items-center rounded-full border border-teal-100 bg-teal-50 px-3 py-1 text-xs font-medium text-teal-700">
             {category}
@@ -115,7 +115,7 @@ export function LatestInsights() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="mx-auto max-w-4xl border-t border-ink-200/70"
+          className="mx-auto max-w-4xl border-t border-ink-900/10"
         >
           {ARTICLES.map((article) => (
             <ArticleRow key={article.title} {...article} />

@@ -17,8 +17,8 @@ type HeroAction = {
 type PageHeroProps = {
   /** Right-hand label on the masthead rule (e.g. the page name). */
   label: string;
-  /** Oversized ghost wordmark set behind the headline. */
-  ghost: string;
+  /** Two-digit editorial folio for the architectural section marker (e.g. "02"). */
+  index: string;
   /** Headline — pass a teal-accented `<span>` inline for the highlight word. */
   title: ReactNode;
   subtitle: string;
@@ -76,19 +76,25 @@ function SecondaryButton({ action }: { action: HeroAction }) {
 }
 
 /**
- * The canonical internal-page hero: a centered "editorial masthead" on the dark
- * cinematic surface. Deliberately distinct from the homepage hero (which is a
- * left-aligned, two-column layout with floating glass cards) so internal pages
- * share one identity that reads as the same brand without cloning the home page.
+ * The canonical internal-page hero: an asymmetric, left-aligned "architectural
+ * folio" on the dark cinematic surface — headline anchored left, an oversized
+ * outlined section numeral as an editorial folio on the right, and a full-width
+ * measured baseline rule. Deliberately distinct from the homepage hero (a
+ * two-column layout with floating glass cards) so internal pages share one
+ * identity that reads as the same brand without cloning the home page.
  */
-export function PageHero({ label, ghost, title, subtitle, primary, secondary, meta }: PageHeroProps) {
+export function PageHero({ label, index, title, subtitle, primary, secondary, meta }: PageHeroProps) {
   return (
-    <section className="relative isolate flex min-h-[72vh] flex-col justify-center overflow-hidden bg-ink-950 text-white">
-      {/* Cinematic layered background */}
+    <section className="relative isolate flex min-h-[80vh] flex-col justify-center overflow-hidden bg-ink-950 text-white">
+      {/* Cinematic layered background — light source pulled to the top-right for asymmetry */}
       <div className="pointer-events-none absolute inset-0 -z-20 surface-night" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-light opacity-60" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-light opacity-50" aria-hidden="true" />
       <div
-        className="pointer-events-none absolute -z-10 left-1/2 top-[-22%] h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-teal-500/15 blur-[160px]"
+        className="pointer-events-none absolute -z-10 right-[-8%] top-[-18%] h-[520px] w-[760px] rounded-full bg-teal-500/15 blur-[150px]"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -z-10 left-[-6%] bottom-[-10%] h-[360px] w-[520px] rounded-full bg-teal-600/10 blur-[150px]"
         aria-hidden="true"
       />
       <div
@@ -96,64 +102,73 @@ export function PageHero({ label, ghost, title, subtitle, primary, secondary, me
         aria-hidden="true"
       />
 
-      {/* Oversized ghost wordmark */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap font-heading text-[22vw] font-extrabold leading-none tracking-tighter text-white/[0.035]"
-      >
-        {ghost}
-      </span>
-
       <div className="container-px relative w-full py-24">
-        {/* Masthead rule */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.05 }}
-          className="mx-auto flex max-w-4xl items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-400"
-        >
-          <span className="text-teal-300">VD Global</span>
-          <span aria-hidden="true" className="h-px flex-1 bg-white/10" />
-          <span>{label}</span>
-        </motion.div>
-
-        {/* Centered editorial block */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="mx-auto mt-12 max-w-4xl text-center sm:mt-14"
-        >
-          <motion.h1
-            variants={item}
-            className="text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl text-balance"
-          >
-            {title}
-          </motion.h1>
-
-          <motion.p
-            variants={item}
-            className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink-300 sm:text-lg text-balance"
-          >
-            {subtitle}
-          </motion.p>
-
+        <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-8">
+          {/* Left — editorial content */}
           <motion.div
-            variants={item}
-            className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="lg:col-span-8"
           >
-            <PrimaryButton action={primary} />
-            {secondary && <SecondaryButton action={secondary} />}
-          </motion.div>
-        </motion.div>
+            {/* Masthead rule */}
+            <motion.div
+              variants={item}
+              className="flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-400"
+            >
+              <span className="text-teal-300">VD Global</span>
+              <span aria-hidden="true" className="h-px w-16 bg-white/15" />
+              <span>{label}</span>
+            </motion.div>
 
-        {/* Bottom meta rule */}
+            <motion.h1
+              variants={item}
+              className="mt-8 max-w-3xl text-[2.5rem] font-bold leading-[1.03] tracking-tight text-white sm:text-6xl lg:text-[4.25rem] text-balance"
+            >
+              {title}
+            </motion.h1>
+
+            <motion.p
+              variants={item}
+              className="mt-7 max-w-xl text-base leading-relaxed text-ink-300 sm:text-lg"
+            >
+              {subtitle}
+            </motion.p>
+
+            <motion.div
+              variants={item}
+              className="mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4"
+            >
+              <PrimaryButton action={primary} />
+              {secondary && <SecondaryButton action={secondary} />}
+            </motion.div>
+          </motion.div>
+
+          {/* Right — architectural folio marker */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' as const, delay: 0.35 }}
+            aria-hidden="true"
+            className="hidden lg:col-span-4 lg:flex lg:flex-col lg:items-end lg:justify-center"
+          >
+            <span className="font-heading text-[11rem] font-extrabold leading-none tracking-tighter text-transparent [-webkit-text-stroke:1.5px_rgba(45,212,191,0.28)]">
+              {index}
+            </span>
+            <span className="mt-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-ink-400">
+              <span className="h-px w-12 bg-gradient-to-l from-teal-400/50 to-transparent" />
+              {label}
+            </span>
+          </motion.div>
+        </div>
+
+        {/* Full-width measured baseline rule */}
         {meta && meta.length > 0 && (
           <motion.ul
             variants={item}
             initial="hidden"
             animate="show"
-            className="mx-auto mt-14 flex max-w-3xl flex-wrap items-center justify-center gap-x-8 gap-y-3 border-t border-white/10 pt-7 sm:mt-16"
+            className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-white/10 pt-7 sm:mt-20"
           >
             {meta.map((entry) => (
               <li key={entry} className="flex items-center gap-2.5 text-sm text-ink-300">

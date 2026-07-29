@@ -5,7 +5,7 @@ export function AssessmentHero() {
   return (
     <PageHero
       label="Assessment"
-      ghost="ASSESSMENT"
+      index="03"
       title={
         <>
           Authority <span className="text-teal-300">Assessment</span>.

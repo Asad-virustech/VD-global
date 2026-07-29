@@ -5,7 +5,7 @@ export function CaseStudiesHero() {
   return (
     <PageHero
       label="Case Studies"
-      ghost="STORIES"
+      index="04"
       title={
         <>
           Authority Stories That <span className="text-teal-300">Matter</span>.

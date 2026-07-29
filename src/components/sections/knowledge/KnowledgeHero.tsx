@@ -5,7 +5,7 @@ export function KnowledgeHero() {
   return (
     <PageHero
       label="Knowledge Hub"
-      ghost="INSIGHTS"
+      index="05"
       title={
         <>
           Knowledge Builds <span className="text-teal-300">Authority</span>.

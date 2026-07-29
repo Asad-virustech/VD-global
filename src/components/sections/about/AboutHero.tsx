@@ -5,7 +5,7 @@ export function AboutHero() {
   return (
     <PageHero
       label="About"
-      ghost="ABOUT"
+      index="01"
       title={
         <>
           Building Authority Begins With <span className="text-teal-300">Trust</span>.

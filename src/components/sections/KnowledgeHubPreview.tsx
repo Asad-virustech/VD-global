@@ -50,26 +50,26 @@ const card: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
 };
 
-function ArticleCard({ category, title, description }: Article) {
+function ArticleRow({ category, title, description }: Article) {
   return (
-    <motion.article
-      variants={card}
-      whileHover={{ y: -4 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-7 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-8"
-    >
-      <span className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-teal-400 to-teal-600 transition-transform duration-500 ease-out group-hover:scale-x-100" />
-      <span className="relative inline-flex w-fit items-center rounded-full border border-teal-100 bg-teal-50 px-3 py-1 text-xs font-medium text-teal-700">
-        {category}
-      </span>
-
-      <h3 className="mt-5 text-xl font-semibold leading-snug text-ink-900">{title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-ink-500">{description}</p>
-
-      <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 transition-colors duration-300 group-hover:text-teal-800">
-        Read insight
-        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" strokeWidth={1.75} />
-      </span>
+    <motion.article variants={card}>
+      <div className="group grid gap-x-8 gap-y-3 border-b border-ink-900/10 py-8 sm:grid-cols-[0.7fr_1.6fr] sm:py-9 lg:gap-x-12">
+        <div>
+          <span className="inline-flex w-fit items-center rounded-full border border-teal-100 bg-teal-50 px-3 py-1 text-xs font-medium text-teal-700">
+            {category}
+          </span>
+        </div>
+        <div>
+          <h3 className="text-xl font-bold leading-snug tracking-tight text-ink-900 transition-colors duration-300 group-hover:text-teal-800 sm:text-2xl text-balance">
+            {title}
+          </h3>
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink-500">{description}</p>
+          <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 transition-colors duration-300 group-hover:text-teal-800">
+            Read insight
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" strokeWidth={1.75} />
+          </span>
+        </div>
+      </div>
     </motion.article>
   );
 }
@@ -92,10 +92,10 @@ export function KnowledgeHubPreview() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7"
+          className="mx-auto max-w-4xl border-t border-ink-900/10"
         >
           {ARTICLES.map((article) => (
-            <ArticleCard key={article.title} {...article} />
+            <ArticleRow key={article.title} {...article} />
           ))}
         </motion.div>
       </Container>

@@ -37,7 +37,7 @@ function TagRow({ tags, className = '' }: { tags: string[]; className?: string }
 function CaseStudyRow({ industry, title, summary, tags }: CaseStudy) {
   return (
     <motion.article variants={row}>
-      <div className="group grid gap-x-8 gap-y-4 border-b border-ink-200/70 py-8 sm:py-10 lg:grid-cols-[0.85fr_1.6fr] lg:gap-x-14">
+      <div className="group grid gap-x-8 gap-y-4 border-b border-ink-900/10 py-8 sm:py-10 lg:grid-cols-[0.85fr_1.6fr] lg:gap-x-14">
         {/* Left rail — industry + tags */}
         <div>
           <p className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-teal-700">
@@ -84,7 +84,7 @@ export function CaseStudyLibrary() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="border-t border-ink-200/70"
+          className="border-t border-ink-900/10"
         >
           {library.map((study) => (
             <CaseStudyRow key={study.slug} {...study} />

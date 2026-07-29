@@ -5,7 +5,7 @@ export function SolutionsHero() {
   return (
     <PageHero
       label="Solutions"
-      ghost="SOLUTIONS"
+      index="02"
       title={
         <>
           Solutions Built Around <span className="text-teal-300">Authority</span>.

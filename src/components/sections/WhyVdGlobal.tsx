@@ -75,16 +75,12 @@ const card: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
 };
 
-function ValueCard({ icon: Icon, title, description }: Value) {
+function ValueCell({ icon: Icon, title, description }: Value) {
   return (
     <motion.article
       variants={card}
-      whileHover={{ y: -4 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group relative overflow-hidden rounded-2xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-7 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-8"
+      className="group bg-white p-7 transition-colors duration-300 hover:bg-teal-50/40 sm:p-8"
     >
-      <span className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-teal-400 to-teal-600 transition-transform duration-500 ease-out group-hover:scale-x-100" />
-
       <IconTile size="md" hover>
         <Icon className="h-5 w-5" strokeWidth={1.75} />
       </IconTile>
@@ -113,10 +109,10 @@ export function WhyVdGlobal() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-80px' }}
-            className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:gap-7"
+            className="grid gap-px overflow-hidden rounded-3xl border border-ink-200 bg-ink-200 shadow-card sm:grid-cols-2 lg:grid-cols-3"
           >
             {VALUES.map((value) => (
-              <ValueCard key={value.title} {...value} />
+              <ValueCell key={value.title} {...value} />
             ))}
           </motion.div>
         </Container>

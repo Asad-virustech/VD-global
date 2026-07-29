@@ -63,34 +63,35 @@ const item: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
 };
 
-function StageColumn({ icon: Icon, label, title, description, priorities, index }: Stage & { index: number }) {
+function StagePhase({ icon: Icon, label, title, description, priorities, index }: Stage & { index: number }) {
   return (
-    <motion.div variants={item} className="sm:px-8 sm:first:pl-0 sm:last:pr-0 lg:px-10">
-      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100">
-        <Icon className="h-5 w-5" strokeWidth={1.75} />
-      </span>
+    <motion.div variants={item} className="relative">
+      {/* Node sitting on the growth line */}
+      <div className="flex items-center gap-4">
+        <span className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-teal-100 bg-white text-teal-700 shadow-card ring-4 ring-white">
+          <Icon className="h-5 w-5" strokeWidth={1.75} />
+        </span>
+        <span className="font-heading text-2xl font-bold tabular-nums text-teal-600/80 sm:hidden">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+      </div>
 
-      <span className="mt-5 block text-xs font-semibold uppercase tracking-[0.16em] text-teal-700">
+      <span className="mt-6 block text-xs font-semibold uppercase tracking-[0.16em] text-teal-700">
         {String(index + 1).padStart(2, '0')} · {label}
       </span>
       <h3 className="mt-2 text-lg font-semibold leading-snug text-ink-900">{title}</h3>
       <p className="mt-3 text-sm leading-relaxed text-ink-500">{description}</p>
 
-      <div className="mt-6 border-t border-ink-100 pt-5">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400">
-          Common priorities
-        </p>
-        <ul className="mt-3 space-y-2.5">
-          {priorities.map((priority) => (
-            <li key={priority} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink-600">
-              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-600">
-                <Check className="h-3 w-3" strokeWidth={2.5} />
-              </span>
-              {priority}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul className="mt-5 space-y-2.5">
+        {priorities.map((priority) => (
+          <li key={priority} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink-600">
+            <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-600">
+              <Check className="h-3 w-3" strokeWidth={2.5} />
+            </span>
+            {priority}
+          </li>
+        ))}
+      </ul>
     </motion.div>
   );
 }
@@ -104,40 +105,27 @@ export function ChoosingStrategy() {
           eyebrow="Where You Are Today"
           title="Choosing the Right Strategy."
           description="Authority looks different at every stage. These are the priorities we most often see — not packages to pick from, but a sense of where businesses like yours tend to focus."
-          className="mb-12 sm:mb-14"
+          className="mb-14 sm:mb-16"
         />
 
-        {/* Continuum labels + spine */}
-        <div className="mx-auto mb-10 hidden max-w-3xl items-center gap-4 md:flex">
-          {['Early', 'Growing', 'Established'].map((label, i) => (
-            <div key={label} className="flex flex-1 items-center gap-4">
-              <div className="flex items-center gap-2.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-teal-500" />
-                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-500">
-                  {label}
-                </span>
-              </div>
-              {i < 2 && (
-                <span
-                  aria-hidden="true"
-                  className="h-px flex-1 bg-gradient-to-r from-teal-300/70 to-teal-300/30"
-                />
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Editorial stages — a progression, not a pricing table */}
+        {/* One connected growth spectrum — nodes rising along a single ascending
+            line (lighter → stronger = growing authority), not separate cards. */}
         <motion.div
           variants={band}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid gap-10 border-y border-ink-100 py-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-ink-100 sm:py-12"
+          className="relative"
         >
-          {STAGES.map((stage, i) => (
-            <StageColumn key={stage.label} index={i} {...stage} />
-          ))}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute left-7 right-7 top-7 hidden h-px bg-gradient-to-r from-teal-200 via-teal-400 to-teal-600 sm:block"
+          />
+          <div className="grid gap-12 sm:grid-cols-3 sm:gap-8 lg:gap-14">
+            {STAGES.map((stage, i) => (
+              <StagePhase key={stage.label} index={i} {...stage} />
+            ))}
+          </div>
         </motion.div>
       </Container>
     </Section>
