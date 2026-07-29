@@ -31,13 +31,13 @@ const PRINCIPLES: Principle[] = [
   },
 ];
 
-const grid: Variants = {
+const band: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
 };
 
-const card: Variants = {
-  hidden: { opacity: 0, y: 18 },
+const item: Variants = {
+  hidden: { opacity: 0, y: 16 },
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
 };
 
@@ -53,27 +53,26 @@ export function TrustSection() {
           className="mb-12 sm:mb-14"
         />
 
+        {/* An editorial trio divided by hairlines — a confident statement, not cards */}
         <motion.div
-          variants={grid}
+          variants={band}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid gap-5 sm:gap-6 lg:grid-cols-3 lg:gap-7"
+          className="mx-auto grid max-w-5xl gap-10 border-y border-ink-100 py-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-ink-100 sm:py-12"
         >
           {PRINCIPLES.map(({ icon: Icon, title, description }) => (
-            <motion.article
+            <motion.div
               key={title}
-              variants={card}
-              whileHover={{ y: -4 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-              className="group rounded-2xl border border-ink-100 bg-white p-7 shadow-card transition-colors duration-300 hover:border-teal-200 sm:p-8"
+              variants={item}
+              className="sm:px-8 sm:first:pl-0 sm:last:pr-0 lg:px-10"
             >
-              <IconTile size="md" ring hover>
+              <IconTile size="md" ring>
                 <Icon className="h-5 w-5" strokeWidth={1.75} />
               </IconTile>
               <h3 className="mt-5 text-lg font-semibold leading-snug text-ink-900">{title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-ink-500">{description}</p>
-            </motion.article>
+            </motion.div>
           ))}
         </motion.div>
       </Container>
