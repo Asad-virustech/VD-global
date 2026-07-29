@@ -36,8 +36,7 @@ const DIMENSIONS: Dimension[] = [
   {
     icon: Search,
     title: 'Search Visibility',
-    description:
-      'What someone finds — and in what order — when they search your name or company.',
+    description: 'What someone finds — and in what order — when they search your name or company.',
   },
   {
     icon: BookOpenCheck,
@@ -60,38 +59,43 @@ const DIMENSIONS: Dimension[] = [
   {
     icon: Lightbulb,
     title: 'Thought Leadership',
-    description:
-      "The depth and consistency of the perspective you're known for in your field.",
+    description: "The depth and consistency of the perspective you're known for in your field.",
   },
 ];
 
-const grid: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+const sheet: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: 'easeOut' as const, staggerChildren: 0.07, delayChildren: 0.1 },
+  },
 };
 
-const card: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
+const row: Variants = {
+  hidden: { opacity: 0, y: 12 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' as const } },
 };
 
-function DimensionCard({ icon: Icon, title, description }: Dimension) {
+function DimensionRow({ icon: Icon, title, description, index }: Dimension & { index: number }) {
   return (
-    <motion.article
-      variants={card}
-      whileHover={{ y: -4 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group relative overflow-hidden rounded-2xl border border-ink-100 bg-white p-7 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-8"
+    <motion.div
+      variants={row}
+      className={`group flex items-start gap-4 px-6 py-5 sm:gap-6 sm:px-8 sm:py-6 ${
+        index > 0 ? 'border-t border-ink-100' : ''
+      }`}
     >
-      <span className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-teal-400 to-teal-600 transition-transform duration-500 ease-out group-hover:scale-x-100" />
-
-      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700 transition-colors duration-300 group-hover:bg-teal-100">
+      <span className="w-8 shrink-0 pt-0.5 font-heading text-xl font-bold tabular-nums text-ink-200 transition-colors duration-300 group-hover:text-teal-500 sm:text-2xl">
+        {String(index + 1).padStart(2, '0')}
+      </span>
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100">
         <Icon className="h-5 w-5" strokeWidth={1.75} />
       </span>
-
-      <h3 className="mt-5 text-lg font-semibold text-ink-900">{title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-ink-500">{description}</p>
-    </motion.article>
+      <div className="min-w-0">
+        <h3 className="text-base font-semibold text-ink-900 sm:text-lg">{title}</h3>
+        <p className="mt-1 text-sm leading-relaxed text-ink-500">{description}</p>
+      </div>
+    </motion.div>
   );
 }
 
@@ -107,15 +111,23 @@ export function WhatWeAssess() {
           className="mb-12 sm:mb-14"
         />
 
+        {/* The authority model, presented as a diagnostic assessment sheet */}
         <motion.div
-          variants={grid}
+          variants={sheet}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7"
+          className="mx-auto max-w-4xl overflow-hidden rounded-3xl border border-ink-100 bg-white shadow-card"
         >
-          {DIMENSIONS.map((dimension) => (
-            <DimensionCard key={dimension.title} {...dimension} />
+          <div className="flex items-center justify-between border-b border-ink-100 bg-ink-50/50 px-6 py-4 sm:px-8">
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-700">
+              The Authority Model
+            </span>
+            <span className="text-xs font-medium text-ink-400">7 dimensions we examine</span>
+          </div>
+
+          {DIMENSIONS.map((dimension, i) => (
+            <DimensionRow key={dimension.title} index={i} {...dimension} />
           ))}
         </motion.div>
       </Container>
