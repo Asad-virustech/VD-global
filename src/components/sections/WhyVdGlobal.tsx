@@ -122,34 +122,32 @@ export function WhyVdGlobal() {
         </Container>
       </Section>
 
-      {/* Premium highlighted callout — full-width dark band */}
-      <Section bleed className="relative overflow-hidden surface-night">
+      {/* Premium highlighted callout — full-width dark band, asymmetric split */}
+      <Section bleed className="relative overflow-hidden surface-night-dawn">
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-teal-500/20 blur-[110px]"
-        />
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-400/40 to-transparent"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-teal-400/40 to-transparent"
         />
         <Container>
-          <motion.figure
+          <motion.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6, ease: 'easeOut' as const, delay: 0.05 }}
-            className="relative mx-auto max-w-3xl text-center"
+            className="relative grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-end lg:gap-16"
           >
-            <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-teal-400 ring-1 ring-inset ring-white/10">
-              <Target className="h-5 w-5" strokeWidth={1.75} />
-            </span>
-            <h3 className="mt-6 text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl lg:text-[2.25rem] text-balance">
-              {CALLOUT.title}
-            </h3>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink-300 sm:text-lg">
+            <div>
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-teal-400 ring-1 ring-inset ring-white/10">
+                <Target className="h-5 w-5" strokeWidth={1.75} />
+              </span>
+              <h3 className="mt-6 text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-[2.75rem] text-balance">
+                {CALLOUT.title}
+              </h3>
+            </div>
+            <p className="text-base leading-relaxed text-ink-300 sm:text-lg lg:border-l lg:border-white/10 lg:pl-16">
               {CALLOUT.body}
             </p>
-          </motion.figure>
+          </motion.div>
         </Container>
       </Section>
     </>

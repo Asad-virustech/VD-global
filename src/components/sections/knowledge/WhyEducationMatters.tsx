@@ -30,15 +30,7 @@ const item: Variants = {
 
 export function WhyEducationMatters() {
   return (
-    <Section className="relative overflow-hidden bg-ink-900">
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-teal-500/20 blur-[110px]"
-      />
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-400/40 to-transparent"
-      />
+    <Section className="relative overflow-hidden surface-night-spot">
       <Container>
         <div className="relative mx-auto max-w-3xl text-center">
           <motion.p
@@ -80,10 +72,10 @@ export function WhyEducationMatters() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="mx-auto mt-12 grid max-w-4xl gap-6 sm:mt-14 sm:grid-cols-3"
+          className="mx-auto mt-12 grid max-w-4xl gap-y-8 border-t border-white/10 pt-10 sm:mt-14 sm:grid-cols-3 sm:gap-y-0 sm:divide-x sm:divide-white/10"
         >
           {POINTS.map((point) => (
-            <motion.li key={point.term} variants={item} className="border-t border-white/10 pt-5 text-left">
+            <motion.li key={point.term} variants={item} className="px-0 text-center sm:px-8">
               <p className="text-base font-semibold text-white">{point.term}</p>
               <p className="mt-2 text-sm leading-relaxed text-ink-400">{point.note}</p>
             </motion.li>

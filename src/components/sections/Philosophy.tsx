@@ -156,15 +156,11 @@ export function Philosophy() {
       </Container>
     </Section>
 
-    {/* Featured quote — full-width dark band */}
-    <Section bleed className="relative overflow-hidden surface-night">
+    {/* Featured quote — full-width dark band, left editorial pull-quote */}
+    <Section bleed className="relative overflow-hidden surface-night-edge">
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-teal-500/20 blur-[110px]"
-      />
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-400/40 to-transparent"
+        className="pointer-events-none absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-teal-400/40 to-transparent"
       />
       <Container>
         <motion.figure
@@ -172,18 +168,22 @@ export function Philosophy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: 'easeOut' as const, delay: 0.05 }}
-          className="relative mx-auto max-w-3xl text-center"
+          className="relative max-w-4xl"
         >
-          <div className="relative mx-auto max-w-3xl">
-            <Quote className="mx-auto h-8 w-8 text-teal-400" strokeWidth={1.5} />
-            <blockquote className="mt-6 text-2xl font-bold leading-snug tracking-tight text-white sm:text-3xl lg:text-[2.5rem] lg:leading-[1.15] text-balance">
-              <p className="block">{QUOTE.lines[0]}</p>
-              <p className="mt-1 block text-teal-300">{QUOTE.lines[1]}</p>
-            </blockquote>
-            <figcaption className="mt-7 text-xs font-semibold uppercase tracking-[0.22em] text-ink-400">
-              <span className="text-teal-400">—</span> {QUOTE.attribution}
-            </figcaption>
-          </div>
+          <Quote
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-2 -top-10 h-28 w-28 text-white/[0.04] sm:-left-6 sm:-top-14 sm:h-40 sm:w-40"
+            strokeWidth={1}
+            fill="currentColor"
+          />
+          <blockquote className="relative text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-[3.25rem] lg:leading-[1.08] text-balance">
+            <span className="block">{QUOTE.lines[0]}</span>
+            <span className="mt-1 block text-teal-300">{QUOTE.lines[1]}</span>
+          </blockquote>
+          <figcaption className="mt-8 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-ink-400">
+            <span className="h-px w-8 bg-teal-400/60" aria-hidden="true" />
+            {QUOTE.attribution}
+          </figcaption>
         </motion.figure>
       </Container>
     </Section>

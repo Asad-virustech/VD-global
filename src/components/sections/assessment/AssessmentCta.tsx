@@ -6,11 +6,7 @@ import { Button } from '../../ui/Button';
 
 export function AssessmentCta() {
   return (
-    <Section className="relative overflow-hidden bg-ink-900">
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-teal-500/20 blur-[110px]"
-      />
+    <Section className="relative overflow-hidden surface-night-dawn">
       <span
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-400/40 to-transparent"

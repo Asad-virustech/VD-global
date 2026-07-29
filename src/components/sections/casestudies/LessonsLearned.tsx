@@ -15,15 +15,25 @@ const item: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
 };
 
-function LessonRow({ icon: Icon, title, description }: Lesson) {
+type LessonRowProps = Lesson & { index: number };
+
+function LessonRow({ icon: Icon, title, description, index }: LessonRowProps) {
   return (
-    <motion.li variants={item} className="flex gap-4 border-t border-white/10 pt-5">
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/5 text-teal-400 ring-1 ring-inset ring-white/10">
-        <Icon className="h-5 w-5" strokeWidth={1.75} />
-      </span>
-      <div>
-        <h3 className="text-base font-semibold text-white">{title}</h3>
-        <p className="mt-1.5 text-sm leading-relaxed text-ink-400">{description}</p>
+    <motion.li
+      variants={item}
+      className="group grid gap-4 border-t border-white/10 py-6 sm:grid-cols-[auto_1fr] sm:gap-8"
+    >
+      <div className="flex items-center gap-4">
+        <span className="font-heading text-2xl font-bold tabular-nums text-teal-400/80">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/5 text-teal-400 ring-1 ring-inset ring-white/10">
+          <Icon className="h-5 w-5" strokeWidth={1.75} />
+        </span>
+      </div>
+      <div className="sm:flex sm:items-baseline sm:gap-10">
+        <h3 className="text-lg font-semibold text-white sm:w-64 sm:shrink-0">{title}</h3>
+        <p className="mt-1.5 text-sm leading-relaxed text-ink-400 sm:mt-0 sm:flex-1">{description}</p>
       </div>
     </motion.li>
   );
@@ -31,17 +41,13 @@ function LessonRow({ icon: Icon, title, description }: Lesson) {
 
 export function LessonsLearned() {
   return (
-    <Section className="relative overflow-hidden bg-ink-900">
+    <Section className="relative overflow-hidden surface-night-dawn">
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-teal-500/20 blur-[110px]"
-      />
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-400/40 to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-teal-400/40 to-transparent"
       />
       <Container>
-        <div className="relative mx-auto max-w-3xl text-center">
+        <div className="relative max-w-2xl">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +73,7 @@ export function LessonsLearned() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.12 }}
-            className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink-300 sm:text-lg text-balance"
+            className="mt-6 text-base leading-relaxed text-ink-300 sm:text-lg"
           >
             Across very different engagements, the same truths keep surfacing. They shape how we
             advise every business that comes to us.
@@ -79,10 +85,10 @@ export function LessonsLearned() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="mx-auto mt-12 grid max-w-4xl gap-x-10 gap-y-6 sm:mt-14 sm:grid-cols-2"
+          className="mt-12 border-b border-white/10 sm:mt-14"
         >
-          {LESSONS.map((lesson) => (
-            <LessonRow key={lesson.title} {...lesson} />
+          {LESSONS.map((lesson, i) => (
+            <LessonRow key={lesson.title} index={i} {...lesson} />
           ))}
         </motion.ul>
       </Container>

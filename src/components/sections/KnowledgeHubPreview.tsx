@@ -101,40 +101,35 @@ export function KnowledgeHubPreview() {
       </Container>
     </Section>
 
-    {/* Bottom CTA — full-width dark band */}
-    <Section bleed className="relative overflow-hidden surface-night">
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-teal-500/20 blur-[110px]"
-      />
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-400/40 to-transparent"
-      />
+    {/* Bottom CTA — full-width dark band, horizontal spotlit invitation */}
+    <Section bleed className="relative overflow-hidden surface-night-spot">
       <Container>
-        <motion.figure
+        <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: 'easeOut' as const, delay: 0.05 }}
-          className="relative mx-auto max-w-3xl text-center"
+          className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12"
         >
-          <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-teal-400 ring-1 ring-inset ring-white/10">
-            <BookOpen className="h-5 w-5" strokeWidth={1.75} />
-          </span>
-          <h3 className="mt-6 text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl lg:text-[2.25rem] text-balance">
-            {CTA.title}
-          </h3>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink-300 sm:text-lg">
-            {CTA.description}
-          </p>
-          <div className="mt-8 flex justify-center">
+          <div className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-teal-400">
+              <BookOpen className="h-4 w-4" strokeWidth={1.75} />
+              Knowledge Hub
+            </span>
+            <h3 className="mt-4 text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl lg:text-[2.25rem] text-balance">
+              {CTA.title}
+            </h3>
+            <p className="mt-4 text-base leading-relaxed text-ink-300 sm:text-lg">
+              {CTA.description}
+            </p>
+          </div>
+          <div className="shrink-0">
             <Button as="link" to="/knowledge" size="lg" variant="primary">
               {CTA.button}
               <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
-        </motion.figure>
+        </motion.div>
       </Container>
     </Section>
     </>
