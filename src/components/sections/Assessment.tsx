@@ -1,17 +1,9 @@
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
-import {
-  Compass,
-  BookOpenCheck,
-  Route,
-  ShieldOff,
-  ArrowRight,
-  Clock,
-} from 'lucide-react';
+import { Compass, BookOpenCheck, Route, ShieldOff, Clock } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
-import { Button } from '../ui/Button';
 
 type Feature = {
   icon: LucideIcon;
@@ -134,15 +126,11 @@ export function Assessment() {
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.18 }}
               className="mt-8"
             >
-              <Button as="link" to="/assessment" size="lg" variant="primary">
-                Start Your Free Authority Assessment
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-300">
+              <p className="max-w-md text-base leading-relaxed text-ink-300">
                 Receive a personalized review of your current authority, credibility, and digital
                 presence.
               </p>
-              <p className="mt-3 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-ink-400">
+              <p className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-ink-400">
                 <Clock className="h-4 w-4 text-teal-300" strokeWidth={1.75} />
                 Typical response time: Within 24 hours.
               </p>
