@@ -46,41 +46,41 @@ const RESOURCES: Resource[] = [
   },
 ];
 
-const grid: Variants = {
+const list: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
 };
 
-const card: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
+const row: Variants = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
 };
 
-function ResourceCard({ icon: Icon, type, title, description }: Resource) {
+function ResourceRow({ icon: Icon, type, title, description, first }: Resource & { first: boolean }) {
   return (
     <motion.button
       type="button"
-      variants={card}
-      whileHover={{ y: -4 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+      variants={row}
       aria-label={`Download ${title} (${type})`}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-ink-100 bg-white p-7 text-left shadow-card transition-shadow duration-300 hover:shadow-card-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 sm:p-8"
+      className={`group flex w-full items-center gap-5 p-6 text-left transition-colors duration-300 hover:bg-ink-50/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-teal-500 sm:gap-6 sm:p-7 ${
+        first ? '' : 'border-t border-ink-100'
+      }`}
     >
-      <span className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-teal-400 to-teal-600 transition-transform duration-500 ease-out group-hover:scale-x-100" />
+      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100 transition-colors duration-300 group-hover:bg-teal-100">
+        <Icon className="h-5 w-5" strokeWidth={1.75} />
+      </span>
 
-      <div className="flex items-center justify-between">
-        <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700 transition-colors duration-300 group-hover:bg-teal-100">
-          <Icon className="h-5 w-5" strokeWidth={1.75} />
-        </span>
+      <div className="min-w-0 flex-1">
         <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400">
           {type}
         </span>
+        <h3 className="mt-1 text-base font-semibold leading-snug text-ink-900 sm:text-lg">
+          {title}
+        </h3>
+        <p className="mt-1.5 text-sm leading-relaxed text-ink-500">{description}</p>
       </div>
 
-      <h3 className="mt-5 text-lg font-semibold leading-snug text-ink-900">{title}</h3>
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-500">{description}</p>
-
-      <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 transition-colors duration-300 group-hover:text-teal-800">
+      <span className="hidden shrink-0 items-center gap-1.5 text-sm font-medium text-teal-700 transition-colors duration-300 group-hover:text-teal-800 sm:inline-flex">
         <Download className="h-4 w-4" strokeWidth={1.75} />
         Download
       </span>
@@ -100,15 +100,16 @@ export function AuthorityResources() {
           className="mb-12 sm:mb-14"
         />
 
+        {/* A framed "resource shelf" — one library, not five floating cards */}
         <motion.div
-          variants={grid}
+          variants={list}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7"
+          className="mx-auto max-w-4xl overflow-hidden rounded-3xl border border-ink-100 bg-white shadow-card"
         >
-          {RESOURCES.map((resource) => (
-            <ResourceCard key={resource.title} {...resource} />
+          {RESOURCES.map((resource, i) => (
+            <ResourceRow key={resource.title} first={i === 0} {...resource} />
           ))}
         </motion.div>
       </Container>
