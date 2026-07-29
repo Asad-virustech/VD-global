@@ -1,9 +1,6 @@
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import { Section } from '../../ui/Section';
 import { Container } from '../../ui/Container';
 import { SectionHeading } from '../../ui/SectionHeading';
-import { Button } from '../../ui/Button';
 import { FaqAccordion } from '../../ui/FaqAccordion';
 import type { FaqItem } from '../../ui/FaqAccordion';
 
@@ -58,28 +55,6 @@ export function SolutionsFaq() {
         />
 
         <FaqAccordion items={FAQS} />
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.1 }}
-          className="mt-14 flex flex-col items-center text-center sm:mt-16"
-        >
-          <h3 className="text-xl font-semibold text-ink-900 sm:text-2xl">
-            Not sure where to start?
-          </h3>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-500 sm:text-base">
-            The assessment is the simplest first step. It costs nothing and comes with no
-            obligation.
-          </p>
-          <div className="mt-7">
-            <Button as="link" to="/assessment" size="lg" variant="primary">
-              Start Your Free Authority Assessment
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </div>
-        </motion.div>
       </Container>
     </Section>
   );
