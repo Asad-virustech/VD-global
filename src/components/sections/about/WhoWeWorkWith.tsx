@@ -47,29 +47,25 @@ const AUDIENCES: Audience[] = [
 
 const grid: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
 };
 
-const item: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
+const cell: Variants = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 0.5, ease: 'easeOut' as const } },
 };
 
-function AudienceCard({ icon: Icon, title, description }: Audience) {
+function AudienceCell({ icon: Icon, title, description }: Audience) {
   return (
     <motion.article
-      variants={item}
-      whileHover={{ y: -3 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group flex items-start gap-4 rounded-2xl border border-ink-100 bg-white p-5 shadow-card transition-colors duration-300 hover:border-teal-200 sm:p-6"
+      variants={cell}
+      className="group bg-white p-6 transition-colors duration-300 hover:bg-ink-50/60 sm:p-8"
     >
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700 transition-colors duration-300 group-hover:bg-teal-100">
+      <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100 transition-colors duration-300 group-hover:bg-teal-100">
         <Icon className="h-5 w-5" strokeWidth={1.75} />
       </span>
-      <div className="min-w-0">
-        <h3 className="text-base font-semibold text-ink-900">{title}</h3>
-        <p className="mt-1.5 text-sm leading-relaxed text-ink-500">{description}</p>
-      </div>
+      <h3 className="mt-5 text-base font-semibold text-ink-900">{title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-ink-500">{description}</p>
     </motion.article>
   );
 }
@@ -86,16 +82,19 @@ export function WhoWeWorkWith() {
           className="mb-12 sm:mb-14"
         />
 
+        {/* Editorial "ledger": hairline-divided cells inside one framed block */}
         <motion.div
           variants={grid}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6"
+          className="overflow-hidden rounded-3xl border border-ink-100 shadow-card"
         >
-          {AUDIENCES.map((audience) => (
-            <AudienceCard key={audience.title} {...audience} />
-          ))}
+          <div className="grid gap-px bg-ink-100 sm:grid-cols-2 lg:grid-cols-3">
+            {AUDIENCES.map((audience) => (
+              <AudienceCell key={audience.title} {...audience} />
+            ))}
+          </div>
         </motion.div>
       </Container>
     </Section>

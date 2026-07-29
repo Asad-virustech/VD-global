@@ -15,8 +15,7 @@ const FEATURES: Feature[] = [
   {
     icon: Compass,
     title: 'Current Authority Review',
-    description:
-      'Evaluate your online presence, reputation, and authority signals.',
+    description: 'Evaluate your online presence, reputation, and authority signals.',
   },
   {
     icon: BookOpenCheck,
@@ -27,8 +26,7 @@ const FEATURES: Feature[] = [
   {
     icon: Route,
     title: 'Strategic Recommendations',
-    description:
-      'Receive practical next-step recommendations based on your business goals.',
+    description: 'Receive practical next-step recommendations based on your business goals.',
   },
   {
     icon: ShieldOff,
@@ -56,19 +54,19 @@ function FeatureCard({ icon: Icon, title, description, index }: FeatureCardProps
       variants={item}
       whileHover={{ y: -3 }}
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-xl backdrop-blur-sm transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.07] sm:p-6"
+      className="group flex items-start gap-4 rounded-2xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-5 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-6"
     >
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/5 text-teal-300 ring-1 ring-inset ring-white/10 transition-colors duration-300 group-hover:bg-white/10">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100 transition-colors duration-300 group-hover:bg-teal-100">
         <Icon className="h-5 w-5" strokeWidth={1.75} />
       </span>
       <div className="min-w-0">
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-300">
             {String(index + 1).padStart(2, '0')}
           </span>
-          <h3 className="text-base font-semibold text-white">{title}</h3>
+          <h3 className="text-base font-semibold text-ink-900">{title}</h3>
         </div>
-        <p className="mt-1.5 text-sm leading-relaxed text-ink-300">{description}</p>
+        <p className="mt-1.5 text-sm leading-relaxed text-ink-500">{description}</p>
       </div>
     </motion.article>
   );
@@ -76,17 +74,17 @@ function FeatureCard({ icon: Icon, title, description, index }: FeatureCardProps
 
 export function Assessment() {
   return (
-    <Section className="relative overflow-hidden surface-night">
+    <Section className="relative bg-ink-50/40 bg-aurora">
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Left — headline, description, CTA */}
+          {/* Left — headline, description (educate; the finale below converts) */}
           <div className="lg:sticky lg:top-28 lg:self-start">
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.5, ease: 'easeOut' as const }}
-              className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-300"
+              className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700"
             >
               Free Authority Assessment
             </motion.p>
@@ -96,7 +94,7 @@ export function Assessment() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.05 }}
-              className="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.75rem] text-balance"
+              className="mt-4 text-3xl font-bold leading-tight tracking-tight text-ink-900 sm:text-4xl lg:text-[2.75rem] text-balance"
             >
               Know Where You Stand Before You Invest.
             </motion.h2>
@@ -106,7 +104,7 @@ export function Assessment() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.12 }}
-              className="mt-6 max-w-lg space-y-4 text-base leading-relaxed text-ink-300 sm:text-lg"
+              className="mt-6 max-w-lg space-y-4 text-base leading-relaxed text-ink-500 sm:text-lg"
             >
               <p>Every business is different.</p>
               <p>
@@ -119,25 +117,19 @@ export function Assessment() {
               </p>
             </motion.div>
 
-            <motion.div
+            <motion.p
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.18 }}
-              className="mt-8"
+              className="mt-8 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-ink-400"
             >
-              <p className="max-w-md text-base leading-relaxed text-ink-300">
-                Receive a personalized review of your current authority, credibility, and digital
-                presence.
-              </p>
-              <p className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-ink-400">
-                <Clock className="h-4 w-4 text-teal-300" strokeWidth={1.75} />
-                Typical response time: Within 24 hours.
-              </p>
-            </motion.div>
+              <Clock className="h-4 w-4 text-teal-600" strokeWidth={1.75} />
+              Typical response time: Within 24 hours.
+            </motion.p>
           </div>
 
-          {/* Right — four feature cards */}
+          {/* Right — four things the assessment covers */}
           <motion.div
             variants={list}
             initial="hidden"

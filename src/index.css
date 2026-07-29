@@ -53,6 +53,12 @@
     text-wrap: balance;
   }
 
+  /* Offset in-page anchor targets so the fixed floating navbar never covers
+     the top of a section scrolled to via a `#hash` link. */
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+
   .bg-grid {
     background-image:
       linear-gradient(to right, rgb(15 23 42 / 0.04) 1px, transparent 1px),
