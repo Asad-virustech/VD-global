@@ -77,7 +77,7 @@ function ArticleCard({ category, title, description }: Article) {
 export function KnowledgeHubPreview() {
   return (
     <>
-      <Section className="bg-ink-50/40 bg-aurora">
+      <Section className="surface-alt bg-aurora">
         <Container>
         <SectionHeading
           align="center"

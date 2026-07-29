@@ -15,7 +15,7 @@ const FEATURED = {
 
 export function FeaturedInsight() {
   return (
-    <Section className="bg-ink-50/40">
+    <Section className="surface-alt">
       <Container>
         <SectionHeading
           align="center"

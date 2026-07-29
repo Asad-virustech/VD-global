@@ -74,7 +74,7 @@ function FeatureCard({ icon: Icon, title, description, index }: FeatureCardProps
 
 export function Assessment() {
   return (
-    <Section className="relative bg-ink-50/40 bg-aurora">
+    <Section className="relative surface-alt bg-aurora">
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left — headline, description (educate; the finale below converts) */}

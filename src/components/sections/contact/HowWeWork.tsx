@@ -45,7 +45,7 @@ function StepCard({ icon: Icon, title, description, index }: WorkStep & { index:
 
 export function HowWeWork() {
   return (
-    <Section className="bg-ink-50/40">
+    <Section className="surface-alt">
       <Container>
         <SectionHeading
           align="center"

@@ -72,6 +72,14 @@
       radial-gradient(45% 45% at 82% 12%, rgb(45 212 191 / 0.08) 0%, transparent 72%);
   }
 
+  /* Present, premium alt surface — a soft cool paper tone with real
+     separation from white, so sections read distinctly and white cards/panels
+     gain contrast instead of dissolving. Background-color only, so it composes
+     with `bg-aurora` / `bg-grid-fade` overlays. */
+  .surface-alt {
+    background-color: #e9edf4;
+  }
+
   /* Soft teal ambient lighting layered over light section surfaces. */
   .bg-aurora {
     background-image:

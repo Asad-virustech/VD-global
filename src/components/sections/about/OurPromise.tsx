@@ -5,7 +5,7 @@ import { Container } from '../../ui/Container';
 
 export function OurPromise() {
   return (
-    <Section className="bg-ink-50/40">
+    <Section className="surface-alt">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 18 }}

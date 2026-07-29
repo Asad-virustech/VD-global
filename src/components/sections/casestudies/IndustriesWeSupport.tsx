@@ -35,7 +35,7 @@ function IndustryRow({ icon: Icon, name, challenge }: IndustryItem) {
 
 export function IndustriesWeSupport() {
   return (
-    <Section className="bg-ink-50/40">
+    <Section className="surface-alt">
       <Container>
         <SectionHeading
           align="center"

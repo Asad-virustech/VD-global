@@ -27,7 +27,7 @@ const item: Variants = {
 
 export function WhyCaseStudiesMatter() {
   return (
-    <Section className="bg-ink-50/40">
+    <Section className="surface-alt">
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">

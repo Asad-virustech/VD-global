@@ -13,7 +13,7 @@ const fade: Variants = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-ink-100 bg-ink-50/40">
+    <footer className="border-t border-ink-100 surface-alt">
       <Container className="py-16 sm:py-20">
         <motion.div
           variants={fade}

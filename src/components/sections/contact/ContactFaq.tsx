@@ -6,7 +6,7 @@ import { CONTACT_FAQS } from '../../../../content/contact';
 
 export function ContactFaq() {
   return (
-    <Section className="bg-ink-50/40">
+    <Section className="surface-alt">
       <Container>
         <SectionHeading
           align="center"

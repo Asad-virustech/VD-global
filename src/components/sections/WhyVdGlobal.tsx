@@ -98,7 +98,7 @@ function ValueCard({ icon: Icon, title, description }: Value) {
 export function WhyVdGlobal() {
   return (
     <>
-      <Section className="bg-ink-50/40 bg-aurora">
+      <Section className="surface-alt bg-aurora">
         <Container>
           <SectionHeading
             align="center"

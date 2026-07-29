@@ -15,7 +15,7 @@ const CLOSING = [
 
 export function WhyWeExist() {
   return (
-    <Section className="bg-ink-50/40">
+    <Section className="surface-alt">
       <Container>
         <SectionHeading
           align="center"

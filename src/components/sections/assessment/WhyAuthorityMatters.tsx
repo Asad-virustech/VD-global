@@ -67,28 +67,26 @@ const item: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
 };
 
-function InfluenceCard({ icon: Icon, title, description }: Influence) {
+function InfluenceRow({ icon: Icon, title, description }: Influence) {
   return (
-    <motion.article
+    <motion.li
       variants={item}
-      whileHover={{ y: -3 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group flex items-start gap-4 rounded-2xl border border-ink-100 bg-white p-5 shadow-card transition-colors duration-300 hover:border-teal-200 sm:p-6"
+      className="flex items-start gap-4 border-b border-ink-200/70 py-5 sm:gap-5"
     >
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700 transition-colors duration-300 group-hover:bg-teal-100">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100">
         <Icon className="h-5 w-5" strokeWidth={1.75} />
       </span>
       <div className="min-w-0">
         <h3 className="text-base font-semibold text-ink-900">{title}</h3>
-        <p className="mt-1.5 text-sm leading-relaxed text-ink-500">{description}</p>
+        <p className="mt-1 text-sm leading-relaxed text-ink-500">{description}</p>
       </div>
-    </motion.article>
+    </motion.li>
   );
 }
 
 export function WhyAuthorityMatters() {
   return (
-    <Section className="bg-ink-50/40">
+    <Section className="surface-alt">
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">
@@ -135,17 +133,17 @@ export function WhyAuthorityMatters() {
             </motion.div>
           </div>
 
-          <motion.div
+          <motion.ul
             variants={list}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-80px' }}
-            className="grid gap-4 sm:grid-cols-2"
+            className="border-t border-ink-200/70"
           >
             {INFLUENCES.map((influence) => (
-              <InfluenceCard key={influence.title} {...influence} />
+              <InfluenceRow key={influence.title} {...influence} />
             ))}
-          </motion.div>
+          </motion.ul>
         </div>
       </Container>
     </Section>

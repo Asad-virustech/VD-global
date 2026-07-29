@@ -100,7 +100,7 @@ function ArticleRow({ category, readTime, title, description }: Article) {
 
 export function LatestInsights() {
   return (
-    <Section id="insights" className="bg-ink-50/40">
+    <Section id="insights" className="surface-alt">
       <Container>
         <SectionHeading
           align="center"
