@@ -41,7 +41,7 @@ function LessonRow({ icon: Icon, title, description, index }: LessonRowProps) {
 
 export function LessonsLearned() {
   return (
-    <Section className="relative overflow-hidden surface-night-dawn">
+    <Section className="relative overflow-hidden surface-night">
       <span
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-teal-400/40 to-transparent"

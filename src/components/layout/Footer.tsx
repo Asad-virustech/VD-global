@@ -18,7 +18,7 @@ export function Footer() {
   return (
     <footer className="relative isolate overflow-hidden bg-ink-950 text-white">
       {/* Cinematic lighting — faint teal glow + grid */}
-      <div className="pointer-events-none absolute inset-0 -z-10 surface-night-dawn" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 -z-10 surface-night" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-light opacity-30" aria-hidden="true" />
       {/* Polished top edge — teal hairline over a faint highlight */}
       <span

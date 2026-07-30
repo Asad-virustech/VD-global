@@ -23,7 +23,7 @@ const item: Variants = {
 
 export function AboutPhilosophy() {
   return (
-    <Section className="relative overflow-hidden surface-night-edge">
+    <Section className="relative overflow-hidden surface-night">
       <span
         aria-hidden="true"
         className="pointer-events-none absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-teal-400/40 to-transparent"

@@ -77,7 +77,7 @@ function ArticleRow({ category, title, description }: Article) {
 export function KnowledgeHubPreview() {
   return (
     <>
-      <Section className="surface-alt bg-aurora">
+      <Section className="surface-base">
         <Container>
         <SectionHeading
           align="center"
@@ -102,7 +102,7 @@ export function KnowledgeHubPreview() {
     </Section>
 
     {/* Bottom CTA — full-width dark band, horizontal spotlit invitation */}
-    <Section bleed className="relative overflow-hidden surface-night-spot">
+    <Section bleed className="relative overflow-hidden surface-night">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 18 }}

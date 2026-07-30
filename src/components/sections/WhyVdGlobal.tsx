@@ -109,7 +109,7 @@ function ValueTile({ icon: Icon, title, description, wide = false, feature = fal
 export function WhyVdGlobal() {
   return (
     <>
-      <Section className="surface-alt bg-aurora">
+      <Section className="surface-alt">
         <Container>
           <SectionHeading
             align="center"
@@ -139,7 +139,7 @@ export function WhyVdGlobal() {
       </Section>
 
       {/* Premium highlighted callout — full-width dark band, asymmetric split */}
-      <Section bleed className="relative overflow-hidden surface-night-dawn">
+      <Section bleed className="relative overflow-hidden surface-night">
         <span
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-teal-400/40 to-transparent"

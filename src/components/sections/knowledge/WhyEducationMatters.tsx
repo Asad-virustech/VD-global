@@ -41,7 +41,7 @@ const item: Variants = {
 
 export function WhyEducationMatters() {
   return (
-    <Section className="relative overflow-hidden surface-night-spot">
+    <Section className="relative overflow-hidden surface-night">
       <Container>
         <div className="relative mx-auto max-w-3xl text-center">
           <motion.p

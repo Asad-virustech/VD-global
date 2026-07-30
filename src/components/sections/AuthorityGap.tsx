@@ -1,83 +1,17 @@
 import { motion } from 'framer-motion';
-import type { LucideIcon } from 'lucide-react';
-import { EyeOff, ShieldCheck, Newspaper, Award, TrendingUp } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
-import { IconTile } from '../ui/IconTile';
+import { AuthorityRings } from './AuthorityRings';
 
-type GapCardProps = {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  index: number;
-};
-
-const cards = [
-  {
-    icon: EyeOff,
-    title: 'Recognition',
-    description: 'Being great isn’t enough if nobody knows you exist.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Trust',
-    description: 'People trust businesses they can verify.',
-  },
-  {
-    icon: Newspaper,
-    title: 'Credibility',
-    description: 'Media coverage and reputation create confidence before conversations begin.',
-  },
-  {
-    icon: Award,
-    title: 'Authority',
-    description: 'Become the company people reference instead of compare.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Long-Term Growth',
-    description: 'Authority compounds over time and creates opportunities that advertising alone cannot.',
-  },
-];
-
-const list = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
-};
-
-function GapCard({ icon: Icon, title, description, index }: GapCardProps) {
-  return (
-    <motion.article
-      variants={item}
-      className="group flex items-start gap-4 border-t border-ink-900/10 py-5 first:border-t-0 first:pt-0 sm:gap-5"
-    >
-      <IconTile size="sm" shrink hover>
-        <Icon className="h-5 w-5" strokeWidth={1.75} />
-      </IconTile>
-      <div className="min-w-0 flex-1">
-        <div className="flex items-baseline gap-2">
-          <span className="font-heading text-sm font-bold tabular-nums text-teal-600/70">
-            {String(index + 1).padStart(2, '0')}
-          </span>
-          <h3 className="text-base font-semibold text-ink-900">{title}</h3>
-        </div>
-        <p className="mt-1.5 text-sm leading-relaxed text-ink-500">{description}</p>
-      </div>
-    </motion.article>
-  );
-}
+/** The authority layers, foundation → compounding outcome, for the ring model. */
+const LAYERS = ['Recognition', 'Credibility', 'Authority', 'Trust', 'Long-Term Growth'];
 
 export function AuthorityGap() {
   return (
-    <Section className="surface-alt bg-aurora">
+    <Section className="surface-base">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="lg:sticky lg:top-28 lg:self-start">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <div>
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -133,17 +67,7 @@ export function AuthorityGap() {
             </motion.div>
           </div>
 
-          <motion.div
-            variants={list}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-80px' }}
-            className="lg:pt-1"
-          >
-            {cards.map((card, i) => (
-              <GapCard key={card.title} index={i} {...card} />
-            ))}
-          </motion.div>
+          <AuthorityRings layers={LAYERS} />
         </div>
       </Container>
     </Section>

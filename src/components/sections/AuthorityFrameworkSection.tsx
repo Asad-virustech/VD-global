@@ -113,7 +113,7 @@ export function AuthorityFrameworkSection() {
   const [feature, ...rest] = STEPS;
 
   return (
-    <Section className="surface-alt bg-aurora">
+    <Section className="surface-alt">
       <Container>
         <SectionHeading
           align="center"

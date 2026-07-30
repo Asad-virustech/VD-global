@@ -36,6 +36,17 @@ export function CtaBand({ eyebrow, title, description, primary, secondary, child
 
   return (
     <Section bleed className="relative overflow-hidden surface-night">
+      {/* Signature concentric rings — echoes the hero, framing every page's close */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            'repeating-radial-gradient(circle at 50% -8%, rgba(45,212,191,0.13) 0px, rgba(45,212,191,0.13) 1.5px, transparent 1.5px, transparent 116px)',
+          WebkitMaskImage: 'radial-gradient(ellipse 90% 100% at 50% 0%, #000 34%, transparent 86%)',
+          maskImage: 'radial-gradient(ellipse 90% 100% at 50% 0%, #000 34%, transparent 86%)',
+        }}
+      />
       <span
         aria-hidden="true"
         className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-teal-500/20 blur-[110px]"
