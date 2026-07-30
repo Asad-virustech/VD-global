@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import type { ReactNode } from 'react';
+import { Eyebrow } from './Eyebrow';
 
 type SectionHeadingProps = {
   eyebrow?: string;
@@ -30,11 +31,9 @@ export function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.4 }}
-          className={`mb-3 text-xs font-semibold uppercase tracking-[0.18em] ${
-            dark ? 'text-teal-300' : 'text-teal-700'
-          }`}
+          className="mb-4"
         >
-          {eyebrow}
+          <Eyebrow tone={tone}>{eyebrow}</Eyebrow>
         </motion.p>
       )}
       <motion.h2

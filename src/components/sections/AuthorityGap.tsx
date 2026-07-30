@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
+import { Eyebrow } from '../ui/Eyebrow';
 import { AuthorityRings } from './AuthorityRings';
 
 /** The authority layers, foundation → compounding outcome, for the ring model. */
@@ -17,9 +18,8 @@ export function AuthorityGap() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.5, ease: 'easeOut' as const }}
-              className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700"
             >
-              The Authority Gap
+              <Eyebrow>The Authority Gap</Eyebrow>
             </motion.p>
 
             <motion.h2
