@@ -82,7 +82,7 @@ export function AuthorityEcosystem() {
   const LeadIcon = lead.icon;
 
   return (
-    <Section className="relative bg-white bg-aurora">
+    <Section className="relative surface-base">
       <Container>
         <SectionHeading
           eyebrow="Our Authority Ecosystem"

@@ -98,7 +98,7 @@ function StagePhase({ icon: Icon, label, title, description, priorities, index }
 
 export function ChoosingStrategy() {
   return (
-    <Section className="relative bg-white bg-aurora">
+    <Section className="relative surface-base">
       <Container>
         <SectionHeading
           align="center"

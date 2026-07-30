@@ -54,7 +54,7 @@ const row: Variants = {
 
 export function WhatMakesUsDifferent() {
   return (
-    <Section className="bg-white">
+    <Section className="surface-base">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           {/* Left — sticky heading */}

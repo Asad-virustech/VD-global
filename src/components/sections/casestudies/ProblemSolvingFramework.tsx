@@ -6,7 +6,7 @@ import { PROBLEM_FRAMEWORK } from '../../../../content/caseStudies';
 
 export function ProblemSolvingFramework() {
   return (
-    <Section className="bg-white">
+    <Section className="surface-base">
       <Container>
         <SectionHeading
           align="center"

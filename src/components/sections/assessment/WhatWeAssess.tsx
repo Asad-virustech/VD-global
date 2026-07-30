@@ -101,7 +101,7 @@ function DimensionRow({ icon: Icon, title, description, index }: Dimension & { i
 
 export function WhatWeAssess() {
   return (
-    <Section className="bg-white">
+    <Section className="surface-base">
       <Container>
         <SectionHeading
           align="center"

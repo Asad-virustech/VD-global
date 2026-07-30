@@ -17,7 +17,7 @@ export function Newsletter() {
   }
 
   return (
-    <Section className="bg-white">
+    <Section className="surface-base">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 18 }}

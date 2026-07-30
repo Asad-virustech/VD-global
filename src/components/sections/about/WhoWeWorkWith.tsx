@@ -88,7 +88,7 @@ function AudienceTile({ icon: Icon, title, description, wide = false, feature = 
 
 export function WhoWeWorkWith() {
   return (
-    <Section className="bg-white">
+    <Section className="surface-base">
       <Container>
         <SectionHeading
           align="center"

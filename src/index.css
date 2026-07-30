@@ -83,13 +83,22 @@
      never blue). Now ALIVE: soft teal glows in opposite corners + a faint dot
      matrix so the tinted sections read textured, not flat. Declared AFTER
      `bg-aurora` so it wins the background-image on `surface-alt bg-aurora`. */
+  /* White light section — plain white carrying the shared global pattern. */
+  .surface-base {
+    background-color: #ffffff;
+    background-image: var(--page-pattern);
+    background-size: 26px 26px;
+  }
+
+  /* Tinted light section — a soft whitish-teal with gentle corner glows + the
+     same global pattern, so all light sections read alive and consistent. */
   .surface-alt {
-    background-color: #c4dcd3;
+    background-color: #dcebe6;
     background-image:
-      radial-gradient(46% 60% at 0% 0%, rgb(20 184 166 / 0.16) 0%, transparent 55%),
-      radial-gradient(46% 60% at 100% 100%, rgb(13 148 136 / 0.14) 0%, transparent 55%),
-      radial-gradient(rgb(15 23 42 / 0.08) 1.5px, transparent 1.5px);
-    background-size: 100% 100%, 100% 100%, 20px 20px;
+      radial-gradient(48% 62% at 0% 0%, rgb(20 184 166 / 0.13) 0%, transparent 55%),
+      radial-gradient(48% 62% at 100% 100%, rgb(13 148 136 / 0.11) 0%, transparent 55%),
+      var(--page-pattern);
+    background-size: 100% 100%, 100% 100%, 26px 26px;
   }
 
   /* Premium grid that dissolves toward the edges via a radial mask. */
@@ -106,6 +115,9 @@
      layer. Declared once as a variable so every dark surface can compose it. */
   :root {
     --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    /* Shared whole-site pattern for light surfaces — a soft dot matrix, subtle
+       but present on both white and tinted sections. */
+    --page-pattern: radial-gradient(rgb(15 23 42 / 0.05) 1.2px, transparent 1.4px);
   }
 
   .bg-noise {

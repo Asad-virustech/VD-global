@@ -85,7 +85,7 @@ export function PageHero({ label, title, subtitle, primary, secondary, meta }: P
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative isolate flex min-h-[88vh] flex-col overflow-hidden bg-ink-950 text-white">
+    <section className="relative isolate flex min-h-screen flex-col overflow-hidden bg-ink-950 text-white">
       {/* Clean cinematic background */}
       <div className="pointer-events-none absolute inset-0 -z-30 surface-night" aria-hidden="true" />
       <div

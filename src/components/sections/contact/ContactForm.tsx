@@ -78,7 +78,7 @@ export function ContactForm() {
   const firstName = values.fullName.trim().split(' ')[0];
 
   return (
-    <Section id="request" className="bg-white">
+    <Section id="request" className="surface-base">
       <Container>
         <SectionHeading
           align="center"

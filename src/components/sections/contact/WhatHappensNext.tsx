@@ -1,4 +1,4 @@
-import { Section } from '../../ui/Section';
+﻿import { Section } from '../../ui/Section';
 import { Container } from '../../ui/Container';
 import { SectionHeading } from '../../ui/SectionHeading';
 import { StepTimeline } from '../StepTimeline';
@@ -6,7 +6,7 @@ import { WHAT_HAPPENS_NEXT } from '../../../../content/contact';
 
 export function WhatHappensNext() {
   return (
-    <Section className="bg-white">
+    <Section className="surface-base">
       <Container>
         <SectionHeading
           align="center"

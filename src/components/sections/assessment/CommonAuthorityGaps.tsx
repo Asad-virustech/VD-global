@@ -109,7 +109,7 @@ function GapTile({ icon: Icon, title, description, wide = false, dark = false }:
 
 export function CommonAuthorityGaps() {
   return (
-    <Section className="bg-white">
+    <Section className="surface-base">
       <Container>
         <SectionHeading
           align="center"

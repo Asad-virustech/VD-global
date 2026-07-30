@@ -43,7 +43,7 @@ const item: Variants = {
 
 export function TrustSection() {
   return (
-    <Section className="bg-white">
+    <Section className="surface-base">
       <Container>
         <SectionHeading
           align="center"

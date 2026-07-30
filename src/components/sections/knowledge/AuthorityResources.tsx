@@ -90,7 +90,7 @@ function ResourceRow({ icon: Icon, type, title, description, first }: Resource &
 
 export function AuthorityResources() {
   return (
-    <Section className="bg-white">
+    <Section className="surface-base">
       <Container>
         <SectionHeading
           align="center"

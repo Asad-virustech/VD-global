@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { ArrowRight, Building2, Lightbulb } from 'lucide-react';
 import { Section } from '../../ui/Section';
 import { Container } from '../../ui/Container';
@@ -18,7 +18,7 @@ export function FeaturedCaseStudy() {
   if (!featured) return null;
 
   return (
-    <Section className="bg-white">
+    <Section className="surface-base">
       <Container>
         <SectionHeading
           align="center"

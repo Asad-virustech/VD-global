@@ -44,7 +44,7 @@ const FAQS: FaqItem[] = [
 
 export function SolutionsFaq() {
   return (
-    <Section className="relative bg-white bg-aurora">
+    <Section className="relative surface-base">
       <Container>
         <SectionHeading
           align="center"

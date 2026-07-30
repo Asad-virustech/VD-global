@@ -39,7 +39,7 @@ const FAQS: FaqItem[] = [
 
 export function AboutFaq() {
   return (
-    <Section className="bg-white">
+    <Section className="surface-base">
       <Container>
         <SectionHeading
           align="center"

@@ -6,7 +6,7 @@ import { CASE_STUDY_FAQS } from '../../../../content/caseStudies';
 
 export function CaseStudiesFaq() {
   return (
-    <Section className="bg-white">
+    <Section className="surface-base">
       <Container>
         <SectionHeading
           align="center"

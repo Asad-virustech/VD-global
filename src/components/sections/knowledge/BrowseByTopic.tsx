@@ -61,7 +61,7 @@ function TopicPill({ icon: Icon, label, count }: Topic) {
 
 export function BrowseByTopic() {
   return (
-    <Section className="bg-white">
+    <Section className="surface-base">
       <Container>
         <SectionHeading
           align="center"

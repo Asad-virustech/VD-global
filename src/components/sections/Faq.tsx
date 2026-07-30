@@ -1,4 +1,4 @@
-import { Section } from '../ui/Section';
+﻿import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
 import { FaqAccordion } from '../ui/FaqAccordion';
@@ -39,7 +39,7 @@ const FAQS: FaqItem[] = [
 
 export function Faq() {
   return (
-    <Section className="bg-white bg-aurora">
+    <Section className="surface-base">
       <Container>
         <SectionHeading
           align="center"
