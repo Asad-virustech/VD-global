@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { ArrowRight } from 'lucide-react';
@@ -15,27 +15,27 @@ type HeroAction = {
 };
 
 type PageHeroProps = {
-  /** Right-hand label on the masthead rule (e.g. the page name). */
+  /** Small eyebrow label (the page name). */
   label: string;
-  /** Two-digit editorial folio for the architectural section marker (e.g. "02"). */
-  index: string;
+  /** Retained for call-site compatibility; no longer rendered. */
+  index?: string;
   /** Headline — pass a teal-accented `<span>` inline for the highlight word. */
   title: ReactNode;
   subtitle: string;
   primary: HeroAction;
   secondary?: HeroAction;
-  /** Short trust/meta items rendered along the bottom rule. */
+  /** Short trust/meta items rendered along the bottom border-line. */
   meta?: string[];
 };
 
 const container: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.12 } },
 };
 
 const item: Variants = {
   hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: 'easeOut' as const } },
 };
 
 function PrimaryButton({ action }: { action: HeroAction }) {
@@ -46,11 +46,11 @@ function PrimaryButton({ action }: { action: HeroAction }) {
     </>
   );
   return action.href ? (
-    <Button as="a" href={action.href} size="lg" variant="primary">
+    <Button as="a" href={action.href} size="md" variant="primary">
       {inner}
     </Button>
   ) : (
-    <Button as="link" to={action.to ?? '/'} size="lg" variant="primary">
+    <Button as="link" to={action.to ?? '/'} size="md" variant="primary">
       {inner}
     </Button>
   );
@@ -65,120 +65,131 @@ function SecondaryButton({ action }: { action: HeroAction }) {
     </>
   );
   return action.href ? (
-    <Button as="a" href={action.href} size="lg" variant="glass">
+    <Button as="a" href={action.href} size="md" variant="glass">
       {inner}
     </Button>
   ) : (
-    <Button as="link" to={action.to ?? '/'} size="lg" variant="glass">
+    <Button as="link" to={action.to ?? '/'} size="md" variant="glass">
       {inner}
     </Button>
   );
 }
 
 /**
- * The canonical internal-page hero: an asymmetric, left-aligned "architectural
- * folio" on the dark cinematic surface — headline anchored left, an oversized
- * outlined section numeral as an editorial folio on the right, and a full-width
- * measured baseline rule. Deliberately distinct from the homepage hero (a
- * two-column layout with floating glass cards) so internal pages share one
- * identity that reads as the same brand without cloning the home page.
+ * The canonical internal-page hero — same premium language as the homepage
+ * Hero: a clean cinematic dark surface (grain + smooth wash + a teal-lit orb +
+ * a light arc), a giant Swiss headline on the left, a supporting detail on the
+ * right, and the CTAs + trust anchored to the hero's bottom border-line.
  */
-export function PageHero({ label, index, title, subtitle, primary, secondary, meta }: PageHeroProps) {
+export function PageHero({ label, title, subtitle, primary, secondary, meta }: PageHeroProps) {
+  const reduce = useReducedMotion();
+
   return (
-    <section className="relative isolate flex min-h-[80vh] flex-col justify-center overflow-hidden bg-ink-950 text-white">
-      {/* Cinematic layered background — light source pulled to the top-right for asymmetry */}
-      <div className="pointer-events-none absolute inset-0 -z-20 surface-night" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-light opacity-50" aria-hidden="true" />
+    <section className="relative isolate flex min-h-[88vh] flex-col overflow-hidden bg-ink-950 text-white">
+      {/* Clean cinematic background */}
+      <div className="pointer-events-none absolute inset-0 -z-30 surface-night" aria-hidden="true" />
       <div
-        className="pointer-events-none absolute -z-10 right-[-8%] top-[-18%] h-[520px] w-[760px] rounded-full bg-teal-500/15 blur-[150px]"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -z-10 left-[-6%] bottom-[-10%] h-[360px] w-[520px] rounded-full bg-teal-600/10 blur-[150px]"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-b from-transparent to-ink-950"
+        className="pointer-events-none absolute inset-0 -z-20"
+        style={{
+          background:
+            'radial-gradient(120% 90% at 80% 8%, rgba(20,184,166,0.15) 0%, transparent 55%), radial-gradient(90% 80% at 0% 100%, rgba(13,148,136,0.09) 0%, transparent 60%)',
+        }}
         aria-hidden="true"
       />
 
-      <div className="container-px relative w-full py-24">
-        <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-8">
-          {/* Left — editorial content */}
-          <motion.div
-            variants={container}
-            initial="hidden"
-            animate="show"
-            className="lg:col-span-8"
-          >
-            {/* Masthead rule */}
+      {/* Light arc */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -z-10 -right-[30%] top-1/2 h-[1100px] w-[1100px] -translate-y-1/2 rounded-full border border-teal-300/12"
+        style={{ boxShadow: 'inset 0 0 160px rgba(45,212,191,0.12)' }}
+      />
+
+      {/* Orb */}
+      <motion.div
+        aria-hidden="true"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, ease: 'easeOut' as const, delay: 0.2 }}
+        className="pointer-events-none absolute -z-10 right-[9%] top-[16%] hidden h-48 w-48 rounded-full lg:block xl:h-56 xl:w-56"
+        style={{
+          background:
+            'radial-gradient(circle at 34% 30%, rgba(153,246,228,0.5), rgba(13,148,136,0.26) 42%, rgba(2,6,23,0.85) 76%)',
+          boxShadow: '0 0 120px 10px rgba(45,212,191,0.16)',
+        }}
+      >
+        <motion.span
+          className="absolute inset-0 rounded-full"
+          animate={reduce ? undefined : { opacity: [0.65, 1, 0.65] }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' as const }}
+          style={{ boxShadow: 'inset 0 0 60px rgba(94,234,212,0.26)' }}
+        />
+      </motion.div>
+
+      {/* Bottom fade */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-ink-950"
+        aria-hidden="true"
+      />
+
+      {/* Main — headline left, detail right */}
+      <div className="container-px relative flex flex-1 items-center pb-14 pt-44">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="grid w-full gap-14 lg:grid-cols-12 lg:items-end lg:gap-10"
+        >
+          <div className="lg:col-span-8">
             <motion.div
               variants={item}
-              className="flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-400"
+              className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-teal-200 shadow-[inset_0_1px_0_0_rgb(255_255_255/0.08)] backdrop-blur-md"
             >
-              <span className="text-teal-300">VD Global</span>
-              <span aria-hidden="true" className="h-px w-16 bg-white/15" />
-              <span>{label}</span>
+              <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
+              {label}
             </motion.div>
 
             <motion.h1
               variants={item}
-              className="mt-8 max-w-3xl text-[2.5rem] font-bold leading-[1.03] tracking-tight text-white sm:text-6xl lg:text-[4.25rem] text-balance"
+              className="mt-10 text-[2.75rem] font-bold leading-[0.98] tracking-[-0.02em] text-white sm:text-6xl lg:text-[4.25rem] text-balance"
             >
               {title}
             </motion.h1>
+          </div>
 
-            <motion.p
-              variants={item}
-              className="mt-7 max-w-xl text-base leading-relaxed text-ink-300 sm:text-lg"
-            >
+          <motion.div variants={item} className="lg:col-span-4 lg:pb-3">
+            <span aria-hidden="true" className="block h-px w-12 bg-teal-400/50" />
+            <p className="mt-5 max-w-md text-base leading-relaxed text-ink-300 sm:text-lg">
               {subtitle}
-            </motion.p>
-
-            <motion.div
-              variants={item}
-              className="mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4"
-            >
-              <PrimaryButton action={primary} />
-              {secondary && <SecondaryButton action={secondary} />}
-            </motion.div>
+            </p>
           </motion.div>
-
-          {/* Right — architectural folio marker */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' as const, delay: 0.35 }}
-            aria-hidden="true"
-            className="hidden lg:col-span-4 lg:flex lg:flex-col lg:items-end lg:justify-center"
-          >
-            <span className="font-heading text-[11rem] font-extrabold leading-none tracking-tighter text-transparent [-webkit-text-stroke:1.5px_rgba(45,212,191,0.28)]">
-              {index}
-            </span>
-            <span className="mt-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-ink-400">
-              <span className="h-px w-12 bg-gradient-to-l from-teal-400/50 to-transparent" />
-              {label}
-            </span>
-          </motion.div>
-        </div>
-
-        {/* Full-width measured baseline rule */}
-        {meta && meta.length > 0 && (
-          <motion.ul
-            variants={item}
-            initial="hidden"
-            animate="show"
-            className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-white/10 pt-7 sm:mt-20"
-          >
-            {meta.map((entry) => (
-              <li key={entry} className="flex items-center gap-2.5 text-sm text-ink-300">
-                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-teal-400" />
-                {entry}
-              </li>
-            ))}
-          </motion.ul>
-        )}
+        </motion.div>
       </div>
+
+      {/* Bottom border-line — CTAs left, trust right */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' as const, delay: 0.55 }}
+        className="container-px relative"
+      >
+        <div className="flex flex-col gap-6 border-t border-white/10 py-7 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <PrimaryButton action={primary} />
+            {secondary && <SecondaryButton action={secondary} />}
+          </div>
+
+          {meta && meta.length > 0 && (
+            <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink-400">
+              {meta.map((entry) => (
+                <li key={entry} className="flex items-center gap-2.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
+                  {entry}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </motion.div>
     </section>
   );
 }

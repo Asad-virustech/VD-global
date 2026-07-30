@@ -8,15 +8,17 @@ const base =
   'inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
 
 const variants: Record<Variant, string> = {
+  // Liquid-glass teal — translucent + blurred with a bright inner edge, still
+  // legible (white text over saturated teal) on both dark and light surfaces.
   primary:
-    'bg-gradient-to-b from-teal-600 to-teal-700 text-white shadow-soft hover:from-teal-500 hover:to-teal-700 hover:shadow-teal-glow active:scale-[0.98]',
+    'border border-white/15 bg-gradient-to-b from-teal-500/90 to-teal-700/90 text-white shadow-[inset_0_1px_0_0_rgb(255_255_255/0.22)] backdrop-blur-md hover:from-teal-400/90 hover:to-teal-600/90 hover:border-white/25 hover:shadow-teal-glow active:scale-[0.98]',
   secondary:
-    'bg-gradient-to-b from-ink-800 to-ink-900 text-white shadow-soft hover:from-ink-700 hover:to-ink-900 active:scale-[0.98]',
+    'bg-gradient-to-b from-ink-800/90 to-ink-900/90 text-white shadow-[inset_0_1px_0_0_rgb(255_255_255/0.12)] backdrop-blur-md hover:from-ink-700/90 hover:to-ink-900/90 active:scale-[0.98]',
   ghost: 'text-ink-700 hover:bg-ink-100 hover:text-ink-900',
   outline:
-    'border border-ink-200 bg-white text-ink-800 hover:border-teal-300 hover:bg-teal-50 hover:text-teal-800 active:scale-[0.98]',
+    'border border-ink-200 bg-white/70 text-ink-800 backdrop-blur-md hover:border-teal-300 hover:bg-teal-50/80 hover:text-teal-800 active:scale-[0.98]',
   glass:
-    'border border-white/20 bg-white/5 text-white backdrop-blur-sm hover:border-white/30 hover:bg-white/10 active:scale-[0.98]',
+    'border border-white/20 bg-white/5 text-white shadow-[inset_0_1px_0_0_rgb(255_255_255/0.10)] backdrop-blur-md hover:border-white/30 hover:bg-white/10 active:scale-[0.98]',
 };
 
 const sizes: Record<Size, string> = {

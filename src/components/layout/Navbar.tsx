@@ -24,10 +24,10 @@ export function Navbar() {
 
   const primaryNav = NAV_ITEMS.slice(0, 5);
   const moreNav = NAV_ITEMS.slice(5);
-  // Floating frosted capsule: a tinted dark glass over the hero, a light glass
-  // once scrolled. The capsule always carries its own blurred surface, so links
-  // are never rendered white-on-white or dark-on-dark.
-  const onDark = !scrolled;
+  // Floating frosted capsule — always DARK glass (user preference). It carries
+  // its own dark blurred surface, so white links stay legible over any section;
+  // only the opacity firms up on scroll for contrast over light content.
+  const onDark = true;
 
   const linkClass = (isActive: boolean) =>
     `rounded-full px-3.5 py-2 text-sm font-medium tracking-tight transition-colors duration-200 ${
@@ -50,10 +50,10 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="container-px pt-3 sm:pt-4">
         <nav
-          className={`mx-auto flex h-14 max-w-6xl items-center justify-between gap-2 rounded-2xl border pl-4 pr-3 backdrop-blur-xl transition-[background-color,border-color,box-shadow] duration-300 ${
-            onDark
-              ? 'border-white/10 bg-ink-950/40'
-              : 'border-ink-200/70 bg-white/80 shadow-lg shadow-ink-950/5'
+          className={`mx-auto flex h-14 max-w-6xl items-center justify-between gap-2 rounded-2xl border border-white/10 pl-4 pr-3 backdrop-blur-2xl transition-[background-color,box-shadow] duration-300 ${
+            scrolled
+              ? 'bg-ink-950/80 shadow-[inset_0_1px_0_0_rgb(255_255_255/0.08),0_10px_40px_-12px_rgb(0_0_0/0.6)]'
+              : 'bg-ink-950/30 shadow-[inset_0_1px_0_0_rgb(255_255_255/0.08),0_10px_40px_-12px_rgb(0_0_0/0.5)]'
           }`}
         >
           {/* Left — logo + primary links */}

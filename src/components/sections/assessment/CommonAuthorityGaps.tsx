@@ -62,7 +62,7 @@ type GapTileProps = Gap & { wide?: boolean; dark?: boolean };
 
 function GapTile({ icon: Icon, title, description, wide = false, dark = false }: GapTileProps) {
   const surface = dark
-    ? 'border-white/10 surface-night'
+    ? 'border-white/10 surface-night shadow-[inset_0_1px_0_0_rgb(255_255_255/0.06)]'
     : 'border-ink-100 bg-gradient-to-b from-white to-ink-50/60';
 
   return (

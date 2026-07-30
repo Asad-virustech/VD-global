@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { ArrowRight, Compass, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Compass } from 'lucide-react';
 import { Button } from '../ui/Button';
 
 const TRUST_INDICATORS = [
@@ -11,160 +11,135 @@ const TRUST_INDICATORS = [
 
 const container: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.12 } },
 };
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: 'easeOut' as const } },
 };
 
-/** The architectural aperture — nested frames receding to a lit teal core. */
-function AuthorityPortal() {
+export function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1, ease: 'easeOut' as const, delay: 0.25 }}
-      className="relative mx-auto aspect-square w-full max-w-md lg:ml-auto lg:mr-0"
-    >
-      {/* Ambient bloom */}
+    <section className="relative isolate flex min-h-screen flex-col overflow-hidden bg-ink-950 text-white">
+      {/* Clean cinematic background — a smooth wash + subtle grain, no ribbing */}
+      <div className="pointer-events-none absolute inset-0 -z-30 surface-night" aria-hidden="true" />
       <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-teal-500/20 blur-[120px]"
-      />
-
-      {/* Concentric aperture — frames receding toward the light */}
-      <div className="absolute inset-0 rounded-[2.75rem] border border-white/10 bg-white/[0.02] backdrop-blur-sm" />
-      <div className="absolute inset-[8%] rounded-[2.4rem] border border-white/[0.09] bg-white/[0.015]" />
-      <div className="absolute inset-[18%] rounded-[2rem] border border-white/[0.08]" />
-      <div className="absolute inset-[29%] rounded-[1.6rem] border border-teal-300/25" />
-      <div className="absolute inset-[40%] rounded-[1.3rem] border border-teal-300/40" />
-
-      {/* Glowing core — the light beyond the door */}
-      <motion.div
-        aria-hidden="true"
-        className="absolute inset-[46%] rounded-full blur-md"
+        className="pointer-events-none absolute inset-0 -z-20"
         style={{
           background:
-            'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(94,234,212,0.75) 38%, rgba(45,212,191,0.25) 68%, transparent 78%)',
+            'radial-gradient(120% 90% at 78% 8%, rgba(20,184,166,0.16) 0%, transparent 55%), radial-gradient(90% 80% at 0% 100%, rgba(13,148,136,0.10) 0%, transparent 60%)',
         }}
-        animate={reduce ? undefined : { opacity: [0.8, 1, 0.8], scale: [1, 1.12, 1] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' as const }}
+        aria-hidden="true"
       />
 
-      {/* Vertical light shaft through the aperture */}
+      {/* Light arc — a single large faint teal ring, mostly off-screen right */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-[6%] bottom-[6%] w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-teal-300/30 to-transparent"
+        className="pointer-events-none absolute -z-10 -right-[30%] top-1/2 h-[1200px] w-[1200px] -translate-y-1/2 rounded-full border border-teal-300/12"
+        style={{ boxShadow: 'inset 0 0 160px rgba(45,212,191,0.12)' }}
       />
 
-      {/* Floating glass chips */}
+      {/* Orb — a soft teal-lit sphere, upper-right */}
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' as const, delay: 0.75 }}
-        className="absolute -left-4 top-8 hidden items-center gap-2.5 rounded-xl border border-white/15 bg-ink-900/70 px-3.5 py-2.5 shadow-xl backdrop-blur-xl sm:flex"
+        aria-hidden="true"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, ease: 'easeOut' as const, delay: 0.2 }}
+        className="pointer-events-none absolute -z-10 right-[8%] top-[14%] hidden h-52 w-52 rounded-full lg:block xl:h-60 xl:w-60"
+        style={{
+          background:
+            'radial-gradient(circle at 34% 30%, rgba(153,246,228,0.55), rgba(13,148,136,0.28) 42%, rgba(2,6,23,0.85) 76%)',
+          boxShadow: '0 0 120px 10px rgba(45,212,191,0.18)',
+        }}
       >
-        <span className="h-2 w-2 rounded-full bg-teal-400" />
-        <span className="text-sm font-semibold text-white">Authority Assessment</span>
-        <span className="rounded-full border border-teal-400/30 bg-teal-400/10 px-2 py-0.5 text-[10px] font-medium text-teal-200">
-          Free
-        </span>
+        <motion.span
+          className="absolute inset-0 rounded-full"
+          animate={reduce ? undefined : { opacity: [0.65, 1, 0.65] }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' as const }}
+          style={{ boxShadow: 'inset 0 0 60px rgba(94,234,212,0.28)' }}
+        />
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' as const, delay: 0.9 }}
-        className="absolute -right-3 bottom-10 hidden items-center gap-2.5 rounded-xl border border-white/15 bg-ink-900/70 px-3.5 py-2.5 shadow-xl backdrop-blur-xl sm:flex"
-      >
-        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/5 text-teal-300 ring-1 ring-inset ring-white/10">
-          <ShieldCheck className="h-4 w-4" strokeWidth={1.75} />
-        </span>
-        <span className="text-sm font-medium text-ink-200">Reply within 24 hours</span>
-      </motion.div>
-    </motion.div>
-  );
-}
-
-export function Hero() {
-  return (
-    <section className="relative isolate flex min-h-[94vh] flex-col justify-center overflow-hidden bg-ink-950 text-white">
-      {/* Cinematic layered background */}
-      <div className="pointer-events-none absolute inset-0 -z-20 surface-night" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-light opacity-70" aria-hidden="true" />
+      {/* Bottom fade into the next section */}
       <div
-        className="pointer-events-none absolute -z-10 left-[-12%] top-[-18%] h-[640px] w-[640px] rounded-full bg-teal-500/20 blur-[150px]"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -z-10 right-[6%] top-1/2 h-[620px] w-[620px] -translate-y-1/2 rounded-full bg-teal-400/12 blur-[150px]"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-b from-transparent to-ink-950"
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-ink-950"
         aria-hidden="true"
       />
 
-      <div className="container-px relative w-full py-24 lg:py-20">
-        <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
-          {/* Left — editorial copy */}
-          <motion.div variants={container} initial="hidden" animate="show" className="max-w-2xl">
+      {/* Main — headline left, supporting detail right */}
+      <div className="container-px relative flex flex-1 items-center pb-14 pt-44">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="grid w-full gap-14 lg:grid-cols-12 lg:items-end lg:gap-10"
+        >
+          {/* Left — status + headline */}
+          <div className="lg:col-span-8">
             <motion.div
               variants={item}
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-teal-300 backdrop-blur-sm"
+              className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-teal-200 shadow-[inset_0_1px_0_0_rgb(255_255_255/0.08)] backdrop-blur-md"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400/70" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-400" />
+              </span>
               Authority Advisory Firm
             </motion.div>
 
             <motion.h1
               variants={item}
-              className="mt-6 text-5xl font-bold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl text-balance"
+              className="mt-10 text-[3.25rem] font-bold leading-[0.98] tracking-[-0.02em] text-white sm:text-7xl lg:text-[4.75rem]"
             >
-              Build <span className="text-teal-300">Authority</span> That Opens Doors.
+              Build <span className="text-teal-300">Authority</span>
+              <br />
+              That Opens Doors.
             </motion.h1>
+          </div>
 
-            <motion.p variants={item} className="mt-7 max-w-xl text-lg leading-relaxed text-ink-300">
+          {/* Right — supporting detail */}
+          <motion.div variants={item} className="lg:col-span-4 lg:pb-3">
+            <span aria-hidden="true" className="block h-px w-12 bg-teal-400/50" />
+            <p className="mt-5 max-w-md text-base leading-relaxed text-ink-300 sm:text-lg">
               Strategic PR, media visibility, reputation advisory, and Wikipedia readiness for
-              founders, executives, authors, startups, and growing businesses that want long-term
-              credibility instead of short-term attention.
-            </motion.p>
-
-            <motion.div variants={item} className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button as="link" to="/assessment" size="lg" variant="primary">
-                Start Your Free Authority Assessment
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-              <Button as="link" to="/solutions" size="lg" variant="glass">
-                <Compass className="h-4 w-4" />
-                Explore Our Process
-              </Button>
-            </motion.div>
+              founders and businesses that want long-term credibility — not short-term attention.
+            </p>
           </motion.div>
-
-          {/* Right — architectural authority portal */}
-          <AuthorityPortal />
-        </div>
-
-        {/* Full-width trust rail */}
-        <motion.ul
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' as const, delay: 0.55 }}
-          className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-white/10 pt-7 sm:mt-20"
-        >
-          {TRUST_INDICATORS.map((label) => (
-            <li key={label} className="flex items-center gap-2.5 text-sm text-ink-300">
-              <CheckCircle2 className="h-4 w-4 text-teal-400" strokeWidth={1.75} />
-              {label}
-            </li>
-          ))}
-        </motion.ul>
+        </motion.div>
       </div>
+
+      {/* Bottom border-line — CTAs on the left, trust on the right */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' as const, delay: 0.55 }}
+        className="container-px relative"
+      >
+        <div className="flex flex-col gap-6 border-t border-white/10 py-7 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button as="link" to="/assessment" size="md" variant="primary">
+              Start Your Free Assessment
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+            <Button as="link" to="/solutions" size="md" variant="glass">
+              <Compass className="h-4 w-4" />
+              Explore Our Process
+            </Button>
+          </div>
+
+          <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink-400">
+            {TRUST_INDICATORS.map((label) => (
+              <li key={label} className="flex items-center gap-2.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
+                {label}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </motion.div>
     </section>
   );
 }

@@ -23,7 +23,7 @@ export function SectionHeading({
   const dark = tone === 'dark';
 
   return (
-    <div className={`max-w-2xl ${alignClass} ${className}`}>
+    <div className={`max-w-3xl ${alignClass} ${className}`}>
       {eyebrow && (
         <motion.p
           initial={{ opacity: 0, y: 8 }}
@@ -42,7 +42,7 @@ export function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.5, delay: 0.05 }}
-        className={`text-3xl font-bold leading-[1.08] tracking-tight sm:text-4xl lg:text-5xl text-balance ${
+        className={`text-[2rem] font-bold leading-[1.02] tracking-[-0.02em] sm:text-[2.5rem] lg:text-[3.25rem] text-balance ${
           dark ? 'text-white' : 'text-ink-900'
         }`}
       >

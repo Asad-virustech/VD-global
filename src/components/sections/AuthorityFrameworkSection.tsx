@@ -66,7 +66,7 @@ function FeatureTile({ icon: Icon, title, description, index }: Step & { index: 
   return (
     <motion.article
       variants={tile}
-      className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 surface-night p-8 sm:p-9 lg:row-span-2"
+      className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 surface-night p-8 shadow-[inset_0_1px_0_0_rgb(255_255_255/0.06)] sm:p-9 lg:row-span-2"
     >
       <span
         aria-hidden="true"
