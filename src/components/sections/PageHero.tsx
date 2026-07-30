@@ -1,9 +1,10 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { ArrowRight } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { HeroBackdrop } from './HeroBackdrop';
 
 type HeroAction = {
   label: string;
@@ -77,53 +78,16 @@ function SecondaryButton({ action }: { action: HeroAction }) {
 
 /**
  * The canonical internal-page hero — same premium language as the homepage
- * Hero: a clean cinematic dark surface (grain + smooth wash + a teal-lit orb +
- * a light arc), a giant Swiss headline on the left, a supporting detail on the
- * right, and the CTAs + trust anchored to the hero's bottom border-line.
+ * Hero: the living aurora backdrop (keyed per page for variety), a giant Swiss
+ * headline on the left, a supporting detail on the right, and the CTAs + trust
+ * anchored to the hero's bottom border-line.
  */
-export function PageHero({ label, title, subtitle, primary, secondary, meta }: PageHeroProps) {
-  const reduce = useReducedMotion();
+export function PageHero({ label, index, title, subtitle, primary, secondary, meta }: PageHeroProps) {
+  const variant = index ? parseInt(index, 10) || 0 : 0;
 
   return (
     <section className="relative isolate flex min-h-screen flex-col overflow-hidden bg-ink-950 text-white">
-      {/* Clean cinematic background */}
-      <div className="pointer-events-none absolute inset-0 -z-30 surface-night" aria-hidden="true" />
-      <div
-        className="pointer-events-none absolute inset-0 -z-20"
-        style={{
-          background:
-            'radial-gradient(120% 90% at 80% 8%, rgba(20,184,166,0.15) 0%, transparent 55%), radial-gradient(90% 80% at 0% 100%, rgba(13,148,136,0.09) 0%, transparent 60%)',
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Light arc */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -z-10 -right-[30%] top-1/2 h-[1100px] w-[1100px] -translate-y-1/2 rounded-full border border-teal-300/12"
-        style={{ boxShadow: 'inset 0 0 160px rgba(45,212,191,0.12)' }}
-      />
-
-      {/* Orb */}
-      <motion.div
-        aria-hidden="true"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: 'easeOut' as const, delay: 0.2 }}
-        className="pointer-events-none absolute -z-10 right-[9%] top-[16%] hidden h-48 w-48 rounded-full lg:block xl:h-56 xl:w-56"
-        style={{
-          background:
-            'radial-gradient(circle at 34% 30%, rgba(153,246,228,0.5), rgba(13,148,136,0.26) 42%, rgba(2,6,23,0.85) 76%)',
-          boxShadow: '0 0 120px 10px rgba(45,212,191,0.16)',
-        }}
-      >
-        <motion.span
-          className="absolute inset-0 rounded-full"
-          animate={reduce ? undefined : { opacity: [0.65, 1, 0.65] }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' as const }}
-          style={{ boxShadow: 'inset 0 0 60px rgba(94,234,212,0.26)' }}
-        />
-      </motion.div>
+      <HeroBackdrop variant={variant} />
 
       {/* Bottom fade */}
       <div

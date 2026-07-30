@@ -1,7 +1,8 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { ArrowRight, Compass } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { HeroBackdrop } from './HeroBackdrop';
 
 const TRUST_INDICATORS = [
   'Response within 24 hours',
@@ -20,54 +21,9 @@ const item: Variants = {
 };
 
 export function Hero() {
-  const reduce = useReducedMotion();
-
   return (
     <section className="relative isolate flex min-h-screen flex-col overflow-hidden bg-ink-950 text-white">
-      {/* Clean cinematic background — a smooth wash + subtle grain, no ribbing */}
-      <div className="pointer-events-none absolute inset-0 -z-30 surface-night" aria-hidden="true" />
-      <div
-        className="pointer-events-none absolute inset-0 -z-20"
-        style={{
-          background:
-            'radial-gradient(120% 90% at 78% 8%, rgba(20,184,166,0.16) 0%, transparent 55%), radial-gradient(90% 80% at 0% 100%, rgba(13,148,136,0.10) 0%, transparent 60%)',
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Light arc — a single large faint teal ring, mostly off-screen right */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -z-10 -right-[30%] top-1/2 h-[1200px] w-[1200px] -translate-y-1/2 rounded-full border border-teal-300/12"
-        style={{ boxShadow: 'inset 0 0 160px rgba(45,212,191,0.12)' }}
-      />
-
-      {/* Orb — a soft teal-lit sphere, upper-right */}
-      <motion.div
-        aria-hidden="true"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: 'easeOut' as const, delay: 0.2 }}
-        className="pointer-events-none absolute -z-10 right-[8%] top-[14%] hidden h-52 w-52 rounded-full lg:block xl:h-60 xl:w-60"
-        style={{
-          background:
-            'radial-gradient(circle at 34% 30%, rgba(153,246,228,0.55), rgba(13,148,136,0.28) 42%, rgba(2,6,23,0.85) 76%)',
-          boxShadow: '0 0 120px 10px rgba(45,212,191,0.18)',
-        }}
-      >
-        <motion.span
-          className="absolute inset-0 rounded-full"
-          animate={reduce ? undefined : { opacity: [0.65, 1, 0.65] }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' as const }}
-          style={{ boxShadow: 'inset 0 0 60px rgba(94,234,212,0.28)' }}
-        />
-      </motion.div>
-
-      {/* Bottom fade into the next section */}
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-ink-950"
-        aria-hidden="true"
-      />
+      <HeroBackdrop variant={0} />
 
       {/* Main — headline left, supporting detail right */}
       <div className="container-px relative flex flex-1 items-center pb-14 pt-44">
