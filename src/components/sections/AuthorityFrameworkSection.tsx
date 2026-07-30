@@ -5,6 +5,7 @@ import { Search, ClipboardCheck, Map, Rocket, TrendingUp } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
+import { IconTile } from '../ui/IconTile';
 
 type Step = {
   icon: LucideIcon;
@@ -50,36 +51,67 @@ const CALLOUT = {
   body: 'Some businesses are ready for strategic PR. Some are preparing for Wikipedia. Others simply need stronger credibility before taking the next step. Our responsibility isn’t to sell every service. It’s to recommend the right next step for your business.',
 };
 
-const track: Variants = {
+const grid: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
 };
 
-const node: Variants = {
-  hidden: { opacity: 0, y: 18 },
+const tile: Variants = {
+  hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
 };
 
-function StepNode({ icon: Icon, title, description, index }: Step & { index: number }) {
+/** The tall dark "feature" tile that anchors the bento (step 01). */
+function FeatureTile({ icon: Icon, title, description, index }: Step & { index: number }) {
   return (
-    <motion.div variants={node} className="relative flex gap-5 sm:block sm:text-center">
-      <span className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-teal-100 bg-white text-teal-700 shadow-card ring-4 ring-white sm:mx-auto">
-        <Icon className="h-5 w-5" strokeWidth={1.75} />
+    <motion.article
+      variants={tile}
+      className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 surface-night p-8 sm:p-9 lg:row-span-2"
+    >
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-teal-500/20 blur-[90px]"
+      />
+      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-teal-300 ring-1 ring-inset ring-white/10">
+        <Icon className="h-6 w-6" strokeWidth={1.75} />
       </span>
-      <div className="sm:mt-6">
-        <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-teal-700">
-          Step {String(index + 1).padStart(2, '0')}
+      <span className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-teal-300">
+        Step {String(index + 1).padStart(2, '0')} · Where it begins
+      </span>
+      <h3 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">{title}</h3>
+      <p className="mt-4 max-w-sm text-base leading-relaxed text-ink-300 lg:mt-auto lg:pt-8">
+        {description}
+      </p>
+    </motion.article>
+  );
+}
+
+/** A big light bento card for the remaining steps. */
+function StepTile({ icon: Icon, title, description, index }: Step & { index: number }) {
+  return (
+    <motion.article
+      variants={tile}
+      whileHover={{ y: -4 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+      className="group relative flex flex-col overflow-hidden rounded-3xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-7 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-8"
+    >
+      <div className="flex items-center justify-between">
+        <IconTile size="md" ring hover>
+          <Icon className="h-5 w-5" strokeWidth={1.75} />
+        </IconTile>
+        <span className="font-heading text-2xl font-bold tabular-nums text-ink-200 transition-colors duration-300 group-hover:text-teal-200">
+          {String(index + 1).padStart(2, '0')}
         </span>
-        <h3 className="mt-1 text-lg font-semibold text-ink-900">{title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-ink-500 sm:mx-auto sm:max-w-[15rem]">
-          {description}
-        </p>
       </div>
-    </motion.div>
+      <h3 className="mt-5 text-xl font-semibold text-ink-900">{title}</h3>
+      <p className="mt-2.5 text-sm leading-relaxed text-ink-500">{description}</p>
+    </motion.article>
   );
 }
 
 export function AuthorityFrameworkSection() {
+  const [feature, ...rest] = STEPS;
+
   return (
     <Section className="surface-alt bg-aurora">
       <Container>
@@ -91,30 +123,19 @@ export function AuthorityFrameworkSection() {
           className="mb-14 sm:mb-16"
         />
 
-        {/* Connected process ribbon — 5 nodes on one ascending line, not cards */}
+        {/* Bento — one tall dark feature tile + a 2×2 of big light cards */}
         <motion.div
-          variants={track}
+          variants={grid}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="relative"
+          className="grid gap-4 sm:gap-5 lg:grid-cols-3 lg:grid-rows-2"
           aria-label="The Authority Framework process"
         >
-          {/* Horizontal spine (desktop) */}
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute left-7 right-7 top-7 hidden h-px bg-gradient-to-r from-teal-200 via-teal-400 to-teal-600 sm:block"
-          />
-          {/* Vertical spine (mobile) */}
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute bottom-7 left-7 top-7 w-px bg-gradient-to-b from-teal-200 via-teal-400 to-teal-600 sm:hidden"
-          />
-          <div className="grid gap-10 sm:grid-cols-5 sm:gap-4 lg:gap-6">
-            {STEPS.map((step, i) => (
-              <StepNode key={step.title} index={i} {...step} />
-            ))}
-          </div>
+          <FeatureTile index={0} {...feature} />
+          {rest.map((step, i) => (
+            <StepTile key={step.title} index={i + 1} {...step} />
+          ))}
         </motion.div>
 
         {/* Callout — editorial pull-quote, no card chrome */}

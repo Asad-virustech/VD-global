@@ -68,11 +68,11 @@ export function Newsletter() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@company.com"
-                  className="h-12 w-full flex-1 rounded-full border border-ink-200 bg-white px-5 text-sm text-ink-900 shadow-soft transition-colors placeholder:text-ink-400 focus:border-teal-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
+                  className="h-12 w-full flex-1 rounded-xl border border-ink-200 bg-white px-5 text-sm text-ink-900 shadow-soft transition-colors placeholder:text-ink-400 focus:border-teal-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
                 />
                 <button
                   type="submit"
-                  className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-teal-700 px-6 text-sm font-medium text-white shadow-soft transition-all duration-200 hover:bg-teal-800 hover:shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 active:scale-[0.98]"
+                  className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-teal-700 px-6 text-sm font-medium text-white shadow-soft transition-all duration-200 hover:bg-teal-800 hover:shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 active:scale-[0.98]"
                 >
                   Subscribe
                   <ArrowRight className="h-4 w-4" />

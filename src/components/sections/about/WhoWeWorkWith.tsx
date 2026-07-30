@@ -51,21 +51,37 @@ const grid: Variants = {
 };
 
 const cell: Variants = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 0.5, ease: 'easeOut' as const } },
+  hidden: { opacity: 0, y: 18 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
 };
 
-function AudienceCell({ icon: Icon, title, description }: Audience) {
+type AudienceTileProps = Audience & { wide?: boolean; feature?: boolean };
+
+function AudienceTile({ icon: Icon, title, description, wide = false, feature = false }: AudienceTileProps) {
+  const surface = feature
+    ? 'border-teal-200 bg-gradient-to-br from-teal-50 to-white'
+    : 'border-ink-100 bg-gradient-to-b from-white to-ink-50/60';
+
   return (
     <motion.article
       variants={cell}
-      className="group bg-white p-6 transition-colors duration-300 hover:bg-ink-50/60 sm:p-8"
+      whileHover={{ y: -4 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+      className={`group rounded-3xl border p-6 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-8 ${surface} ${
+        wide ? 'sm:col-span-2' : ''
+      }`}
     >
-      <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100 transition-colors duration-300 group-hover:bg-teal-100">
-        <Icon className="h-5 w-5" strokeWidth={1.75} />
-      </span>
-      <h3 className="mt-5 text-base font-semibold text-ink-900">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-ink-500">{description}</p>
+      <div className={wide ? 'flex items-start gap-5' : ''}>
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100 transition-colors duration-300 group-hover:bg-teal-100">
+          <Icon className="h-5 w-5" strokeWidth={1.75} />
+        </span>
+        <div className={wide ? 'flex-1' : ''}>
+          <h3 className={`font-semibold text-ink-900 ${wide ? 'mt-0 text-xl' : 'mt-5 text-base'}`}>
+            {title}
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-ink-500">{description}</p>
+        </div>
+      </div>
     </motion.article>
   );
 }
@@ -82,19 +98,22 @@ export function WhoWeWorkWith() {
           className="mb-12 sm:mb-14"
         />
 
-        {/* Editorial "ledger": hairline-divided cells inside one framed block */}
+        {/* Bento — big cards, a teal feature tile + a wide tile at opposite corners */}
         <motion.div
           variants={grid}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="overflow-hidden rounded-3xl border border-ink-100 shadow-card"
+          className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4"
         >
-          <div className="grid gap-px bg-ink-100 sm:grid-cols-2 lg:grid-cols-3">
-            {AUDIENCES.map((audience) => (
-              <AudienceCell key={audience.title} {...audience} />
-            ))}
-          </div>
+          {AUDIENCES.map((audience, i) => (
+            <AudienceTile
+              key={audience.title}
+              {...audience}
+              wide={i === 0 || i === AUDIENCES.length - 1}
+              feature={i === 0}
+            />
+          ))}
         </motion.div>
       </Container>
     </Section>

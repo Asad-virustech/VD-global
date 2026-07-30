@@ -75,18 +75,33 @@ const card: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
 };
 
-function ValueCell({ icon: Icon, title, description }: Value) {
+type ValueTileProps = Value & { wide?: boolean; feature?: boolean };
+
+function ValueTile({ icon: Icon, title, description, wide = false, feature = false }: ValueTileProps) {
+  const surface = feature
+    ? 'border-teal-200 bg-gradient-to-br from-teal-50 to-white'
+    : 'border-ink-100 bg-gradient-to-b from-white to-ink-50/60';
+
   return (
     <motion.article
       variants={card}
-      className="group bg-white p-7 transition-colors duration-300 hover:bg-teal-50/40 sm:p-8"
+      whileHover={{ y: -4 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+      className={`group rounded-3xl border p-7 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-8 ${surface} ${
+        wide ? 'sm:col-span-2' : ''
+      }`}
     >
-      <IconTile size="md" hover>
-        <Icon className="h-5 w-5" strokeWidth={1.75} />
-      </IconTile>
-
-      <h3 className="mt-5 text-lg font-semibold text-ink-900">{title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-ink-500">{description}</p>
+      <div className={wide ? 'flex items-start gap-5' : ''}>
+        <IconTile size="md" ring={feature} hover>
+          <Icon className="h-5 w-5" strokeWidth={1.75} />
+        </IconTile>
+        <div className={wide ? 'flex-1' : ''}>
+          <h3 className={`font-semibold text-ink-900 ${wide ? 'mt-0 text-xl' : 'mt-5 text-lg'}`}>
+            {title}
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-ink-500">{description}</p>
+        </div>
+      </div>
     </motion.article>
   );
 }
@@ -109,10 +124,15 @@ export function WhyVdGlobal() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-80px' }}
-            className="grid gap-px overflow-hidden rounded-3xl border border-ink-200 bg-ink-200 shadow-card sm:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4"
           >
-            {VALUES.map((value) => (
-              <ValueCell key={value.title} {...value} />
+            {VALUES.map((value, i) => (
+              <ValueTile
+                key={value.title}
+                {...value}
+                wide={i === 0 || i === VALUES.length - 1}
+                feature={i === 0}
+              />
             ))}
           </motion.div>
         </Container>

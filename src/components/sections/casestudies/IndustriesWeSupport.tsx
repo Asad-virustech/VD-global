@@ -12,24 +12,38 @@ const list: Variants = {
 };
 
 const row: Variants = {
-  hidden: { opacity: 0, y: 12 },
+  hidden: { opacity: 0, y: 16 },
   show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' as const } },
 };
 
-function IndustryRow({ icon: Icon, name, challenge }: IndustryItem) {
+type IndustryTileProps = IndustryItem & { wide?: boolean; feature?: boolean };
+
+function IndustryTile({ icon: Icon, name, challenge, wide = false, feature = false }: IndustryTileProps) {
+  const surface = feature
+    ? 'border-teal-200 bg-gradient-to-br from-teal-50 to-white'
+    : 'border-ink-100 bg-gradient-to-b from-white to-ink-50/60';
+
   return (
-    <motion.li
+    <motion.article
       variants={row}
-      className="flex items-start gap-4 border-b border-ink-200/70 py-5 sm:gap-5"
+      whileHover={{ y: -4 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+      className={`group rounded-3xl border p-6 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-7 ${surface} ${
+        wide ? 'sm:col-span-2' : ''
+      }`}
     >
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100">
-        <Icon className="h-5 w-5" strokeWidth={1.75} />
-      </span>
-      <div className="min-w-0 sm:flex sm:items-baseline sm:gap-4">
-        <h3 className="shrink-0 text-base font-semibold text-ink-900 sm:w-52">{name}</h3>
-        <p className="mt-1 text-sm leading-relaxed text-ink-500 sm:mt-0">{challenge}</p>
+      <div className={wide ? 'flex items-start gap-5' : ''}>
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100 transition-colors duration-300 group-hover:bg-teal-100">
+          <Icon className="h-5 w-5" strokeWidth={1.75} />
+        </span>
+        <div className={wide ? 'flex-1' : ''}>
+          <h3 className={`font-semibold text-ink-900 ${wide ? 'mt-0 text-xl' : 'mt-5 text-base'}`}>
+            {name}
+          </h3>
+          <p className="mt-1.5 text-sm leading-relaxed text-ink-500">{challenge}</p>
+        </div>
       </div>
-    </motion.li>
+    </motion.article>
   );
 }
 
@@ -45,17 +59,18 @@ export function IndustriesWeSupport() {
           className="mb-12 sm:mb-14"
         />
 
-        <motion.ul
+        {/* Bento — a wide teal feature tile leading a grid of big cards */}
+        <motion.div
           variants={list}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="mx-auto max-w-3xl border-t border-ink-200/70"
+          className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3"
         >
-          {INDUSTRIES.map((industry) => (
-            <IndustryRow key={industry.name} {...industry} />
+          {INDUSTRIES.map((industry, i) => (
+            <IndustryTile key={industry.name} {...industry} wide={i === 0} feature={i === 0} />
           ))}
-        </motion.ul>
+        </motion.div>
       </Container>
     </Section>
   );
