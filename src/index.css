@@ -99,6 +99,7 @@
     background-color: #0b1220;
     background-image:
       var(--noise),
+      repeating-radial-gradient(circle at 50% -14%, rgb(45 212 191 / 0.09) 0px, rgb(45 212 191 / 0.09) 1.5px, transparent 1.5px, transparent 134px),
       radial-gradient(55% 45% at 50% -8%, rgb(20 184 166 / 0.13) 0%, transparent 62%),
       radial-gradient(48% 55% at 100% 106%, rgb(13 148 136 / 0.10) 0%, transparent 58%),
       linear-gradient(180deg, rgb(2 6 23 / 0) 55%, rgb(2 6 23 / 0.35) 100%);
