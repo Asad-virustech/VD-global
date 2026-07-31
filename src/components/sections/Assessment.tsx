@@ -54,7 +54,7 @@ function FeatureCard({ icon: Icon, title, description, index }: FeatureCardProps
       variants={item}
       whileHover={{ y: -3 }}
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="group flex items-start gap-4 rounded-2xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-5 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-6"
+      className="group flex items-start gap-4 rounded-3xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-5 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-6"
     >
       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100 transition-colors duration-300 group-hover:bg-teal-100">
         <Icon className="h-5 w-5" strokeWidth={1.75} />

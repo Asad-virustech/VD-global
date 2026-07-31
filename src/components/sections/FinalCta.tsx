@@ -18,7 +18,7 @@ function TrustCardItem({ icon: Icon, title, description }: (typeof FINAL_CTA_TRU
   return (
     <motion.div
       variants={item}
-      className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6"
+      className="flex items-start gap-4 rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-6"
     >
       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/5 text-teal-400 ring-1 ring-inset ring-white/10">
         <Icon className="h-5 w-5" strokeWidth={1.75} />

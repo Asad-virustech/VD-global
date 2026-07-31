@@ -75,7 +75,7 @@ export function WhyCaseStudiesMatter() {
               <motion.li
                 key={point.term}
                 variants={item}
-                className="rounded-2xl border border-ink-100 bg-white p-6 shadow-card sm:p-7"
+                className="rounded-3xl border border-ink-100 bg-white p-6 shadow-card sm:p-7"
               >
                 <p className="text-base font-semibold text-ink-900">{point.term}</p>
                 <p className="mt-1.5 text-sm leading-relaxed text-ink-500 sm:text-base">{point.note}</p>

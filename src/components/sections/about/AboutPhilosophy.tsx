@@ -71,7 +71,7 @@ export function AboutPhilosophy() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-80px' }}
-            className="space-y-px overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"
+            className="space-y-px overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]"
           >
             {FACETS.map((facet) => (
               <motion.li

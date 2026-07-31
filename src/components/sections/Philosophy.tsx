@@ -190,7 +190,7 @@ export function Philosophy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: 'easeOut' as const, delay: 0.1 }}
-          className="relative overflow-hidden rounded-2xl border border-ink-100 bg-ink-50/60 p-8 sm:p-10"
+          className="relative overflow-hidden rounded-3xl border border-ink-100 bg-ink-50/60 p-8 sm:p-10"
         >
           <span
             aria-hidden="true"
