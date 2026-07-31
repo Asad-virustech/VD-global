@@ -82,7 +82,7 @@ function SolutionRow({ icon: Icon, title, description }: Solution) {
   return (
     <motion.article
       variants={cardVariant}
-      whileHover={{ y: -3 }}
+      whileHover={{ y: -4 }}
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
       className="group flex items-start gap-5 rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-[inset_0_1px_0_0_rgb(255_255_255/0.06)] backdrop-blur-md transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.07] sm:p-7"
     >

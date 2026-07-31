@@ -27,7 +27,7 @@ function StepCard({ icon: Icon, title, description, index }: WorkStep & { index:
   return (
     <motion.article
       variants={step}
-      whileHover={{ y: -3 }}
+      whileHover={{ y: -4 }}
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
       className="flex h-full flex-col rounded-3xl border border-ink-100 bg-white p-6 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-7"
     >

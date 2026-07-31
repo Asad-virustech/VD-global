@@ -52,7 +52,7 @@ function FeatureCard({ icon: Icon, title, description, index }: FeatureCardProps
   return (
     <motion.article
       variants={item}
-      whileHover={{ y: -3 }}
+      whileHover={{ y: -4 }}
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
       className="group flex items-start gap-4 rounded-3xl border border-ink-100 bg-gradient-to-b from-white to-ink-50/60 p-5 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-6"
     >

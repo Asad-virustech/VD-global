@@ -56,7 +56,7 @@ export function StepTimeline({ steps, numbered = true, className = '' }: StepTim
               </div>
 
               <motion.div
-                whileHover={{ y: -3 }}
+                whileHover={{ y: -4 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 24 }}
                 className="flex-1 rounded-3xl border border-ink-100 bg-white p-5 shadow-card transition-colors duration-300 hover:border-teal-200 sm:p-6"
               >

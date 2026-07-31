@@ -53,9 +53,9 @@ export function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.5, delay: 0.12 }}
-          className={`mt-4 text-base leading-relaxed sm:text-lg text-balance ${
-            dark ? 'text-ink-300' : 'text-ink-500'
-          }`}
+          className={`mt-5 max-w-2xl text-base leading-relaxed sm:text-lg text-balance ${
+            align === 'center' ? 'mx-auto' : ''
+          } ${dark ? 'text-ink-300' : 'text-ink-500'}`}
         >
           {description}
         </motion.p>
