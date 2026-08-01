@@ -8,9 +8,9 @@ import { Button } from '../../ui/Button';
 const FEATURED = {
   category: 'Authority Strategy',
   readTime: '9 min',
-  title: 'Authority vs. Visibility: Why Being Seen Isn’t Enough',
+  title: 'Authority vs. visibility: why being seen isn’t enough',
   summary:
-    'Visibility gets you noticed; authority gets you trusted. This piece breaks down the difference, why the two are often confused, and how credible businesses turn attention into lasting recognition — without resorting to hype.',
+    'Visibility gets you noticed; authority gets you trusted. This piece breaks down the difference, why the two are often confused, and how credible businesses turn attention into lasting recognition, without resorting to hype.',
 };
 
 export function FeaturedInsight() {
@@ -20,7 +20,7 @@ export function FeaturedInsight() {
         <SectionHeading
           align="center"
           eyebrow="Featured Insight"
-          title="Start Here."
+          title="Start here."
           className="mb-12 sm:mb-14"
         />
 
@@ -72,7 +72,7 @@ export function FeaturedInsight() {
 
               <div className="mt-8">
                 <Button as="button" size="lg" variant="primary">
-                  Continue Reading
+                  Continue reading
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </div>

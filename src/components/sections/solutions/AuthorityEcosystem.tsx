@@ -26,7 +26,7 @@ const CAPABILITIES: Capability[] = [
     icon: Compass,
     title: 'Authority Strategy',
     description:
-      'The foundation everything else builds on. We develop a roadmap based on your goals, industry and reputation — deciding what to build, in what order, and why it matters for the credibility you want to be known for.',
+      'The foundation everything else builds on. We develop a roadmap based on your goals, industry, and reputation: deciding what to build, in what order, and why it matters for the credibility you want to be known for.',
   },
   {
     icon: Newspaper,
@@ -47,7 +47,7 @@ const CAPABILITIES: Capability[] = [
   {
     icon: Globe,
     title: 'Digital Reputation',
-    description: 'Improve how your business is perceived across search, media and public platforms.',
+    description: 'Improve how your business is perceived across search, media, and public platforms.',
   },
   {
     icon: Lightbulb,
@@ -86,8 +86,8 @@ export function AuthorityEcosystem() {
       <Container>
         <SectionHeading
           eyebrow="Our Authority Ecosystem"
-          title="One Connected System, Not Separate Services."
-          description="Authority isn't built through a single tactic. Each capability strengthens the others — which is why we advise on the whole ecosystem, then focus where it creates the most long-term value for you."
+          title="One connected system, not separate services."
+          description="Authority isn't built through a single tactic. Each capability strengthens the others. That's why we advise on the whole ecosystem, then focus where it creates the most long-term value for you."
           className="mb-14 sm:mb-16"
         />
 
@@ -126,7 +126,7 @@ export function AuthorityEcosystem() {
                 {lead.description}
               </p>
               <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 transition-colors duration-300 group-hover:text-teal-800">
-                Learn more
+                Read the approach
                 <ArrowRight
                   className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
                   strokeWidth={1.75}

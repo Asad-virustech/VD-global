@@ -31,18 +31,18 @@ export type WorkStep = {
 export const HOW_WE_WORK: WorkStep[] = [
   {
     icon: MessageCircle,
-    title: 'Initial Conversation',
+    title: 'Initial conversation',
     description: 'We start by understanding your business, your goals, and your current authority.',
   },
   {
     icon: Search,
-    title: 'Research & Assessment',
+    title: 'Research and assessment',
     description: 'We review your visibility, credibility, and the authority opportunities available to you.',
   },
   {
     icon: Route,
-    title: 'Strategic Recommendations',
-    description: 'We present practical recommendations tailored to your business — no pressure, no pitch.',
+    title: 'Strategic recommendations',
+    description: 'We present practical recommendations tailored to your business. No pressure, no pitch.',
   },
 ];
 
@@ -75,9 +75,9 @@ export const CONTACT_METHODS: ContactMethod[] = [
   },
   {
     icon: Clock,
-    label: 'Business Hours',
+    label: 'Business hours',
     value: 'Mon–Fri · 9:00–18:00',
-    note: 'Placeholder hours — confirmed in production.',
+    note: 'Placeholder hours, confirmed in production.',
     placeholder: true,
   },
   {
@@ -88,7 +88,7 @@ export const CONTACT_METHODS: ContactMethod[] = [
   },
   {
     icon: Timer,
-    label: 'Response Time',
+    label: 'Response time',
     value: 'Within 24 hours',
     note: 'Most requests receive an initial reply next business day.',
   },
@@ -103,8 +103,8 @@ export type NextStep = {
 export const WHAT_HAPPENS_NEXT: NextStep[] = [
   {
     icon: Inbox,
-    title: 'Request Received',
-    description: 'Your request arrives with us directly — no automated funnel, no queue of salespeople.',
+    title: 'Request received',
+    description: 'Your request arrives with us directly. No automated funnel, no queue of salespeople.',
   },
   {
     icon: ClipboardCheck,
@@ -113,7 +113,7 @@ export const WHAT_HAPPENS_NEXT: NextStep[] = [
   },
   {
     icon: PhoneCall,
-    title: 'Initial Contact',
+    title: 'Initial contact',
     description: 'We reach out to introduce ourselves and find a time that works for a conversation.',
   },
   {
@@ -123,13 +123,13 @@ export const WHAT_HAPPENS_NEXT: NextStep[] = [
   },
   {
     icon: MessagesSquare,
-    title: 'Strategy Call',
+    title: 'Strategy call',
     description: 'We talk through your goals and current position in plain, practical terms.',
   },
   {
     icon: FileText,
     title: 'Recommendations',
-    description: 'You leave with clear, honest recommendations — whether or not we work together.',
+    description: 'You leave with clear, honest recommendations, whether or not we work together.',
   },
 ];
 
@@ -157,7 +157,7 @@ export const CONTACT_FAQS: ContactFaq[] = [
   {
     question: 'Can startups work with VD Global?',
     answer:
-      'Often, yes — though the right first step for an early-stage company is usually different from an established one. We’ll be candid about what’s worth doing now and what’s better to revisit later.',
+      'Often, yes, though the right first step for an early-stage company is usually different from an established one. We’ll be candid about what’s worth doing now and what’s better to revisit later.',
   },
   {
     question: 'Do I need an Authority Assessment first?',
@@ -172,7 +172,7 @@ export const CONTACT_FAQS: ContactFaq[] = [
   {
     question: 'Can engagements be remote?',
     answer:
-      'Entirely. Our work is remote by default, and the process — conversation, assessment, strategy — is designed to run smoothly wherever you are.',
+      'Entirely. Our work is remote by default, and the process (conversation, assessment, strategy) is designed to run smoothly wherever you are.',
   },
   {
     question: 'What information should I prepare?',
@@ -182,7 +182,7 @@ export const CONTACT_FAQS: ContactFaq[] = [
 ];
 
 export const PRIMARY_GOALS: string[] = [
-  'I’m not sure yet — I’d like guidance',
+  'I’m not sure yet, I’d like guidance',
   'Authority Assessment',
   'Strategic PR & media',
   'Wikipedia readiness',

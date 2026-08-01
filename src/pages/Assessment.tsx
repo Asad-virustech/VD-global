@@ -11,7 +11,7 @@ import { AssessmentCta } from '../components/sections/assessment/AssessmentCta';
 export default function Assessment() {
   useDocumentMeta({
     title: 'Authority Assessment — VD Global',
-    description: `Understand how your business is currently perceived. ${FIRM.name}'s complimentary Authority Assessment evaluates your credibility, media presence, search visibility and reputation — with practical, honest recommendations.`,
+    description: `Understand how your business is currently perceived. ${FIRM.name}'s complimentary Authority Assessment evaluates your credibility, media presence, search visibility, and reputation, with practical, honest recommendations.`,
   });
 
   return (

@@ -30,7 +30,7 @@ export function AssessmentCta() {
             transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.05 }}
             className="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.75rem] text-balance"
           >
-            Ready to Understand Your Authority?
+            See where your authority stands.
           </motion.h2>
 
           <motion.p
@@ -40,7 +40,7 @@ export function AssessmentCta() {
             transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.12 }}
             className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink-300 sm:text-lg text-balance"
           >
-            Every engagement begins with understanding — not assumptions. Before recommending
+            Every engagement begins with understanding, not assumptions. Before recommending
             any strategy, we take the time to see clearly where your authority stands today.
           </motion.p>
 
@@ -52,7 +52,7 @@ export function AssessmentCta() {
             className="mt-9 flex flex-col items-center gap-4"
           >
             <Button as="link" to="/contact" size="lg" variant="primary">
-              Start Your Free Authority Assessment
+              Start your free authority assessment
               <ArrowRight className="h-4 w-4" />
             </Button>
             <p className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-ink-400">

@@ -119,7 +119,7 @@ export function AuthorityFrameworkSection() {
           align="center"
           eyebrow="Our Methodology"
           title="The Authority Framework™"
-          description="Authority isn’t built overnight. It is built through a structured process that strengthens recognition, credibility, trust, and long-term visibility."
+          description="Authority isn’t built overnight. It accumulates through a deliberate sequence that builds recognition first, then credibility, and finally the trust that lasts."
           className="mb-14 sm:mb-16"
         />
 

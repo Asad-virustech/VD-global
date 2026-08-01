@@ -46,7 +46,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'trusted-product-unknown-name',
     industry: 'B2B Technology',
-    title: 'Turning a Respected Product Into a Recognized Name',
+    title: 'Turning a respected product into a recognized name',
     summary:
       'Trusted by its customers, invisible to everyone evaluating it for the first time. How we closed the gap between reputation and recognition.',
     tags: ['Search Credibility', 'Strategic PR', 'Positioning'],
@@ -66,7 +66,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'fintech-regulated-trust',
     industry: 'Finance',
-    title: 'Building Trust in a Regulated Market',
+    title: 'Building trust in a regulated market',
     summary:
       'A fintech firm needed public credibility that matched the confidence regulators and partners already placed in it behind closed doors.',
     tags: ['Digital Reputation', 'Positioning'],
@@ -74,7 +74,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'healthcare-sensitive-expertise',
     industry: 'Healthcare',
-    title: 'Establishing Authority Around Sensitive Expertise',
+    title: 'Establishing authority around sensitive expertise',
     summary:
       'A healthcare founder’s expertise was real but hard for the public to verify. We focused on credible, responsible visibility.',
     tags: ['Executive Branding', 'Thought Leadership'],
@@ -82,7 +82,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'ai-beyond-the-hype',
     industry: 'Artificial Intelligence',
-    title: 'Standing Out Beyond the Hype',
+    title: 'Standing out beyond the hype',
     summary:
       'Genuine innovation risked being lost in a noisy category. The work was about earning trust, not adding to the noise.',
     tags: ['Media Visibility', 'Positioning'],
@@ -90,7 +90,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'author-notability-bar',
     industry: 'Publishing',
-    title: 'Meeting the Notability Bar Honestly',
+    title: 'Meeting the notability bar honestly',
     summary:
       'An author wanted a Wikipedia presence but wasn’t sure the sourcing supported it yet. We assessed readiness before acting.',
     tags: ['Wikipedia', 'Notability'],
@@ -98,7 +98,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'consultancy-reputation-as-product',
     industry: 'Professional Services',
-    title: 'When Reputation Is the Product',
+    title: 'When reputation is the product',
     summary:
       'A consultancy’s public reputation lagged behind the caliber of its work. We aligned perception with the substance behind it.',
     tags: ['Authority Strategy', 'Search Credibility'],
@@ -106,7 +106,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'real-estate-local-to-recognized',
     industry: 'Real Estate',
-    title: 'From Local Reputation to Recognized Brand',
+    title: 'From local reputation to recognized brand',
     summary:
       'Well known locally, unproven more broadly. The goal was credible recognition beyond the firm’s immediate market.',
     tags: ['Digital Reputation', 'Strategic PR'],
@@ -137,9 +137,9 @@ export type FrameworkStage = {
 };
 
 export const PROBLEM_FRAMEWORK: FrameworkStage[] = [
-  { icon: Ear, title: 'Understand', description: 'We start with the situation — goals, market, and what recognition should mean here.' },
+  { icon: Ear, title: 'Understand', description: 'We start with the situation: goals, market, and what recognition should mean here.' },
   { icon: Search, title: 'Research', description: 'We examine how the business appears today across search, media, and the public record.' },
-  { icon: Target, title: 'Strategy', description: 'We define the path that fits the position — what to prioritize, and what to hold.' },
+  { icon: Target, title: 'Strategy', description: 'We define the path that fits the position, deciding what to prioritize and what to hold.' },
   { icon: Rocket, title: 'Execution', description: 'We act on the agreed priorities with ethical, deliberately chosen initiatives.' },
   { icon: Gauge, title: 'Measurement', description: 'We track what genuinely changes in perception, credibility, and visibility.' },
   { icon: RefreshCw, title: 'Continuous Improvement', description: 'We refine the approach as reputation, goals, and the market evolve.' },
@@ -153,7 +153,7 @@ export type Lesson = {
 
 export const LESSONS: Lesson[] = [
   { icon: Fingerprint, title: 'Every journey is different', description: 'Two businesses rarely start from the same place or need the same next step.' },
-  { icon: Puzzle, title: 'No universal solution exists', description: 'The right move depends on context — copying someone else’s playbook rarely works.' },
+  { icon: Puzzle, title: 'No universal solution exists', description: 'The right move depends on context. Copying someone else’s playbook rarely works.' },
   { icon: Repeat, title: 'Long-term consistency wins', description: 'Steady, credible signals outperform any single burst of attention.' },
   { icon: GraduationCap, title: 'Education creates better decisions', description: 'Clients who understand the reasoning make stronger long-term choices.' },
   { icon: TrendingUp, title: 'Trust compounds over time', description: 'Reputation built honestly keeps returning value long after the work is done.' },
@@ -183,12 +183,12 @@ export const CASE_STUDY_FAQS: CaseStudyFaq[] = [
   {
     question: 'Can sensitive information remain confidential?',
     answer:
-      'Always. Confidentiality is the default. Nothing about your business is shared publicly without your clear, specific consent — and much of our work is never published at all.',
+      'Always. Confidentiality is the default. Nothing about your business is shared publicly without your clear, specific consent, and much of our work is never published at all.',
   },
   {
     question: 'How do you measure success?',
     answer:
-      'By meaningful change in how you’re perceived and verified — the quality and consistency of what people find, not vanity metrics. We favour honest, qualitative assessment over inflated numbers.',
+      'By meaningful change in how you’re perceived and verified: the quality and consistency of what people find, not vanity metrics. We favour honest, qualitative assessment over inflated numbers.',
   },
   {
     question: 'What industries do you specialize in?',

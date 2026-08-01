@@ -50,9 +50,9 @@ export function Hero() {
               variants={item}
               className="mt-10 text-[3.25rem] font-bold leading-[0.98] tracking-[-0.02em] text-white sm:text-7xl lg:text-[4.75rem]"
             >
-              Build <span className="text-teal-300">Authority</span>
+              Build <span className="text-teal-300">authority</span>
               <br />
-              That Opens Doors.
+              that opens doors.
             </motion.h1>
           </div>
 
@@ -61,7 +61,7 @@ export function Hero() {
             <span aria-hidden="true" className="block h-px w-12 bg-teal-400/50" />
             <p className="mt-5 max-w-md text-base leading-relaxed text-ink-300 sm:text-lg">
               Strategic PR, media visibility, reputation advisory, and Wikipedia readiness for
-              founders and businesses that want long-term credibility — not short-term attention.
+              founders and businesses that want long-term credibility, not short-term attention.
             </p>
           </motion.div>
         </motion.div>
@@ -77,12 +77,12 @@ export function Hero() {
         <div className="flex flex-col gap-6 border-t border-white/10 py-7 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <Button as="link" to="/assessment" size="md" variant="primary">
-              Start Your Free Assessment
+              Start your assessment
               <ArrowRight className="h-4 w-4" />
             </Button>
             <Button as="link" to="/solutions" size="md" variant="glass">
               <Compass className="h-4 w-4" />
-              Explore Our Process
+              Read the approach
             </Button>
           </div>
 

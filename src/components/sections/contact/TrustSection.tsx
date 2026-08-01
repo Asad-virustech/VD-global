@@ -17,12 +17,12 @@ const PRINCIPLES: Principle[] = [
   {
     icon: ShieldCheck,
     title: 'Not every business needs every service',
-    description: 'We start from what you actually need — not from a menu we’re trying to sell.',
+    description: 'We start from what you actually need, not from a menu we’re trying to sell.',
   },
   {
     icon: Compass,
     title: 'We’ll point you to the better approach',
-    description: 'If another path serves you more, we’ll say so — even when it isn’t ours to deliver.',
+    description: 'If another path serves you more, we’ll say so, even when it isn’t ours to deliver.',
   },
   {
     icon: Handshake,
@@ -48,8 +48,8 @@ export function TrustSection() {
         <SectionHeading
           align="center"
           eyebrow="Why It Matters"
-          title="Built on Trust. Focused on Long-Term Success."
-          description="This is the part that shapes every conversation we have — including this one."
+          title="Built on trust, focused on the long term."
+          description="This is the part that shapes every conversation we have, including this one."
           className="mb-12 sm:mb-14"
         />
 

@@ -33,13 +33,13 @@ export function OurPromise() {
             </p>
 
             <p className="mt-4 text-2xl font-bold leading-snug tracking-tight text-ink-900 sm:text-3xl lg:text-[2.5rem] lg:leading-[1.15] text-balance">
-              If we believe something isn&rsquo;t in your best interest, we&rsquo;ll tell you —
+              If we believe something isn&rsquo;t in your best interest, we&rsquo;ll tell you,
               <span className="text-teal-700"> even if it means recommending you wait.</span>
             </p>
 
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-500 sm:text-lg">
               We would rather earn your trust with an honest answer than win a project with a
-              convenient one. That standard is the whole point of an advisory firm — and it is the
+              convenient one. That standard is the whole point of an advisory firm, and it is the
               reason clients come back.
             </p>
           </div>

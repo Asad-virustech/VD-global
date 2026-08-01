@@ -11,7 +11,7 @@ import { SolutionsCta } from '../components/sections/solutions/SolutionsCta';
 export default function Solutions() {
   useDocumentMeta({
     title: 'Solutions — VD Global',
-    description: `${FIRM.name} helps businesses build long-term authority through strategy, PR, Wikipedia advisory, executive positioning, digital reputation and thought leadership — advisory-first, never predefined packages.`,
+    description: `${FIRM.name} helps businesses build long-term authority through strategy, PR, Wikipedia advisory, executive positioning, digital reputation, and thought leadership. Advisory-first, never predefined packages.`,
   });
 
   return (

@@ -29,7 +29,7 @@ export function AuthorityGap() {
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.05 }}
               className="mt-4 text-3xl font-bold leading-tight tracking-tight text-ink-900 sm:text-4xl lg:text-[2.75rem] text-balance"
             >
-              Great Companies Stay Invisible Every Day.
+              Being good is not the same as being known.
             </motion.h2>
 
             <motion.div
@@ -40,8 +40,8 @@ export function AuthorityGap() {
               className="mt-6 max-w-lg space-y-4 text-base leading-relaxed text-ink-500 sm:text-lg"
             >
               <p>
-                Many businesses deliver exceptional work, yet remain overlooked because their
-                reputation doesn’t reflect the quality of what they actually do.
+                Many businesses deliver exceptional work and stay invisible anyway, because their
+                reputation doesn’t reflect the quality of what they do.
               </p>
               <ul className="space-y-2.5">
                 <li className="flex items-start gap-2.5">
@@ -62,7 +62,8 @@ export function AuthorityGap() {
                 </li>
               </ul>
               <p className="pt-2 text-ink-700">
-                Authority isn’t about ego. It’s about reducing uncertainty and increasing trust.
+                Authority isn’t about ego. It’s about reducing the uncertainty that sits between
+                you and every decision made about you.
               </p>
             </motion.div>
           </div>

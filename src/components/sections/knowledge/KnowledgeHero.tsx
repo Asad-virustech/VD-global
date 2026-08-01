@@ -8,12 +8,12 @@ export function KnowledgeHero() {
       index="05"
       title={
         <>
-          Knowledge Builds <span className="text-teal-300">Authority</span>.
+          Knowledge builds <span className="text-teal-300">authority</span>.
         </>
       }
-      subtitle="Explore practical insights on reputation, authority, media visibility, Wikipedia readiness and long-term credibility."
-      primary={{ label: 'Explore Articles', href: '#insights' }}
-      secondary={{ label: 'Start Your Free Authority Assessment', to: '/assessment', icon: BookOpen }}
+      subtitle="Practical insights on reputation, authority, media visibility, Wikipedia readiness, and long-term credibility."
+      primary={{ label: 'Browse the insights', href: '#insights' }}
+      secondary={{ label: 'Start your free authority assessment', to: '/assessment', icon: BookOpen }}
       meta={['Practical, not promotional', 'Written for decisions', 'Free to read']}
     />
   );

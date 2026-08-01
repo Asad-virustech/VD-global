@@ -36,10 +36,10 @@ export function Newsletter() {
             </span>
 
             <h2 className="mt-6 text-3xl font-bold leading-tight tracking-tight text-ink-900 sm:text-4xl text-balance">
-              Stay Ahead of the Conversation.
+              Insights worth your time.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ink-500 sm:text-lg">
-              Occasional, considered insights on authority, reputation and credibility — sent only
+              Occasional, considered insights on authority, reputation, and credibility, sent only
               when we have something genuinely worth your time.
             </p>
 
@@ -49,7 +49,7 @@ export function Newsletter() {
                 className="mt-8 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-5 py-3 text-sm font-medium text-teal-800"
               >
                 <CheckCircle2 className="h-4 w-4" strokeWidth={2} />
-                Thank you — you&rsquo;re on the list.
+                You&rsquo;re on the list. We only write when it&rsquo;s worth your time.
               </p>
             ) : (
               <form
@@ -74,7 +74,7 @@ export function Newsletter() {
                   type="submit"
                   className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-teal-700 px-6 text-sm font-medium text-white shadow-soft transition-all duration-200 hover:bg-teal-800 hover:shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 active:scale-[0.98]"
                 >
-                  Subscribe
+                  Join the list
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </form>

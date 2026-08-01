@@ -8,12 +8,12 @@ export function CaseStudiesHero() {
       index="04"
       title={
         <>
-          Authority Stories That <span className="text-teal-300">Matter</span>.
+          Authority stories that <span className="text-teal-300">matter</span>.
         </>
       }
-      subtitle="Explore real-world authority challenges, strategic thinking, and the approaches used to strengthen credibility, visibility, and long-term reputation."
-      primary={{ label: 'Start Your Free Authority Assessment', to: '/assessment' }}
-      secondary={{ label: 'Talk With Our Team', to: '/contact', icon: MessageSquare }}
+      subtitle="Real-world authority challenges, the strategic thinking behind them, and the approaches used to strengthen credibility, visibility, and long-term reputation."
+      primary={{ label: 'Start your free authority assessment', to: '/assessment' }}
+      secondary={{ label: 'Talk with our team', to: '/contact', icon: MessageSquare }}
       meta={['Strategy over showcase', 'Confidential by default', 'No inflated numbers']}
     />
   );

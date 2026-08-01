@@ -15,29 +15,29 @@ type Article = {
 const ARTICLES: Article[] = [
   {
     category: 'Wikipedia',
-    title: 'Is Your Business Ready for Wikipedia?',
+    title: 'Is your business ready for Wikipedia?',
     description:
-      'Learn what notability really means, common misconceptions, and how to prepare before applying for a Wikipedia article.',
+      'What notability actually means, the misconceptions that trip people up, and how to prepare before you pursue a page.',
   },
   {
     category: 'Public Relations',
-    title: 'Choosing the Right Press Strategy',
+    title: 'Choosing the right press strategy',
     description:
-      'Not every press release creates long-term authority. Learn how strategic media planning delivers better outcomes.',
+      'Not every press release builds authority. How considered media planning earns coverage that lasts.',
   },
   {
     category: 'Authority',
-    title: 'Authority vs. Visibility',
+    title: 'Authority vs. visibility',
     description:
-      'Being visible is valuable, but becoming trusted creates lasting business opportunities. Discover the difference.',
+      'Being visible is valuable. Being trusted is what creates lasting opportunities. The difference is the whole point.',
   },
 ];
 
 const CTA = {
   title: 'Explore the Knowledge Hub',
   description:
-    'Discover practical guides, educational resources, and strategic insights designed to help businesses build lasting authority.',
-  button: 'Visit Knowledge Hub',
+    'Practical guides and considered insights on how authority is built, written to be useful whether or not you ever work with us.',
+  button: 'Read the Knowledge Hub',
 };
 
 const grid: Variants = {
@@ -65,7 +65,7 @@ function ArticleRow({ category, title, description }: Article) {
           </h3>
           <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink-500">{description}</p>
           <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 transition-colors duration-300 group-hover:text-teal-800">
-            Read insight
+            Continue reading
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" strokeWidth={1.75} />
           </span>
         </div>
@@ -82,8 +82,8 @@ export function KnowledgeHubPreview() {
         <SectionHeading
           align="center"
           eyebrow="Knowledge Hub"
-          title="Learn How Authority Is Built."
-          description="Authority is built through informed decisions. Our Knowledge Hub is designed to help founders, executives, and growing businesses understand PR, media visibility, reputation, Wikipedia readiness, and long-term authority strategies. Whether you work with us or not, we believe better education creates better decisions."
+          title="Learn how authority is built."
+          description="The Knowledge Hub helps founders, executives, and growing businesses understand PR, media visibility, reputation, and Wikipedia readiness. The aim is simple: better-informed decisions, whether or not you ever work with us."
           className="mb-12 sm:mb-14"
         />
 

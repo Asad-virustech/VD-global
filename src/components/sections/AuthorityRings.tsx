@@ -38,7 +38,7 @@ export function AuthorityRings({ layers, className = '' }: AuthorityRingsProps) 
           The Authority Model
         </span>
         <p className="mt-2 text-sm leading-relaxed text-ink-500">
-          Authority compounds outward — from recognition at the core to lasting growth.
+          Authority compounds outward: from recognition at the core to lasting growth.
         </p>
       </div>
 

@@ -54,7 +54,7 @@ export function IndustriesWeSupport() {
         <SectionHeading
           align="center"
           eyebrow="Industries We Support"
-          title="Different Fields, Familiar Challenges."
+          title="Different fields, familiar challenges."
           description="Authority works the same way everywhere, but it shows up differently by industry. Here's the challenge we most often help each one solve."
           className="mb-12 sm:mb-14"
         />

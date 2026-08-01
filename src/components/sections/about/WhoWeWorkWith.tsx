@@ -25,12 +25,12 @@ const AUDIENCES: Audience[] = [
   },
   {
     icon: Cpu,
-    title: 'Technology Companies',
+    title: 'Technology companies',
     description: 'Turning genuine innovation into recognized, verifiable authority.',
   },
   {
     icon: Landmark,
-    title: 'Professional Service Firms',
+    title: 'Professional service firms',
     description: 'Where reputation is the product, and trust wins the engagement.',
   },
   {
@@ -40,7 +40,7 @@ const AUDIENCES: Audience[] = [
   },
   {
     icon: TrendingUp,
-    title: 'Growing Brands',
+    title: 'Growing brands',
     description: 'Ready for recognition that keeps pace with their momentum.',
   },
 ];
@@ -93,7 +93,7 @@ export function WhoWeWorkWith() {
         <SectionHeading
           align="center"
           eyebrow="Who We Work With"
-          title="Credible People, Ready to Be Recognized."
+          title="Credible people, ready to be recognized."
           description="We work with organizations and individuals whose reputation should reflect the substance behind them."
           className="mb-12 sm:mb-14"
         />

@@ -16,44 +16,44 @@ const ARTICLES: Article[] = [
   {
     category: 'Wikipedia',
     readTime: '6 min',
-    title: 'Is Your Business Ready for Wikipedia?',
+    title: 'Is your business ready for Wikipedia?',
     description:
       'What notability really means, the misconceptions that trip businesses up, and how to prepare before you apply.',
   },
   {
     category: 'Strategic PR',
     readTime: '5 min',
-    title: 'Choosing the Right Press Strategy',
+    title: 'Choosing the right press strategy',
     description:
       'Not every press release builds authority. How strategic media planning delivers outcomes that actually last.',
   },
   {
     category: 'Reputation',
     readTime: '7 min',
-    title: 'Owning the First Page of Your Name',
+    title: 'Owning the first page of your name',
     description:
       'Search is where reputation is decided. A practical look at shaping what people find when they look you up.',
   },
   {
     category: 'Executive Branding',
     readTime: '6 min',
-    title: 'Credibility Beyond the Company',
+    title: 'Credibility beyond the company',
     description:
-      'Why a founder’s personal authority compounds the organization’s — and how to build it without vanity.',
+      'Why a founder’s personal authority compounds the organization’s, and how to build it without vanity.',
   },
   {
     category: 'Thought Leadership',
     readTime: '8 min',
-    title: 'Having a Point of View Worth Following',
+    title: 'Having a point of view worth following',
     description:
       'Thought leadership isn’t volume. It’s a consistent, defensible perspective that earns attention over time.',
   },
   {
     category: 'Authority Strategy',
     readTime: '5 min',
-    title: 'When the Right Answer Is “Not Yet”',
+    title: 'When the right answer is “not yet”',
     description:
-      'Patience is a strategy. How to tell whether you’re ready for a move — or better served by strengthening first.',
+      'Patience is a strategy. How to tell whether you’re ready for a move, or better served by strengthening first.',
   },
 ];
 
@@ -87,7 +87,7 @@ function ArticleRow({ category, readTime, title, description }: Article) {
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-500">{description}</p>
 
         <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 transition-colors duration-300 group-hover:text-teal-800">
-          Continue Reading
+          Continue reading
           <ArrowRight
             className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
             strokeWidth={1.75}
@@ -105,8 +105,8 @@ export function LatestInsights() {
         <SectionHeading
           align="center"
           eyebrow="Latest Insights"
-          title="Fresh Thinking on Authority."
-          description="Practical, education-first writing designed to help you make better decisions — whether or not you ever work with us."
+          title="Fresh thinking on authority."
+          description="Practical, education-first writing designed to help you make better decisions, whether or not you ever work with us."
           className="mb-12 sm:mb-14"
         />
 

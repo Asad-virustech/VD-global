@@ -26,7 +26,7 @@ const STAGES: Stage[] = [
   {
     icon: Layers,
     title: 'Credibility Assets',
-    description: 'Coverage, references and profiles become durable proof.',
+    description: 'Coverage, references, and profiles become durable proof.',
   },
   {
     icon: Award,
@@ -63,7 +63,7 @@ export function SolutionsFlow() {
           align="center"
           tone="dark"
           eyebrow="How It Fits Together"
-          title="How Our Solutions Work Together."
+          title="How our solutions work together."
           description="Each stage builds on the one before it. Strategy shapes execution, execution creates assets, and assets earn the recognition and trust that compound over time."
           className="mb-16 sm:mb-20"
         />

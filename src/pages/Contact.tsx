@@ -12,7 +12,7 @@ import { ContactCta } from '../components/sections/contact/ContactCta';
 export default function Contact() {
   useDocumentMeta({
     title: 'Contact — VD Global',
-    description: `Start a conversation with ${FIRM.name}. Request a complimentary consultation to discuss your authority goals — advisory-first, no obligation.`,
+    description: `Start a conversation with ${FIRM.name}. Request a complimentary consultation to discuss your authority goals. Advisory-first, no obligation.`,
   });
 
   return (

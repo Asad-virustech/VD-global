@@ -13,7 +13,7 @@ import { CaseStudiesCta } from '../components/sections/casestudies/CaseStudiesCt
 export default function CaseStudies() {
   useDocumentMeta({
     title: 'Case Studies — VD Global',
-    description: `How ${FIRM.name} approaches real authority challenges — the strategic thinking behind strengthening credibility, visibility and long-term reputation. Educational scenarios, no fabricated metrics.`,
+    description: `How ${FIRM.name} approaches real authority challenges: the strategic thinking behind strengthening credibility, visibility, and long-term reputation. Educational scenarios, no fabricated metrics.`,
   });
 
   return (

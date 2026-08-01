@@ -13,7 +13,7 @@ import { AboutCta } from '../components/sections/about/AboutCta';
 export default function About() {
   useDocumentMeta({
     title: 'About — VD Global',
-    description: `${FIRM.name} is an Authority Advisory Firm built on ethical principles — helping credible founders and businesses earn Recognition, Credibility, Authority and Trust through honest, long-term advisory.`,
+    description: `${FIRM.name} is an authority advisory firm that helps credible founders and businesses earn recognition, credibility, and trust through honest, long-term advisory.`,
   });
 
   return (

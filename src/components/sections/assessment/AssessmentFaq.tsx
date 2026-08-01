@@ -11,7 +11,7 @@ const FAQS: FaqItem[] = [
   {
     question: 'What exactly is an Authority Assessment?',
     answer:
-      'It is a structured review of how your business is currently perceived across the signals people check — search, media, reputation, positioning, and more — along with practical recommendations. It is educational, not a sales pitch.',
+      'It is a structured review of how your business is currently perceived across the signals people check (search, media, reputation, positioning, and more), along with practical recommendations. It is educational, not a sales pitch.',
   },
   {
     question: 'Is the assessment really free?',
@@ -57,7 +57,7 @@ export function AssessmentFaq() {
         <SectionHeading
           align="center"
           eyebrow="Frequently Asked Questions"
-          title="Questions About the Assessment."
+          title="Questions about the assessment."
           description="A few things people often want to understand before they begin. If your question isn't here, we're happy to answer it directly."
           className="mb-12 sm:mb-14"
         />
@@ -77,7 +77,7 @@ export function AssessmentFaq() {
           </p>
           <div className="mt-7">
             <Button as="link" to="/contact" size="lg" variant="primary">
-              Start Your Free Assessment
+              Start your assessment
               <ArrowRight className="h-4 w-4" />
             </Button>
           </div>

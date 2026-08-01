@@ -8,12 +8,12 @@ const FAQS: FaqItem[] = [
   {
     question: 'Do I need every service?',
     answer:
-      'No. The ecosystem shows how the pieces connect, but almost no business needs all of them at once. We recommend the areas that matter most for your goals and stage, and leave the rest for later — or not at all.',
+      'No. The ecosystem shows how the pieces connect, but almost no business needs all of them at once. We recommend the areas that matter most for your goals and stage, and leave the rest for later, or not at all.',
   },
   {
     question: 'How do you recommend the right solution?',
     answer:
-      'We start with the Authority Assessment. It shows where you stand across credibility, media, search and reputation, and that evidence — not a sales target — determines what we recommend.',
+      'We start with the Authority Assessment. It shows where you stand across credibility, media, search, and reputation, and that evidence, not a sales target, determines what we recommend.',
   },
   {
     question: 'Can I begin with one area?',
@@ -33,7 +33,7 @@ const FAQS: FaqItem[] = [
   {
     question: 'Can strategies evolve over time?',
     answer:
-      'They should. As your reputation, goals and market change, the right next step changes too. We revisit the strategy as you grow rather than locking you into a fixed plan.',
+      'They should. As your reputation, goals, and market change, the right next step changes too. We revisit the strategy as you grow rather than locking you into a fixed plan.',
   },
   {
     question: 'Is this a pricing or packages page?',
@@ -49,7 +49,7 @@ export function SolutionsFaq() {
         <SectionHeading
           align="center"
           eyebrow="Frequently Asked Questions"
-          title="Questions About Our Solutions."
+          title="Questions about our solutions."
           description="How we advise, where to begin, and how strategies evolve. If something isn’t covered here, we’re glad to talk it through."
           className="mb-12 sm:mb-14"
         />

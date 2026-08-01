@@ -12,10 +12,10 @@ export function AssessmentHero() {
         </>
       }
       subtitle="Understand how your business is currently perceived, identify credibility gaps, and discover practical opportunities to strengthen your public authority."
-      primary={{ label: 'Start Your Free Assessment', to: '/contact' }}
-      secondary={{ label: 'Schedule a Consultation', to: '/contact', icon: CalendarClock }}
+      primary={{ label: 'Start your assessment', to: '/contact' }}
+      secondary={{ label: 'Talk with our team', to: '/contact', icon: CalendarClock }}
       meta={[
-        'Complimentary & no obligation',
+        'Complimentary and no obligation',
         'Initial response within 24 hours',
         'Practical, honest recommendations',
       ]}

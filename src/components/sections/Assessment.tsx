@@ -14,25 +14,25 @@ type Feature = {
 const FEATURES: Feature[] = [
   {
     icon: Compass,
-    title: 'Current Authority Review',
-    description: 'Evaluate your online presence, reputation, and authority signals.',
+    title: 'Current authority review',
+    description: 'A read of your online presence, reputation, and the signals that shape how you’re seen.',
   },
   {
     icon: BookOpenCheck,
-    title: 'Notability & Credibility Analysis',
+    title: 'Notability and credibility',
     description:
-      'Understand whether you’re currently ready for Wikipedia or what needs improvement first.',
+      'Whether you’re ready for Wikipedia today, or what would need to change first.',
   },
   {
     icon: Route,
-    title: 'Strategic Recommendations',
-    description: 'Receive practical next-step recommendations based on your business goals.',
+    title: 'Strategic recommendations',
+    description: 'Practical next steps, grounded in your business goals rather than a template.',
   },
   {
     icon: ShieldOff,
-    title: 'No Obligation',
+    title: 'No obligation',
     description:
-      'The assessment is educational first. There is absolutely no obligation to work with VD Global afterwards.',
+      'The assessment is educational first. There is no obligation to work with VD Global afterwards.',
   },
 ];
 
@@ -96,7 +96,7 @@ export function Assessment() {
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.05 }}
               className="mt-4 text-3xl font-bold leading-tight tracking-tight text-ink-900 sm:text-4xl lg:text-[2.75rem] text-balance"
             >
-              Know Where You Stand Before You Invest.
+              Know where you stand before you invest.
             </motion.h2>
 
             <motion.div
@@ -106,14 +106,14 @@ export function Assessment() {
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.12 }}
               className="mt-6 max-w-lg space-y-4 text-base leading-relaxed text-ink-500 sm:text-lg"
             >
-              <p>Every business is different.</p>
+              <p>Every business starts somewhere different.</p>
               <p>
-                Before recommending PR, Wikipedia, or any authority-building strategy, we first
-                evaluate your current position.
+                Before recommending PR, Wikipedia, or any authority-building strategy, we start with
+                an honest read of where you stand today.
               </p>
               <p>
-                Our complimentary Authority Assessment helps identify your strengths, opportunities,
-                and the most effective next steps.
+                The complimentary Authority Assessment names your strengths, the opportunities worth
+                pursuing, and the most useful next step.
               </p>
             </motion.div>
 
@@ -125,7 +125,7 @@ export function Assessment() {
               className="mt-8 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-ink-400"
             >
               <Clock className="h-4 w-4 text-teal-600" strokeWidth={1.75} />
-              Typical response time: Within 24 hours.
+              Typical response time: within 24 hours.
             </motion.p>
           </div>
 

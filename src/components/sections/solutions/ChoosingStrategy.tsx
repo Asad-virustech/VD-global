@@ -103,8 +103,8 @@ export function ChoosingStrategy() {
         <SectionHeading
           align="center"
           eyebrow="Where You Are Today"
-          title="Choosing the Right Strategy."
-          description="Authority looks different at every stage. These are the priorities we most often see — not packages to pick from, but a sense of where businesses like yours tend to focus."
+          title="Choosing the right strategy."
+          description="Authority looks different at every stage. These are the priorities we most often see: not packages to pick from, but a sense of where businesses like yours tend to focus."
           className="mb-14 sm:mb-16"
         />
 

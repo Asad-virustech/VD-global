@@ -50,7 +50,7 @@ export function HowWeWork() {
         <SectionHeading
           align="center"
           eyebrow="How We Work"
-          title="A Conversation, Then a Plan."
+          title="A conversation, then a plan."
           description="No forms disappearing into a void. Here's the simple, transparent path from first hello to practical recommendations."
           className="mb-12 sm:mb-14"
         />

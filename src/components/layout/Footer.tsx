@@ -17,9 +17,25 @@ const fade: Variants = {
 export function Footer() {
   return (
     <footer className="relative isolate overflow-hidden bg-ink-950 text-white">
-      {/* Cinematic lighting — faint teal glow + grid */}
-      <div className="pointer-events-none absolute inset-0 -z-10 surface-night" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-light opacity-30" aria-hidden="true" />
+      {/* Footer atmosphere — its OWN ring signature: rings rise from the base
+          (a mirror of the top-radiating rings on CTAs and dark sections), with a
+          warm glow at the bottom, so the footer reads as a distinct moment. */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-noise opacity-50" aria-hidden="true" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          backgroundImage:
+            'repeating-radial-gradient(circle at 50% 122%, rgba(45,212,191,0.08) 0px, rgba(45,212,191,0.08) 1.5px, transparent 1.5px, transparent 154px)',
+          WebkitMaskImage: 'radial-gradient(ellipse 92% 108% at 50% 100%, #000 24%, transparent 86%)',
+          maskImage: 'radial-gradient(ellipse 92% 108% at 50% 100%, #000 24%, transparent 86%)',
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-72"
+        style={{ background: 'radial-gradient(65% 100% at 50% 100%, rgba(20,184,166,0.13) 0%, transparent 72%)' }}
+      />
       {/* Polished top edge — teal hairline over a faint highlight */}
       <span
         aria-hidden="true"

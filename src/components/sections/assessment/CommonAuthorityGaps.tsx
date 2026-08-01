@@ -22,7 +22,7 @@ const GAPS: Gap[] = [
     icon: ShieldAlert,
     title: 'Weak online credibility',
     description:
-      'When verification turns up little, uncertainty fills the gap — usually not in your favour.',
+      'When verification turns up little, uncertainty fills the gap, usually not in your favour.',
   },
   {
     icon: Shuffle,
@@ -44,7 +44,7 @@ const GAPS: Gap[] = [
     icon: Boxes,
     title: 'No authority assets',
     description:
-      "Without owned proof — articles, features, references — there's nothing for others to point to.",
+      "Without owned proof, such as articles, features, or references, there's nothing for others to point to.",
   },
 ];
 
@@ -114,8 +114,8 @@ export function CommonAuthorityGaps() {
         <SectionHeading
           align="center"
           eyebrow="What We Often Find"
-          title="The Gaps That Quietly Hold Businesses Back."
-          description="Most credibility problems aren't dramatic — they're small, unmanaged signals that accumulate. These are the ones an assessment surfaces most often."
+          title="The gaps that quietly hold businesses back."
+          description="Most credibility problems aren't dramatic. They're small, unmanaged signals that accumulate. These are the ones an assessment surfaces most often."
           className="mb-12 sm:mb-14"
         />
 

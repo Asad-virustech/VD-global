@@ -114,7 +114,7 @@ export function Navbar() {
               variant="primary"
               className="hidden lg:inline-flex"
             >
-              Book a consultation
+              Book a strategy call
             </Button>
 
             <button
@@ -156,7 +156,7 @@ export function Navbar() {
               ))}
               <div className="p-2 pt-1">
                 <Button as="link" to="/contact" size="md" variant="primary" className="w-full">
-                  Book a consultation
+                  Book a strategy call
                 </Button>
               </div>
             </motion.div>

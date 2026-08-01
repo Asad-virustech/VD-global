@@ -47,7 +47,7 @@ function TopicPill({ icon: Icon, label, count }: Topic) {
     <motion.button
       type="button"
       variants={pill}
-      aria-label={`Browse ${label} — ${count} insights`}
+      aria-label={`Browse ${label}, ${count} insights`}
       className="group inline-flex items-center gap-2.5 rounded-full border border-ink-200 bg-white py-2.5 pl-4 pr-3 text-sm font-medium text-ink-700 shadow-soft transition-colors duration-300 hover:border-teal-300 hover:bg-teal-50 hover:text-teal-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
     >
       <Icon className="h-4 w-4 text-teal-600" strokeWidth={1.75} aria-hidden="true" />
@@ -66,7 +66,7 @@ export function BrowseByTopic() {
         <SectionHeading
           align="center"
           eyebrow="Browse by Topic"
-          title="Find the Thinking You Need."
+          title="Find the thinking you need."
           description="Every insight is organized around the questions credible businesses actually ask on the way to authority."
           className="mb-12 sm:mb-14"
         />

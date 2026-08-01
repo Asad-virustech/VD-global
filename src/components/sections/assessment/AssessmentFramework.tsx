@@ -28,7 +28,7 @@ const STAGES: TimelineStep[] = [
     icon: Map,
     title: 'Recommendations',
     description:
-      'We outline practical, prioritized next steps — including what to wait on, and why.',
+      'We outline practical, prioritized next steps, including what to wait on, and why.',
   },
   {
     icon: PhoneCall,
@@ -51,8 +51,8 @@ export function AssessmentFramework() {
         <SectionHeading
           align="center"
           eyebrow="Our Process"
-          title="How an Assessment Works."
-          description="A structured, transparent process. No obligations, no pressure — just a clear read of where you stand and what to do next."
+          title="How an assessment works."
+          description="A structured, transparent process. No obligations, no pressure: just a clear read of where you stand and what to do next."
           className="mb-12 sm:mb-14"
         />
 

@@ -20,7 +20,7 @@ const POINTS: Point[] = [
   {
     icon: Compass,
     term: 'Strategy over tactics',
-    note: 'Knowing why comes before knowing what — and prevents expensive detours.',
+    note: 'Knowing why comes before knowing what, and prevents expensive detours.',
   },
   {
     icon: Hourglass,
@@ -61,7 +61,7 @@ export function WhyEducationMatters() {
             transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.05 }}
             className="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.75rem] text-balance"
           >
-            Education Comes Before Execution.
+            Education comes before execution.
           </motion.h2>
 
           <motion.p
@@ -72,7 +72,7 @@ export function WhyEducationMatters() {
             className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink-300 sm:text-lg text-balance"
           >
             The businesses that build the strongest authority are almost always the ones that
-            understand it first. Not because knowledge replaces execution — but because it makes
+            understand it first. Not because knowledge replaces execution, but because it makes
             execution deliberate. We publish because informed partners make better decisions, and
             better decisions build authority that lasts.
           </motion.p>

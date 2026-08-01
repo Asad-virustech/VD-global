@@ -24,45 +24,45 @@ type Value = {
 const VALUES: Value[] = [
   {
     icon: Compass,
-    title: 'Strategy Before Services',
+    title: 'Strategy before services',
     description:
-      'We recommend the next best step—not simply the next service we can sell.',
+      'We recommend the next best step, not simply the next service we can sell.',
   },
   {
     icon: ShieldCheck,
-    title: 'Honest Recommendations',
+    title: 'Honest recommendations',
     description:
-      'If something isn’t the right fit today, we’ll explain why and help you prepare for the future instead of pushing unnecessary services.',
+      'If something isn’t the right fit today, we’ll explain why and help you prepare for later, rather than push work you don’t need.',
   },
   {
     icon: Hourglass,
-    title: 'Long-Term Authority',
+    title: 'Long-term authority',
     description:
       'Recognition grows through consistent credibility, not one-time campaigns or shortcuts.',
   },
   {
     icon: GraduationCap,
-    title: 'Education Matters',
+    title: 'Education matters',
     description:
-      'We believe informed partners make stronger long-term decisions than those buying services without understanding the process.',
+      'Informed partners make stronger long-term decisions than those buying services without understanding the process.',
   },
   {
     icon: Gem,
-    title: 'Quality Over Volume',
+    title: 'Quality over volume',
     description:
-      'We focus on building meaningful long-term partnerships rather than chasing high-volume transactions.',
+      'We work with a small number of businesses closely, rather than chasing high-volume transactions.',
   },
   {
     icon: BadgeCheck,
-    title: 'Trust Is Our Reputation',
+    title: 'Trust is our reputation',
     description:
-      'Every recommendation reflects our own reputation. That’s why transparency always comes before unrealistic promises.',
+      'Every recommendation reflects our own reputation. That’s why candour always comes before unrealistic promises.',
   },
 ];
 
 const CALLOUT = {
-  title: 'Our Success Is Measured Differently.',
-  body: 'Success isn’t simply getting a publication or creating a page. Success is helping businesses build recognition that continues creating opportunities long after the project is complete.',
+  title: 'Success here is measured differently.',
+  body: 'It isn’t a single publication or a finished page. It’s recognition that keeps creating opportunities long after the engagement ends.',
 };
 
 const grid: Variants = {
@@ -114,8 +114,8 @@ export function WhyVdGlobal() {
           <SectionHeading
             align="center"
             eyebrow="Why VD Global"
-            title="Built on Strategy. Driven by Trust."
-            description="Authority isn’t built through shortcuts. It’s built through thoughtful decisions, ethical execution, and long-term consistency. Every recommendation we make is designed to create sustainable credibility instead of temporary attention."
+            title="Authority isn’t built through shortcuts."
+            description="It’s built through careful decisions, ethical execution, and consistency held for longer than most are willing to. Every recommendation we make is meant to create durable credibility, not temporary attention."
             className="mb-12 sm:mb-14"
           />
 

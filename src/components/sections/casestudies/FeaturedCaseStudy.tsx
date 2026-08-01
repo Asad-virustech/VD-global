@@ -23,7 +23,7 @@ export function FeaturedCaseStudy() {
         <SectionHeading
           align="center"
           eyebrow="Featured Case Study"
-          title="Anatomy of an Authority Problem."
+          title="Anatomy of an authority problem."
           className="mb-12 sm:mb-14"
         />
 
@@ -101,7 +101,7 @@ export function FeaturedCaseStudy() {
 
               <div className="mt-8">
                 <Button as="button" size="lg" variant="primary">
-                  Read Full Story
+                  Read the full study
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </div>

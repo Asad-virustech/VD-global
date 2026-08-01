@@ -5,10 +5,10 @@ export function SolutionsCta() {
   return (
     <CtaBand
       eyebrow="Start With Clarity"
-      title="Let’s Build the Right Authority Strategy."
-      description="Every successful authority journey begins with understanding where you stand today."
-      primary={{ label: 'Start Your Free Authority Assessment', to: '/assessment' }}
-      secondary={{ label: 'Schedule a Consultation', to: '/contact', icon: CalendarClock }}
+      title="Let’s build the right authority strategy."
+      description="Every engagement begins with understanding where you stand today."
+      primary={{ label: 'Start your free authority assessment', to: '/assessment' }}
+      secondary={{ label: 'Talk with our team', to: '/contact', icon: CalendarClock }}
     />
   );
 }

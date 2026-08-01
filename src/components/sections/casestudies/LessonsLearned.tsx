@@ -65,7 +65,7 @@ export function LessonsLearned() {
             transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.05 }}
             className="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.75rem] text-balance"
           >
-            What the Work Keeps Teaching Us.
+            What the work keeps teaching us.
           </motion.h2>
 
           <motion.p

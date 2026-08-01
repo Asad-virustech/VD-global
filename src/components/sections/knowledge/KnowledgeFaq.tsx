@@ -8,7 +8,7 @@ const FAQS: FaqItem[] = [
   {
     question: 'How often are new insights published?',
     answer:
-      'We publish on a considered cadence rather than a fixed schedule. The Knowledge Hub is a curated library, not a news feed — new pieces go up when they add something genuinely useful, not to hit a quota.',
+      'We publish on a considered cadence rather than a fixed schedule. The Knowledge Hub is a curated library, not a news feed. New pieces go up when they add something genuinely useful, not to hit a quota.',
   },
   {
     question: 'Are the resources free?',
@@ -18,22 +18,22 @@ const FAQS: FaqItem[] = [
   {
     question: 'Who writes the content?',
     answer:
-      'It’s written by the VD Global advisory team — the same people who do the work — and grounded in real engagements rather than generic marketing theory.',
+      'It’s written by the VD Global advisory team, the same people who do the work, and grounded in real engagements rather than generic marketing theory.',
   },
   {
     question: 'Can I suggest topics?',
     answer:
-      'Absolutely. If there’s a question you keep running into, we’d like to hear it. Reader questions frequently shape what we write next.',
+      'Yes. If there’s a question you keep running into, we’d like to hear it. Reader questions frequently shape what we write next.',
   },
   {
     question: 'Do you provide downloadable guides?',
     answer:
-      'Yes. Alongside articles, we publish guides, checklists, frameworks and templates you can download and apply directly to your own situation.',
+      'Yes. Alongside articles, we publish guides, checklists, frameworks, and templates you can download and apply directly to your own situation.',
   },
   {
     question: 'What industries do you cover?',
     answer:
-      'The principles of authority and reputation apply broadly, so our writing spans founders, executives, technology companies, professional services, authors and growing brands.',
+      'The principles of authority and reputation apply broadly, so our writing spans founders, executives, technology companies, professional services, authors, and growing brands.',
   },
 ];
 

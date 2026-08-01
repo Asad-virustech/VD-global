@@ -18,7 +18,7 @@ const FAQS: FaqItem[] = [
   {
     question: "Can I work with VD Global if I'm not ready for Wikipedia?",
     answer:
-      'Absolutely. Many businesses benefit more from strategic PR, media visibility, guest publications, or credibility building before pursuing Wikipedia. We will recommend the path that best fits your current stage.',
+      "Yes. Many businesses benefit more from strategic PR, media visibility, guest publications, or credibility building before pursuing Wikipedia. We'll recommend the path that fits your current stage.",
   },
   {
     question: 'How long does the Authority Assessment take?',
@@ -28,7 +28,7 @@ const FAQS: FaqItem[] = [
   {
     question: 'Is the Authority Assessment really free?',
     answer:
-      'Yes. Our assessment is completely complimentary and comes with no obligation to work with us. Our goal is to help businesses make informed decisions.',
+      'Yes. The assessment is complimentary and comes with no obligation to work with us. The aim is to help you make an informed decision.',
   },
   {
     question: 'Do you only work with large companies?',
@@ -44,8 +44,8 @@ export function Faq() {
         <SectionHeading
           align="center"
           eyebrow="Frequently Asked Questions"
-          title="Questions We Often Receive."
-          description="Building authority is an important investment. Here are answers to some of the questions we hear most frequently."
+          title="Questions we hear often."
+          description="Building authority is a considered decision. Here are the questions we hear most, answered plainly."
           className="mb-12 sm:mb-14"
         />
 

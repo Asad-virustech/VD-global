@@ -11,8 +11,8 @@ export function CaseStudiesFaq() {
         <SectionHeading
           align="center"
           eyebrow="Frequently Asked Questions"
-          title="About Our Case Studies."
-          description="Confidentiality, measurement, and what we will — and won't — claim. If your question isn't here, we're glad to answer it directly."
+          title="About our case studies."
+          description="Confidentiality, measurement, and what we will and won't claim. If your question isn't here, we're glad to answer it directly."
           className="mb-12 sm:mb-14"
         />
 

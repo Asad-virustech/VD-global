@@ -11,34 +11,34 @@ type Principle = {
 
 const PRINCIPLES: Principle[] = [
   {
-    title: 'Education Before Sales',
+    title: 'Education before sales',
     description:
       'We help you understand your position first. An informed decision is worth more than a fast one.',
   },
   {
-    title: 'Long-Term Thinking',
+    title: 'Long-term thinking',
     description:
       'We advise for the reputation you’ll want in five years, not the attention you could buy this month.',
   },
   {
-    title: 'Ethical Recommendations',
+    title: 'Ethical recommendations',
     description:
-      'We only recommend what we believe is right for you — including when the honest answer is to wait.',
+      'We only recommend what we believe is right for you, including when the honest answer is to wait.',
   },
   {
-    title: 'Strategic Advisory',
+    title: 'Strategic advisory',
     description:
-      'We start from strategy, not services. The plan follows your goals, stage and reputation.',
+      'We start from strategy, not services. The plan follows your goals, stage, and reputation.',
   },
   {
-    title: 'Transparent Communication',
+    title: 'Transparent communication',
     description:
       'No inflated promises or hidden assumptions. You’ll always understand the reasoning behind our advice.',
   },
   {
-    title: 'Evidence-Based Decisions',
+    title: 'Evidence-based decisions',
     description:
-      'Recommendations follow from what your public footprint actually shows — not guesswork or trends.',
+      'Recommendations follow from what your public footprint shows, not guesswork or trends.',
   },
 ];
 
@@ -61,8 +61,8 @@ export function WhatMakesUsDifferent() {
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeading
               eyebrow="What Makes Us Different"
-              title="Advisory Held to a Higher Standard."
-              description="These principles decide how we work — and, just as often, what we choose not to do."
+              title="Advisory held to a higher standard."
+              description="These principles decide how we work, and just as often, what we choose not to do."
             />
           </div>
 

@@ -48,9 +48,9 @@ export function AboutPhilosophy() {
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.05 }}
               className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[3.5rem] text-balance"
             >
-              Authority Is Built.
+              Authority is built.
               <br />
-              <span className="text-teal-300">Not Bought.</span>
+              <span className="text-teal-300">Not bought.</span>
             </motion.h2>
 
             <motion.p
@@ -60,7 +60,7 @@ export function AboutPhilosophy() {
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.12 }}
               className="mt-6 max-w-lg text-base leading-relaxed text-ink-300 sm:text-lg"
             >
-              You cannot purchase a reputation. You can only earn one — through work that holds up,
+              You cannot purchase a reputation. You can only earn one: through work that holds up,
               recognition that reflects it, and the patience to let both accumulate. Everything we
               recommend serves that longer arc.
             </motion.p>

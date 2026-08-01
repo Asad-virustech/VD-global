@@ -105,8 +105,8 @@ export function Solutions() {
           align="center"
           tone="dark"
           eyebrow="Solutions"
-          title="Build Authority Through The Right Strategy."
-          description="Every business starts from a different position. Some need media recognition. Some need stronger credibility. Some are preparing for Wikipedia. Others simply need a clear authority roadmap. We help you understand where you stand and recommend the strategy that creates the greatest long-term impact."
+          title="The right next step depends on where you stand."
+          description="Every business starts from a different position. Some need media recognition; others need stronger credibility, or a clear roadmap before they invest in anything at all. We help you see where you stand today and recommend the strategy that compounds over the long term."
           className="mb-12 sm:mb-14"
         />
 
@@ -134,12 +134,12 @@ export function Solutions() {
           className="mt-14 flex flex-col items-center text-center sm:mt-16"
         >
           <Button as="link" to="/assessment" size="md" variant="primary">
-            Start Your Free Authority Assessment
+            Start your free authority assessment
             <ArrowRight className="h-4 w-4" />
           </Button>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-300">
-            We&rsquo;ll review your current authority, identify opportunities, and recommend
-            the next strategic step.
+            We&rsquo;ll read your current authority, name the opportunities we see, and recommend
+            the next step worth taking.
           </p>
         </motion.div>
       </Container>

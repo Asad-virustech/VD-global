@@ -11,7 +11,7 @@ export function ContactFaq() {
         <SectionHeading
           align="center"
           eyebrow="Frequently Asked Questions"
-          title="Before You Reach Out."
+          title="Before you reach out."
           description="A few things people often want to know first. If your question isn't here, just ask it in the form."
           className="mb-12 sm:mb-14"
         />

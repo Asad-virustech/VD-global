@@ -11,7 +11,7 @@ export function WhatHappensNext() {
         <SectionHeading
           align="center"
           eyebrow="What Happens Next?"
-          title="Exactly What to Expect."
+          title="Exactly what to expect."
           description="No mystery, no pressure. Here's the path from the moment you reach out to a set of clear recommendations."
           className="mb-12 sm:mb-14"
         />

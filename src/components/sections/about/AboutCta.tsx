@@ -5,10 +5,10 @@ export function AboutCta() {
   return (
     <CtaBand
       eyebrow="Start With Clarity"
-      title="Let’s Build Something Worth Being Recognized For."
-      description="Authority isn’t created overnight. It grows through consistent decisions, strategic visibility and earned trust."
-      primary={{ label: 'Start Your Free Authority Assessment', to: '/assessment' }}
-      secondary={{ label: 'Schedule a Consultation', to: '/contact', icon: CalendarClock }}
+      title="Let’s build something worth being recognized for."
+      description="Authority isn’t created overnight. It grows through consistent decisions, strategic visibility, and earned trust."
+      primary={{ label: 'Start your free authority assessment', to: '/assessment' }}
+      secondary={{ label: 'Talk with our team', to: '/contact', icon: CalendarClock }}
     />
   );
 }

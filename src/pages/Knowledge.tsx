@@ -13,7 +13,7 @@ import { KnowledgeCta } from '../components/sections/knowledge/KnowledgeCta';
 export default function Knowledge() {
   useDocumentMeta({
     title: 'Knowledge Hub — VD Global',
-    description: `A curated knowledge library from ${FIRM.name} — practical insights on authority, reputation, media visibility, Wikipedia readiness and long-term credibility. Education-first, free to read.`,
+    description: `A knowledge library from ${FIRM.name}: practical insights on authority, reputation, media visibility, Wikipedia readiness, and long-term credibility. Education-first, free to read.`,
   });
 
   return (

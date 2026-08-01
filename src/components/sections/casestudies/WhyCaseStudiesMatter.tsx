@@ -5,7 +5,7 @@ import { Container } from '../../ui/Container';
 
 const PARAGRAPHS = [
   'Every business arrives with a different authority challenge. A trusted product that no one can find. Deep expertise the public can’t verify. Genuine innovation lost in a noisy category.',
-  'The temptation is to reach for a tactic — a press release, a profile, a campaign. But the same tactic produces very different results depending on where a business actually stands.',
+  'The temptation is to reach for a tactic: a press release, a profile, a campaign. But the same tactic produces very different results depending on where a business actually stands.',
   'So we don’t start with solutions. We start by understanding the situation, then recommend a strategy that fits it. These stories are less about outcomes to admire and more about how that thinking works in practice.',
 ];
 
@@ -48,7 +48,7 @@ export function WhyCaseStudiesMatter() {
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.05 }}
               className="mt-4 text-3xl font-bold leading-tight tracking-tight text-ink-900 sm:text-4xl lg:text-[2.75rem] text-balance"
             >
-              The Same Tactic, Very Different Outcomes.
+              The same tactic, very different outcomes.
             </motion.h2>
 
             <motion.div

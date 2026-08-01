@@ -13,7 +13,7 @@ import { FIRM } from '../../content/site';
 
 export default function Home() {
   useDocumentMeta({
-    title: 'VD Global — Authority Advisory for Founders & Businesses',
+    title: 'VD Global — Authority Advisory for Founders and Businesses',
     description: FIRM.description,
   });
 

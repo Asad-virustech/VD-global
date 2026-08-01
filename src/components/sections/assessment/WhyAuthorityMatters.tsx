@@ -107,7 +107,7 @@ export function WhyAuthorityMatters() {
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.05 }}
               className="mt-4 text-3xl font-bold leading-tight tracking-tight text-ink-900 sm:text-4xl lg:text-[2.75rem] text-balance"
             >
-              Reputation Decides Before You Enter the Room.
+              Reputation decides before you enter the room.
             </motion.h2>
 
             <motion.div
@@ -118,9 +118,9 @@ export function WhyAuthorityMatters() {
               className="mt-6 max-w-lg space-y-4 text-base leading-relaxed text-ink-500 sm:text-lg"
             >
               <p>
-                Authority is not self-description. It is the impression that forms when other
-                people — customers, journalists, partners, investors — look you up and decide
-                whether to trust what they find.
+                Authority is not self-description. It is the impression that forms when others look
+                you up: customers, journalists, partners, and investors deciding whether to trust
+                what they find.
               </p>
               <p>
                 That impression is already influencing outcomes, whether or not you manage it.

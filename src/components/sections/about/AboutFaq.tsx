@@ -8,7 +8,7 @@ const FAQS: FaqItem[] = [
   {
     question: 'How do engagements begin?',
     answer:
-      'Almost always with the Authority Assessment. It’s a complimentary review of where you stand today, and it gives us the evidence to recommend a genuinely useful next step — with no obligation to continue.',
+      'Almost always with the Authority Assessment. It’s a complimentary review of where you stand today, and it gives us the evidence to recommend a genuinely useful next step, with no obligation to continue.',
   },
   {
     question: 'Do you work internationally?',
@@ -18,7 +18,7 @@ const FAQS: FaqItem[] = [
   {
     question: 'Can you help early-stage companies?',
     answer:
-      'Often, yes — though the right first step for an early-stage company is usually different from an established one. We’ll be candid about what’s worth building now and what’s better to revisit later.',
+      'Often, yes, though the right first step for an early-stage company is usually different from an established one. We’ll be candid about what’s worth building now and what’s better to revisit later.',
   },
   {
     question: 'What if I’m not ready?',
@@ -28,7 +28,7 @@ const FAQS: FaqItem[] = [
   {
     question: 'How long do advisory relationships last?',
     answer:
-      'It varies. Some engagements are a single focused piece of advice; others become long-term relationships as reputation compounds. We don’t lock you into a fixed term — the relationship lasts as long as it’s useful.',
+      'It varies. Some engagements are a single focused piece of advice; others become long-term relationships as reputation compounds. We don’t lock you into a fixed term. The relationship lasts as long as it’s useful.',
   },
   {
     question: 'Do you guarantee outcomes?',
@@ -44,8 +44,8 @@ export function AboutFaq() {
         <SectionHeading
           align="center"
           eyebrow="Frequently Asked Questions"
-          title="A Few Things Worth Knowing."
-          description="How we work, who we work with, and what we will — and won’t — promise. If your question isn’t here, we’re glad to answer it directly."
+          title="A few things worth knowing."
+          description="How we work, who we work with, and what we will and won’t promise. If your question isn’t here, we’re glad to answer it directly."
           className="mb-12 sm:mb-14"
         />
 

@@ -36,7 +36,7 @@ const DIMENSIONS: Dimension[] = [
   {
     icon: Search,
     title: 'Search Visibility',
-    description: 'What someone finds — and in what order — when they search your name or company.',
+    description: 'What someone finds, and in what order, when they search your name or company.',
   },
   {
     icon: BookOpenCheck,
@@ -106,7 +106,7 @@ export function WhatWeAssess() {
         <SectionHeading
           align="center"
           eyebrow="What We Assess"
-          title="Seven Dimensions of Public Authority."
+          title="Seven dimensions of public authority."
           description="Authority isn't a single score. It's the sum of the signals people encounter when they look you up. We review each one and show you where the meaningful gaps are."
           className="mb-12 sm:mb-14"
         />

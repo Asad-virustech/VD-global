@@ -15,17 +15,17 @@ export const FIRM = {
   name: 'VD Global',
   tagline: 'Authority Advisory',
   description:
-    'An Authority Advisory Firm helping founders and businesses build Recognition, Credibility, Authority and Trust through ethical PR, media strategy and Wikipedia advisory.',
+    'An authority advisory firm helping founders and businesses build recognition, credibility, and trust through ethical PR, media strategy, and Wikipedia advisory.',
   email: 'hello@vdglobals.com',
   location: 'Remote · Global',
 };
 
 export const FINAL_CTA = {
-  label: 'Ready to Build Your Authority?',
-  title: 'Start with Clarity.\nGrow with Confidence.',
+  label: 'Begin with an assessment',
+  title: 'Know where you stand.\nBuild from there.',
   description:
-    "Every authority journey begins with understanding where you stand today.\n\nWhether you're preparing for strategic PR, building toward Wikipedia, or strengthening your business credibility, we'll help you identify the right next step.",
-  primaryButton: 'Start Your Free Authority Assessment',
+    "Every engagement begins with understanding where you stand today.\n\nWhether you're preparing for strategic PR, working toward Wikipedia, or strengthening your credibility, we'll help you find the right next step.",
+  primaryButton: 'Start your free authority assessment',
   primaryHref: '/assessment',
   secondaryButton: 'Explore the Knowledge Hub',
   secondaryHref: '/knowledge',
@@ -34,21 +34,21 @@ export const FINAL_CTA = {
 export const FINAL_CTA_TRUST: TrustCard[] = [
   {
     icon: Compass,
-    title: 'Strategic Recommendations',
+    title: 'Strategic recommendations',
     description:
-      'Every recommendation is tailored to your current position and long-term goals.',
+      'Every recommendation is grounded in your current position and long-term goals.',
   },
   {
     icon: Clock,
-    title: 'Response Within 24 Hours',
+    title: 'Response within 24 hours',
     description:
       'Most Authority Assessments receive an initial response within one business day.',
   },
   {
     icon: ShieldCheck,
-    title: 'No Obligation',
+    title: 'No obligation',
     description:
-      'Our assessment is complimentary and designed to help you make informed decisions.',
+      'The assessment is complimentary, and meant to help you make an informed decision.',
   },
 ];
 
@@ -71,4 +71,4 @@ export const FOOTER_SOCIALS: SocialLink[] = [
   { label: 'Facebook', href: '#', icon: Facebook },
 ];
 
-export const FOOTER_COPYRIGHT = '© 2026 VD Global. All Rights Reserved.';
+export const FOOTER_COPYRIGHT = '© 2026 VD Global. All rights reserved.';

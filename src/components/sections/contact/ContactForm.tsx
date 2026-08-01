@@ -83,8 +83,8 @@ export function ContactForm() {
         <SectionHeading
           align="center"
           eyebrow="Consultation Request"
-          title="Tell Us About Your Business."
-          description="Share a little context and we'll take it from there — personally, and usually within a business day."
+          title="Tell us about your business."
+          description="Share a little context and we'll take it from there, personally, and usually within a business day."
           className="mb-12 sm:mb-14"
         />
 
@@ -105,7 +105,7 @@ export function ContactForm() {
               </h3>
               <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-500 sm:text-base">
                 Thank you. We&rsquo;ve got your details and will reply personally, usually within
-                one business day. No automated sequence — just a real conversation.
+                one business day. No automated sequence. Just a real conversation.
               </p>
               <div className="mt-7">
                 <Button as="link" to="/assessment" size="lg" variant="outline">
@@ -125,7 +125,7 @@ export function ContactForm() {
               className="rounded-3xl border border-ink-100 bg-white p-6 shadow-card sm:p-8 lg:p-10"
             >
               <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
-                <Field label="Full Name" htmlFor="fullName" required>
+                <Field label="Full name" htmlFor="fullName" required>
                   <input
                     id="fullName"
                     name="fullName"
@@ -153,7 +153,7 @@ export function ContactForm() {
                   />
                 </Field>
 
-                <Field label="Business Email" htmlFor="email" required>
+                <Field label="Business email" htmlFor="email" required>
                   <input
                     id="email"
                     name="email"
@@ -192,7 +192,7 @@ export function ContactForm() {
                   />
                 </Field>
 
-                <Field label="Primary Goal" htmlFor="primaryGoal" required>
+                <Field label="Primary goal" htmlFor="primaryGoal" required>
                   <div className="relative">
                     <select
                       id="primaryGoal"
@@ -223,7 +223,7 @@ export function ContactForm() {
               </div>
 
               <div className="mt-5 sm:mt-6">
-                <Field label="Current Challenges" htmlFor="challenges" optional>
+                <Field label="Current challenges" htmlFor="challenges" optional>
                   <textarea
                     id="challenges"
                     name="challenges"
@@ -265,7 +265,7 @@ export function ContactForm() {
                     </>
                   ) : (
                     <>
-                      Request Consultation
+                      Send request
                       <ArrowRight className="h-4 w-4" />
                     </>
                   )}

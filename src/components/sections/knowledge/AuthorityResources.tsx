@@ -95,8 +95,8 @@ export function AuthorityResources() {
         <SectionHeading
           align="center"
           eyebrow="Authority Resources"
-          title="Tools You Can Actually Use."
-          description="Curated guides, checklists and frameworks — the same thinking we bring to advisory, made practical for you to apply."
+          title="Tools you can actually use."
+          description="Guides, checklists, and frameworks: the same thinking we bring to advisory, made practical for you to apply."
           className="mb-12 sm:mb-14"
         />
 

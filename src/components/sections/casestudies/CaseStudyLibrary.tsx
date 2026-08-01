@@ -55,7 +55,7 @@ function CaseStudyRow({ industry, title, summary, tags }: CaseStudy) {
           <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink-500">{summary}</p>
           <TagRow tags={tags} className="mt-5 lg:hidden" />
           <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 transition-colors duration-300 group-hover:text-teal-800">
-            Read More
+            Read the full study
             <ArrowRight
               className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
               strokeWidth={1.75}
@@ -74,8 +74,8 @@ export function CaseStudyLibrary() {
         <SectionHeading
           align="center"
           eyebrow="Case Study Library"
-          title="A Range of Authority Challenges."
-          description="Different industries, different starting points — connected by the same disciplined way of thinking about reputation and trust."
+          title="A range of authority challenges."
+          description="Different industries, different starting points, connected by the same disciplined way of thinking about reputation and trust."
           className="mb-12 sm:mb-14"
         />
 

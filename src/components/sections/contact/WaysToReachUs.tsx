@@ -73,7 +73,7 @@ export function WaysToReachUs() {
         <SectionHeading
           align="center"
           eyebrow="Ways to Reach Us"
-          title="Prefer to Reach Out Directly?"
+          title="Prefer to reach out directly?"
           description="The form is the easiest way to start, but you're welcome to reach us however suits you best."
           className="mb-12 sm:mb-14"
         />

@@ -5,10 +5,10 @@ export function ContactCta() {
   return (
     <CtaBand
       eyebrow="Start With Clarity"
-      title="Ready to Build Your Authority?"
-      description="Let’s begin with a conversation — not assumptions."
-      primary={{ label: 'Book Your Strategy Call', href: '#request' }}
-      secondary={{ label: 'Start Your Free Authority Assessment', to: '/assessment', icon: BookOpen }}
+      title="Start with a conversation."
+      description="Let’s begin with a conversation, not assumptions."
+      primary={{ label: 'Book a strategy call', href: '#request' }}
+      secondary={{ label: 'Start your free authority assessment', to: '/assessment', icon: BookOpen }}
     />
   );
 }

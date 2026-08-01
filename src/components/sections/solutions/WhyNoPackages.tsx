@@ -5,9 +5,9 @@ import { Container } from '../../ui/Container';
 import { Button } from '../../ui/Button';
 
 const PARAGRAPHS = [
-  'Predefined packages are convenient for the firm selling them — rarely for the business buying them. They assume every company needs the same things, in the same order. Most don’t.',
-  'We start from your actual position instead. The Authority Assessment shows us where you stand across credibility, media, search and reputation, and what would genuinely move the needle next.',
-  'From there we recommend a focused path — sometimes a single area, sometimes a sequence, and occasionally the advice to wait. What we won’t do is sell you more than the moment calls for.',
+  'Predefined packages are convenient for the firm selling them, rarely for the business buying them. They assume every company needs the same things, in the same order. Most don’t.',
+  'We start from your actual position instead. The Authority Assessment shows us where you stand across credibility, media, search, and reputation, and what would genuinely help most next.',
+  'From there we recommend a focused path: sometimes a single area, sometimes a sequence, and occasionally the advice to wait. What we won’t do is sell you more than the moment calls for.',
 ];
 
 export function WhyNoPackages() {
@@ -39,9 +39,9 @@ export function WhyNoPackages() {
               transition={{ duration: 0.6, ease: 'easeOut' as const, delay: 0.05 }}
               className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl text-balance"
             >
-              We Recommend.
+              We recommend.
               <br />
-              We Don&rsquo;t <span className="text-teal-300">Upsell</span>.
+              We don&rsquo;t <span className="text-teal-300">upsell</span>.
             </motion.h2>
 
             <motion.p
@@ -51,7 +51,7 @@ export function WhyNoPackages() {
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.12 }}
               className="mt-7 max-w-md text-base leading-relaxed text-ink-300 sm:text-lg"
             >
-              Recommendations start with your assessment — not a price list. The strategy follows the
+              Recommendations start with your assessment, not a price list. The strategy follows the
               findings, not the other way around.
             </motion.p>
 
@@ -63,7 +63,7 @@ export function WhyNoPackages() {
               className="mt-9"
             >
               <Button as="link" to="/assessment" size="lg" variant="primary">
-                Start Your Free Authority Assessment
+                Start your free authority assessment
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </motion.div>

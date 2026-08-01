@@ -22,44 +22,44 @@ type Principle = {
 const PRINCIPLES: Principle[] = [
   {
     icon: Scale,
-    title: 'Honesty Before Revenue',
+    title: 'Honesty before revenue',
     description:
       'If we don’t believe a strategy is right for your business, we’ll tell you before asking you to invest.',
   },
   {
     icon: GraduationCap,
-    title: 'Education Creates Better Decisions',
+    title: 'Education creates better decisions',
     description:
       'An informed partner makes better long-term decisions than someone buying services without understanding the process.',
   },
   {
     icon: Lightbulb,
-    title: 'Strategy Before Execution',
+    title: 'Strategy before execution',
     description:
-      'The first solution isn’t always the best solution. We evaluate before we recommend.',
+      'The first idea is rarely the best one. We evaluate before we recommend.',
   },
   {
     icon: Handshake,
-    title: 'Long-Term Partnerships',
+    title: 'Long-term partnerships',
     description:
-      'We’re interested in building lasting authority and trusted relationships—not one-time transactions.',
+      'We’re interested in building lasting authority and trusted relationships, not one-time transactions.',
   },
   {
     icon: BadgeCheck,
-    title: 'Trust Is Our Reputation',
+    title: 'Trust is our reputation',
     description:
-      'Every recommendation reflects our own reputation. That’s why we value transparency over unrealistic promises.',
+      'Every recommendation reflects our own reputation. That’s why we value candour over unrealistic promises.',
   },
 ];
 
 const QUOTE = {
-  lines: ['We don’t just build authority.', 'We build the trust behind it.'],
+  lines: ['Anyone can chase attention.', 'We build the trust that outlasts it.'],
   attribution: 'VD Global',
 };
 
 const CALLOUT = {
-  title: 'Sometimes the right answer is “Not Yet.”',
-  body: 'Not every business is immediately ready for strategic PR or Wikipedia. If we believe another path will create better long-term results, we’ll recommend it first. Our goal is sustainable authority—not unnecessary spending.',
+  title: 'Sometimes the right answer is “not yet.”',
+  body: 'Not every business is ready for strategic PR or Wikipedia today. If another path will create better long-term results, we’ll recommend it first. The goal is durable authority, not unnecessary spending.',
 };
 
 const list: Variants = {
@@ -115,7 +115,7 @@ export function Philosophy() {
               transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.05 }}
               className="mt-4 text-3xl font-bold leading-tight tracking-tight text-ink-900 sm:text-4xl lg:text-[2.75rem] text-balance"
             >
-              We Believe Authority Should Be Earned.
+              Authority should be earned, not manufactured.
             </motion.h2>
 
             <motion.div
@@ -128,9 +128,8 @@ export function Philosophy() {
               <p>Authority isn’t something you can purchase overnight.</p>
               <p>It’s built through credibility, recognition, consistency, and trust.</p>
               <p>
-                Our responsibility isn’t to recommend every service we offer. Our responsibility is
-                to recommend the right next step for your business—even if that means telling you to
-                wait.
+                Our responsibility isn’t to recommend every service we offer. It’s to recommend the
+                right next step for your business, even if that means telling you to wait.
               </p>
             </motion.div>
           </div>
