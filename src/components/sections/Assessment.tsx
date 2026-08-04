@@ -4,6 +4,7 @@ import type { LucideIcon } from 'lucide-react';
 import { Compass, BookOpenCheck, Route, ShieldOff, Clock } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
+import { FIRM } from '../../../content/site';
 
 type Feature = {
   icon: LucideIcon;
@@ -125,7 +126,7 @@ export function Assessment() {
               className="mt-8 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-ink-400"
             >
               <Clock className="h-4 w-4 text-teal-600" strokeWidth={1.75} />
-              Typical response time: within 24 hours.
+              Typical response time: within {FIRM.responseWindow}.
             </motion.p>
           </div>
 

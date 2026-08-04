@@ -23,18 +23,15 @@ const cell: Variants = {
   show: { opacity: 1, transition: { duration: 0.5, ease: 'easeOut' as const } },
 };
 
-function PlaceholderBadge() {
-  return (
-    <span className="rounded-full border border-ink-200 bg-ink-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-ink-400">
-      Placeholder
-    </span>
-  );
-}
-
 function MethodValue({ value, href, className }: { value: string; href?: string; className: string }) {
   const isRealLink = href && href !== '#';
+  const isExternal = href?.startsWith('http');
   return isRealLink ? (
-    <a href={href} className={`${className} transition-colors hover:text-teal-700`}>
+    <a
+      href={href}
+      {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      className={`${className} transition-colors hover:text-teal-700`}
+    >
       {value}
     </a>
   ) : (
@@ -42,14 +39,13 @@ function MethodValue({ value, href, className }: { value: string; href?: string;
   );
 }
 
-function SecondaryMethod({ icon: Icon, label, value, href, note, placeholder }: ContactMethod) {
+function SecondaryMethod({ icon: Icon, label, value, href, note }: ContactMethod) {
   return (
     <motion.div variants={cell} className="bg-white p-6 sm:p-7">
       <div className="flex items-center justify-between">
         <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100">
           <Icon className="h-5 w-5" strokeWidth={1.75} />
         </span>
-        {placeholder && <PlaceholderBadge />}
       </div>
       <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400">
         {label}

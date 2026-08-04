@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { Mail, MapPin, ArrowUpRight } from 'lucide-react';
-import { FIRM, FOOTER_NAV, FOOTER_SOCIALS, FOOTER_COPYRIGHT } from '../../../content/site';
+import { FIRM, FOOTER_NAV, FOOTER_SOCIALS, FOOTER_LEGAL, FOOTER_COPYRIGHT } from '../../../content/site';
 import { Container } from '../ui/Container';
 import { Logo } from '../ui/Logo';
 
@@ -110,25 +110,42 @@ export function Footer() {
                 {FIRM.location}
               </p>
             </div>
-            <ul className="mt-5 flex gap-2.5">
-              {FOOTER_SOCIALS.map((social) => (
-                <li key={social.label}>
-                  <a
-                    href={social.href}
-                    aria-label={social.label}
-                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-ink-300 transition-all duration-200 hover:-translate-y-0.5 hover:border-teal-400/40 hover:text-teal-300"
-                  >
-                    <social.icon className="h-4 w-4" strokeWidth={1.75} />
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {FOOTER_SOCIALS.length > 0 && (
+              <ul className="mt-5 flex gap-2.5">
+                {FOOTER_SOCIALS.map((social) => (
+                  <li key={social.label}>
+                    <a
+                      href={social.href}
+                      aria-label={social.label}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-ink-300 transition-all duration-200 hover:-translate-y-0.5 hover:border-teal-400/40 hover:text-teal-300"
+                    >
+                      <social.icon className="h-4 w-4" strokeWidth={1.75} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </motion.div>
 
         {/* Baseline */}
-        <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-ink-500 sm:flex-row sm:items-center">
-          <p>{FOOTER_COPYRIGHT}</p>
+        <div className="mt-10 flex flex-col items-start gap-4 border-t border-white/10 pt-6 text-xs text-ink-500 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+            <p>{FOOTER_COPYRIGHT}</p>
+            <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-4 gap-y-1">
+              {FOOTER_LEGAL.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="transition-colors duration-200 hover:text-teal-300"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
           <Link
             to="/contact"
             className="group inline-flex items-center gap-1.5 font-medium text-ink-300 transition-colors duration-200 hover:text-teal-300"

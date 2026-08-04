@@ -1,5 +1,6 @@
 import { CalendarClock } from 'lucide-react';
 import { PageHero } from '../PageHero';
+import { FIRM } from '../../../../content/site';
 
 export function AssessmentHero() {
   return (
@@ -16,7 +17,7 @@ export function AssessmentHero() {
       secondary={{ label: 'Talk with our team', to: '/contact', icon: CalendarClock }}
       meta={[
         'Complimentary and no obligation',
-        'Initial response within 24 hours',
+        `Initial response within ${FIRM.responseWindow}`,
         'Practical, honest recommendations',
       ]}
     />

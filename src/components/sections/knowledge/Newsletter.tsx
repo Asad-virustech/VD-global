@@ -1,19 +1,51 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, ArrowRight, CheckCircle2, Lock } from 'lucide-react';
+import { Mail, ArrowRight, CheckCircle2, Loader2, Lock } from 'lucide-react';
 import { Section } from '../../ui/Section';
 import { Container } from '../../ui/Container';
+import { subscribeNewsletter } from '../../../../lib/subscribeNewsletter';
+import { isEmail } from '../../../../lib/validation';
+import { HONEYPOT_FIELD, honeypotStyle, isLikelyBot } from '../../../../lib/spamGuard';
+
+type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 export function Newsletter() {
   const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>('idle');
+  const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const mountedAt = useRef(Date.now());
 
-  // Client-side only — no backend. We simply acknowledge the intent locally.
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!email) return;
-    setSubmitted(true);
+
+    // Invisible spam checks — silently accept and show success so bots don't retry.
+    if (isLikelyBot(honeypot, mountedAt.current)) {
+      setMessage('You’re on the list. We only write when it’s worth your time.');
+      setStatus('success');
+      return;
+    }
+
+    if (!isEmail(email)) {
+      setError('That email doesn’t look right. Mind checking it?');
+      return;
+    }
+    setError('');
+    setStatus('submitting');
+
+    try {
+      const result = await subscribeNewsletter({ email, submittedAt: new Date().toISOString() });
+      setMessage(
+        result === 'already'
+          ? 'You’re already on the list. We only write when it’s worth your time.'
+          : 'You’re on the list. We only write when it’s worth your time.',
+      );
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    }
   }
 
   return (
@@ -43,13 +75,13 @@ export function Newsletter() {
               when we have something genuinely worth your time.
             </p>
 
-            {submitted ? (
+            {status === 'success' ? (
               <p
                 role="status"
                 className="mt-8 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-5 py-3 text-sm font-medium text-teal-800"
               >
                 <CheckCircle2 className="h-4 w-4" strokeWidth={2} />
-                You&rsquo;re on the list. We only write when it&rsquo;s worth your time.
+                {message}
               </p>
             ) : (
               <form
@@ -57,27 +89,67 @@ export function Newsletter() {
                 className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
                 noValidate
               >
+                {/* Honeypot — hidden from real users; bots that fill it are dropped. */}
+                <div style={honeypotStyle} aria-hidden="true">
+                  <label htmlFor={`nl-${HONEYPOT_FIELD}`}>Company URL</label>
+                  <input
+                    id={`nl-${HONEYPOT_FIELD}`}
+                    name={HONEYPOT_FIELD}
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                  />
+                </div>
+
                 <label htmlFor="newsletter-email" className="sr-only">
                   Email address
                 </label>
                 <input
                   id="newsletter-email"
                   type="email"
-                  required
                   autoComplete="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (error) setError('');
+                    if (status === 'error') setStatus('idle');
+                  }}
                   placeholder="you@company.com"
+                  aria-invalid={error ? true : undefined}
+                  aria-describedby={error ? 'newsletter-error' : undefined}
                   className="h-12 w-full flex-1 rounded-xl border border-ink-200 bg-white px-5 text-sm text-ink-900 shadow-soft transition-colors placeholder:text-ink-400 focus:border-teal-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
                 />
                 <button
                   type="submit"
-                  className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-teal-700 px-6 text-sm font-medium text-white shadow-soft transition-all duration-200 hover:bg-teal-800 hover:shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 active:scale-[0.98]"
+                  disabled={status === 'submitting'}
+                  className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-teal-700 px-6 text-sm font-medium text-white shadow-soft transition-all duration-200 hover:bg-teal-800 hover:shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none"
                 >
-                  Join the list
-                  <ArrowRight className="h-4 w-4" />
+                  {status === 'submitting' ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Joining…
+                    </>
+                  ) : (
+                    <>
+                      Join the list
+                      <ArrowRight className="h-4 w-4" />
+                    </>
+                  )}
                 </button>
               </form>
+            )}
+
+            {error && (
+              <p id="newsletter-error" role="alert" className="mt-3 text-sm font-medium text-red-600">
+                {error}
+              </p>
+            )}
+            {status === 'error' && (
+              <p role="alert" className="mt-3 text-sm font-medium text-red-600">
+                Something went wrong on our end. Please try again in a moment.
+              </p>
             )}
 
             <p className="mt-5 inline-flex items-center gap-1.5 text-xs text-ink-400">

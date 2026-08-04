@@ -7,7 +7,8 @@ import { Button } from '../../ui/Button';
 import { FaqAccordion } from '../../ui/FaqAccordion';
 import type { FaqItem } from '../../ui/FaqAccordion';
 
-const FAQS: FaqItem[] = [
+// eslint-disable-next-line react-refresh/only-export-components
+export const FAQS: FaqItem[] = [
   {
     question: 'What exactly is an Authority Assessment?',
     answer:

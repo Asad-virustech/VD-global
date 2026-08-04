@@ -3,9 +3,10 @@ import type { Variants } from 'framer-motion';
 import { ArrowRight, Compass } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { HeroBackdrop } from './HeroBackdrop';
+import { FIRM } from '../../../content/site';
 
 const TRUST_INDICATORS = [
-  'Response within 24 hours',
+  `Response within ${FIRM.responseWindow}`,
   'Strategic recommendations',
   'No false guarantees',
 ];

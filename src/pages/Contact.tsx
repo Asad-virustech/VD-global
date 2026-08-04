@@ -1,5 +1,5 @@
-import { useDocumentMeta } from '../../lib/useDocumentMeta';
-import { FIRM } from '../../content/site';
+import { usePageSeo } from '../../lib/usePageSeo';
+import { CONTACT_FAQS } from '../../content/contact';
 import { ContactHero } from '../components/sections/contact/ContactHero';
 import { HowWeWork } from '../components/sections/contact/HowWeWork';
 import { ContactForm } from '../components/sections/contact/ContactForm';
@@ -10,10 +10,7 @@ import { TrustSection } from '../components/sections/contact/TrustSection';
 import { ContactCta } from '../components/sections/contact/ContactCta';
 
 export default function Contact() {
-  useDocumentMeta({
-    title: 'Contact — VD Global',
-    description: `Start a conversation with ${FIRM.name}. Request a complimentary consultation to discuss your authority goals. Advisory-first, no obligation.`,
-  });
+  usePageSeo({ path: '/contact', faq: CONTACT_FAQS });
 
   return (
     <>

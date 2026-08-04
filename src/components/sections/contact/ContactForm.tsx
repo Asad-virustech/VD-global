@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import type { FormEvent, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Loader2, ChevronDown } from 'lucide-react';
@@ -7,10 +7,15 @@ import { Container } from '../../ui/Container';
 import { SectionHeading } from '../../ui/SectionHeading';
 import { Button } from '../../ui/Button';
 import { PRIMARY_GOALS } from '../../../../content/contact';
+import { FIRM } from '../../../../content/site';
 import { submitContactRequest } from '../../../../lib/submitContactRequest';
 import type { ContactRequest } from '../../../../lib/submitContactRequest';
+import { isEmail, isFilled, isUrl } from '../../../../lib/validation';
+import { HONEYPOT_FIELD, honeypotStyle, isLikelyBot } from '../../../../lib/spamGuard';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
+
+type FieldErrors = Partial<Record<keyof ContactRequest, string>>;
 
 const EMPTY: ContactRequest = {
   fullName: '',
@@ -31,12 +36,14 @@ function Field({
   htmlFor,
   required,
   optional,
+  error,
   children,
 }: {
   label: string;
   htmlFor: string;
   required?: boolean;
   optional?: boolean;
+  error?: string;
   children: ReactNode;
 }) {
   return (
@@ -52,23 +59,59 @@ function Field({
         {optional && <span className="font-normal text-ink-400"> (optional)</span>}
       </label>
       <div className="mt-2">{children}</div>
+      {error && (
+        <p id={`${htmlFor}-error`} className="mt-1.5 text-sm text-red-600">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
 
 export function ContactForm() {
   const [values, setValues] = useState<ContactRequest>(EMPTY);
+  const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>('idle');
+  const [honeypot, setHoneypot] = useState('');
+  const mountedAt = useRef(Date.now());
 
   function update<K extends keyof ContactRequest>(key: K, value: string) {
     setValues((prev) => ({ ...prev, [key]: value }));
+    // Clear a field's error as soon as the user edits it.
+    setErrors((prev) => (prev[key] ? { ...prev, [key]: undefined } : prev));
+  }
+
+  function validate(): boolean {
+    const next: FieldErrors = {};
+    if (!isFilled(values.fullName)) next.fullName = 'Please enter your name.';
+    if (!isFilled(values.company)) next.company = 'Please enter your company.';
+    if (!isFilled(values.email)) next.email = 'Please enter your email.';
+    else if (!isEmail(values.email)) next.email = 'That email doesn’t look right. Mind checking it?';
+    if (values.website && !isUrl(values.website)) {
+      next.website = 'Please enter a valid URL, including https://.';
+    }
+    if (!isFilled(values.primaryGoal)) next.primaryGoal = 'Please choose a goal.';
+    setErrors(next);
+    return Object.keys(next).length === 0;
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    // Invisible spam checks — silently drop and show success so bots don't retry.
+    if (isLikelyBot(honeypot, mountedAt.current)) {
+      setStatus('success');
+      return;
+    }
+
+    if (!validate()) {
+      setStatus('idle');
+      return;
+    }
+
     setStatus('submitting');
     try {
-      await submitContactRequest(values);
+      await submitContactRequest({ ...values, submittedAt: new Date().toISOString() });
       setStatus('success');
     } catch {
       setStatus('error');
@@ -76,6 +119,7 @@ export function ContactForm() {
   }
 
   const firstName = values.fullName.trim().split(' ')[0];
+  const describedBy = (key: keyof ContactRequest) => (errors[key] ? `${key}-error` : undefined);
 
   return (
     <Section id="request" className="surface-base">
@@ -124,50 +168,67 @@ export function ContactForm() {
               noValidate
               className="rounded-3xl border border-ink-100 bg-white p-6 shadow-card sm:p-8 lg:p-10"
             >
+              {/* Honeypot — hidden from real users; bots that fill it are dropped. */}
+              <div style={honeypotStyle} aria-hidden="true">
+                <label htmlFor={HONEYPOT_FIELD}>Company URL</label>
+                <input
+                  id={HONEYPOT_FIELD}
+                  name={HONEYPOT_FIELD}
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
+
               <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
-                <Field label="Full name" htmlFor="fullName" required>
+                <Field label="Full name" htmlFor="fullName" required error={errors.fullName}>
                   <input
                     id="fullName"
                     name="fullName"
                     type="text"
-                    required
                     autoComplete="name"
                     value={values.fullName}
                     onChange={(e) => update('fullName', e.target.value)}
                     placeholder="Jane Doe"
+                    aria-invalid={errors.fullName ? true : undefined}
+                    aria-describedby={describedBy('fullName')}
                     className={inputBase}
                   />
                 </Field>
 
-                <Field label="Company" htmlFor="company" required>
+                <Field label="Company" htmlFor="company" required error={errors.company}>
                   <input
                     id="company"
                     name="company"
                     type="text"
-                    required
                     autoComplete="organization"
                     value={values.company}
                     onChange={(e) => update('company', e.target.value)}
                     placeholder="Acme Inc."
+                    aria-invalid={errors.company ? true : undefined}
+                    aria-describedby={describedBy('company')}
                     className={inputBase}
                   />
                 </Field>
 
-                <Field label="Business email" htmlFor="email" required>
+                <Field label="Business email" htmlFor="email" required error={errors.email}>
                   <input
                     id="email"
                     name="email"
                     type="email"
-                    required
                     autoComplete="email"
                     value={values.email}
                     onChange={(e) => update('email', e.target.value)}
                     placeholder="jane@company.com"
+                    aria-invalid={errors.email ? true : undefined}
+                    aria-describedby={describedBy('email')}
                     className={inputBase}
                   />
                 </Field>
 
-                <Field label="Website" htmlFor="website" optional>
+                <Field label="Website" htmlFor="website" optional error={errors.website}>
                   <input
                     id="website"
                     name="website"
@@ -176,6 +237,8 @@ export function ContactForm() {
                     value={values.website}
                     onChange={(e) => update('website', e.target.value)}
                     placeholder="https://company.com"
+                    aria-invalid={errors.website ? true : undefined}
+                    aria-describedby={describedBy('website')}
                     className={inputBase}
                   />
                 </Field>
@@ -192,14 +255,15 @@ export function ContactForm() {
                   />
                 </Field>
 
-                <Field label="Primary goal" htmlFor="primaryGoal" required>
+                <Field label="Primary goal" htmlFor="primaryGoal" required error={errors.primaryGoal}>
                   <div className="relative">
                     <select
                       id="primaryGoal"
                       name="primaryGoal"
-                      required
                       value={values.primaryGoal}
                       onChange={(e) => update('primaryGoal', e.target.value)}
+                      aria-invalid={errors.primaryGoal ? true : undefined}
+                      aria-describedby={describedBy('primaryGoal')}
                       className={`${inputBase} appearance-none pr-11 ${
                         values.primaryGoal ? 'text-ink-900' : 'text-ink-400'
                       }`}
@@ -252,7 +316,12 @@ export function ContactForm() {
 
               {status === 'error' && (
                 <p role="alert" className="mt-6 text-sm font-medium text-red-600">
-                  Something went wrong sending your request. Please try again, or email us directly.
+                  Something went wrong sending your request. Please try again, or email us directly
+                  at{' '}
+                  <a href={`mailto:${FIRM.email}`} className="underline hover:text-red-700">
+                    {FIRM.email}
+                  </a>
+                  .
                 </p>
               )}
 

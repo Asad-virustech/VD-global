@@ -9,8 +9,13 @@ const About = lazy(() => import('./pages/About'));
 const Solutions = lazy(() => import('./pages/Solutions'));
 const Assessment = lazy(() => import('./pages/Assessment'));
 const Knowledge = lazy(() => import('./pages/Knowledge'));
+const Article = lazy(() => import('./pages/Article'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 const Contact = lazy(() => import('./pages/Contact'));
+const Privacy = lazy(() => import('./pages/Privacy'));
+const Terms = lazy(() => import('./pages/Terms'));
+const Cookies = lazy(() => import('./pages/Cookies'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 function PageFallback() {
   return (
@@ -42,9 +47,13 @@ function App() {
               <Route path="/solutions" element={<Solutions />} />
               <Route path="/assessment" element={<Assessment />} />
               <Route path="/knowledge" element={<Knowledge />} />
+              <Route path="/knowledge/:slug" element={<Article />} />
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<Home />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/cookies" element={<Cookies />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </main>

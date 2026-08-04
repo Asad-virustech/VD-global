@@ -4,8 +4,8 @@ import {
   Search,
   Route,
   Mail,
+  Phone,
   Linkedin,
-  Clock,
   MapPin,
   Timer,
   Inbox,
@@ -18,8 +18,8 @@ import { FIRM } from './site';
 
 /**
  * Contact content is data-driven so it's easy to update later and can move to a
- * CMS without touching components. Real business details are intentional
- * placeholders during the framework phase (see `placeholder` / `note`).
+ * CMS without touching components. All real business details flow from `FIRM`
+ * (content/site.ts) — the single source of truth.
  */
 
 export type WorkStep = {
@@ -51,10 +51,8 @@ export type ContactMethod = {
   label: string;
   value: string;
   href?: string;
-  /** Small supporting line, e.g. to flag placeholder details. */
+  /** Small supporting line. */
   note?: string;
-  /** True when the value is a framework-phase placeholder. */
-  placeholder?: boolean;
 };
 
 export const CONTACT_METHODS: ContactMethod[] = [
@@ -63,22 +61,21 @@ export const CONTACT_METHODS: ContactMethod[] = [
     label: 'Email',
     value: FIRM.email,
     href: `mailto:${FIRM.email}`,
-    note: 'We reply personally, usually within a day.',
+    note: 'We reply personally, usually within a day or two.',
+  },
+  {
+    icon: Phone,
+    label: 'Phone',
+    value: FIRM.phone,
+    href: FIRM.phoneHref,
+    note: 'USA · call or text.',
   },
   {
     icon: Linkedin,
     label: 'LinkedIn',
     value: 'VD Global',
-    href: '#',
-    note: 'Profile link added in production.',
-    placeholder: true,
-  },
-  {
-    icon: Clock,
-    label: 'Business hours',
-    value: 'Mon–Fri · 9:00–18:00',
-    note: 'Placeholder hours, confirmed in production.',
-    placeholder: true,
+    href: 'https://www.linkedin.com/company/vdglobals/',
+    note: 'Follow the company page.',
   },
   {
     icon: MapPin,
@@ -89,8 +86,8 @@ export const CONTACT_METHODS: ContactMethod[] = [
   {
     icon: Timer,
     label: 'Response time',
-    value: 'Within 24 hours',
-    note: 'Most requests receive an initial reply next business day.',
+    value: FIRM.responseTime,
+    note: 'Most requests receive an initial reply within one to two business days.',
   },
 ];
 

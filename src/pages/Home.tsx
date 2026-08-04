@@ -1,4 +1,4 @@
-import { useDocumentMeta } from '../../lib/useDocumentMeta';
+import { usePageSeo } from '../../lib/usePageSeo';
 import { Hero } from '../components/sections/Hero';
 import { AuthorityGap } from '../components/sections/AuthorityGap';
 import { Solutions } from '../components/sections/Solutions';
@@ -7,15 +7,11 @@ import { Philosophy } from '../components/sections/Philosophy';
 import { WhyVdGlobal } from '../components/sections/WhyVdGlobal';
 import { Assessment } from '../components/sections/Assessment';
 import { KnowledgeHubPreview } from '../components/sections/KnowledgeHubPreview';
-import { Faq } from '../components/sections/Faq';
+import { Faq, FAQS } from '../components/sections/Faq';
 import { FinalCta } from '../components/sections/FinalCta';
-import { FIRM } from '../../content/site';
 
 export default function Home() {
-  useDocumentMeta({
-    title: 'VD Global — Authority Advisory for Founders and Businesses',
-    description: FIRM.description,
-  });
+  usePageSeo({ path: '/', faq: FAQS });
 
   return (
     <>

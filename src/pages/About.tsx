@@ -1,5 +1,4 @@
-import { useDocumentMeta } from '../../lib/useDocumentMeta';
-import { FIRM } from '../../content/site';
+import { usePageSeo } from '../../lib/usePageSeo';
 import { AboutHero } from '../components/sections/about/AboutHero';
 import { WhyWeExist } from '../components/sections/about/WhyWeExist';
 import { WhatMakesUsDifferent } from '../components/sections/about/WhatMakesUsDifferent';
@@ -7,14 +6,11 @@ import { HowWeThink } from '../components/sections/about/HowWeThink';
 import { AboutPhilosophy } from '../components/sections/about/AboutPhilosophy';
 import { WhoWeWorkWith } from '../components/sections/about/WhoWeWorkWith';
 import { OurPromise } from '../components/sections/about/OurPromise';
-import { AboutFaq } from '../components/sections/about/AboutFaq';
+import { AboutFaq, FAQS } from '../components/sections/about/AboutFaq';
 import { AboutCta } from '../components/sections/about/AboutCta';
 
 export default function About() {
-  useDocumentMeta({
-    title: 'About — VD Global',
-    description: `${FIRM.name} is an authority advisory firm that helps credible founders and businesses earn recognition, credibility, and trust through honest, long-term advisory.`,
-  });
+  usePageSeo({ path: '/about', faq: FAQS });
 
   return (
     <>

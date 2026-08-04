@@ -1,5 +1,5 @@
-import { useDocumentMeta } from '../../lib/useDocumentMeta';
-import { FIRM } from '../../content/site';
+import { usePageSeo } from '../../lib/usePageSeo';
+import { CASE_STUDY_FAQS } from '../../content/caseStudies';
 import { CaseStudiesHero } from '../components/sections/casestudies/CaseStudiesHero';
 import { WhyCaseStudiesMatter } from '../components/sections/casestudies/WhyCaseStudiesMatter';
 import { FeaturedCaseStudy } from '../components/sections/casestudies/FeaturedCaseStudy';
@@ -11,10 +11,7 @@ import { CaseStudiesFaq } from '../components/sections/casestudies/CaseStudiesFa
 import { CaseStudiesCta } from '../components/sections/casestudies/CaseStudiesCta';
 
 export default function CaseStudies() {
-  useDocumentMeta({
-    title: 'Case Studies — VD Global',
-    description: `How ${FIRM.name} approaches real authority challenges: the strategic thinking behind strengthening credibility, visibility, and long-term reputation. Educational scenarios, no fabricated metrics.`,
-  });
+  usePageSeo({ path: '/case-studies', faq: CASE_STUDY_FAQS });
 
   return (
     <>

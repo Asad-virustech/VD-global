@@ -4,16 +4,13 @@ import { Section } from '../../ui/Section';
 import { Container } from '../../ui/Container';
 import { SectionHeading } from '../../ui/SectionHeading';
 import { Button } from '../../ui/Button';
+import { ARTICLES, readMinutes, articlePath } from '../../../../content/articles';
 
-const FEATURED = {
-  category: 'Authority Strategy',
-  readTime: '9 min',
-  title: 'Authority vs. visibility: why being seen isn’t enough',
-  summary:
-    'Visibility gets you noticed; authority gets you trusted. This piece breaks down the difference, why the two are often confused, and how credible businesses turn attention into lasting recognition, without resorting to hype.',
-};
+const featured = ARTICLES.find((a) => a.featured) ?? ARTICLES[0];
 
 export function FeaturedInsight() {
+  if (!featured) return null;
+
   return (
     <Section className="surface-alt">
       <Container>
@@ -55,23 +52,23 @@ export function FeaturedInsight() {
             <div className="p-8 sm:p-10 lg:col-span-3">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="inline-flex items-center rounded-full border border-teal-100 bg-teal-50 px-3 py-1 text-xs font-medium text-teal-700">
-                  {FEATURED.category}
+                  {featured.category}
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-xs font-medium text-ink-400">
                   <Clock className="h-3.5 w-3.5" strokeWidth={1.75} />
-                  {FEATURED.readTime} read
+                  {readMinutes(featured)} min read
                 </span>
               </div>
 
               <h3 className="mt-5 text-2xl font-bold leading-snug tracking-tight text-ink-900 sm:text-3xl text-balance">
-                {FEATURED.title}
+                {featured.title}
               </h3>
               <p className="mt-4 text-base leading-relaxed text-ink-500 sm:text-lg">
-                {FEATURED.summary}
+                {featured.excerpt}
               </p>
 
               <div className="mt-8">
-                <Button as="button" size="lg" variant="primary">
+                <Button as="link" to={articlePath(featured)} size="lg" variant="primary">
                   Continue reading
                   <ArrowRight className="h-4 w-4" />
                 </Button>

@@ -2,32 +2,98 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0f766e" />
 
-    <title>VD Global — Authority Advisory for Founders and Businesses</title>
-    <meta
-      name="description"
-      content="An authority advisory firm helping founders and businesses build recognition, credibility, and trust through ethical PR, media strategy, and Wikipedia advisory."
-    />
-    <meta name="keywords" content="authority advisory, PR, media strategy, Wikipedia advisory, credibility, trust, founders, ethical PR" />
-    <meta name="author" content="VD Global" />
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/mask-icon.svg" color="#0f766e" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="keywords" content="authority advisory, public relations, media strategy, Wikipedia advisory, reputation management, credibility, trust, founders" />
 
+    <!-- Per-route SEO (home defaults). The build's prerender step rewrites this
+         block, and injects a per-page JSON-LD script, for every route so each
+         URL ships correct static metadata. The runtime keeps it in sync on
+         client-side navigation. -->
+    <!--seo:start-->
+    <title>VD Global — Authority Advisory for Founders and Businesses</title>
+    <meta name="description" content="An authority advisory firm helping founders and businesses build recognition, credibility, and trust through ethical PR, media strategy, and Wikipedia advisory." />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="VD Global" />
+    <link rel="canonical" href="__SITE_URL__/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="VD Global" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content="VD Global — Authority Advisory for Founders and Businesses" />
-    <meta
-      property="og:description"
-      content="An authority advisory firm helping founders and businesses build recognition, credibility, and trust through ethical PR, media strategy, and Wikipedia advisory."
-    />
-
+    <meta property="og:description" content="An authority advisory firm helping founders and businesses build recognition, credibility, and trust through ethical PR, media strategy, and Wikipedia advisory." />
+    <meta property="og:url" content="__SITE_URL__/" />
+    <meta property="og:image" content="__SITE_URL__/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="VD Global — Authority. Recognition. Trust." />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="VD Global — Authority Advisory" />
-    <meta
-      name="twitter:description"
-      content="An authority advisory firm helping founders and businesses build recognition, credibility, and trust."
-    />
+    <meta name="twitter:title" content="VD Global — Authority Advisory for Founders and Businesses" />
+    <meta name="twitter:description" content="An authority advisory firm helping founders and businesses build recognition, credibility, and trust." />
+    <meta name="twitter:image" content="__SITE_URL__/og-image.png" />
+    <!--seo:end-->
+
+    <!-- Organization + WebSite entity graph (site-level, factual). Per-page
+         WebPage/Breadcrumb nodes are added per route and reference these by @id. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["Organization", "ProfessionalService"],
+          "@id": "__SITE_URL__/#organization",
+          "name": "VD Global",
+          "url": "__SITE_URL__/",
+          "description": "An authority advisory firm helping founders and businesses build recognition, credibility, and trust through ethical PR, media strategy, and Wikipedia advisory.",
+          "slogan": "Authority. Recognition. Trust.",
+          "email": "vdglobals365@gmail.com",
+          "telephone": "+14699565230",
+          "image": "__SITE_URL__/og-image.png",
+          "logo": "__SITE_URL__/icon-512.png",
+          "areaServed": "Worldwide",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Texas",
+            "addressCountry": "US"
+          },
+          "sameAs": ["https://www.linkedin.com/company/vdglobals/"],
+          "knowsAbout": [
+            "Authority advisory",
+            "Public relations",
+            "Reputation management",
+            "Wikipedia notability",
+            "Media strategy",
+            "Executive positioning",
+            "Thought leadership",
+            "Digital reputation"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "vdglobals365@gmail.com",
+            "telephone": "+14699565230",
+            "areaServed": "Worldwide",
+            "availableLanguage": "English"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "__SITE_URL__/#website",
+          "url": "__SITE_URL__/",
+          "name": "VD Global",
+          "description": "Authority advisory for founders and businesses.",
+          "publisher": { "@id": "__SITE_URL__/#organization" },
+          "inLanguage": "en"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

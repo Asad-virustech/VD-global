@@ -1,37 +1,13 @@
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpen } from 'lucide-react';
 import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Button } from '../ui/Button';
-
-type Article = {
-  category: string;
-  title: string;
-  description: string;
-};
-
-const ARTICLES: Article[] = [
-  {
-    category: 'Wikipedia',
-    title: 'Is your business ready for Wikipedia?',
-    description:
-      'What notability actually means, the misconceptions that trip people up, and how to prepare before you pursue a page.',
-  },
-  {
-    category: 'Public Relations',
-    title: 'Choosing the right press strategy',
-    description:
-      'Not every press release builds authority. How considered media planning earns coverage that lasts.',
-  },
-  {
-    category: 'Authority',
-    title: 'Authority vs. visibility',
-    description:
-      'Being visible is valuable. Being trusted is what creates lasting opportunities. The difference is the whole point.',
-  },
-];
+import { ARTICLES, articlePath } from '../../../content/articles';
+import type { Article } from '../../../content/articles';
 
 const CTA = {
   title: 'Explore the Knowledge Hub',
@@ -50,26 +26,29 @@ const card: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
 };
 
-function ArticleRow({ category, title, description }: Article) {
+function ArticleRow({ article }: { article: Article }) {
   return (
     <motion.article variants={card}>
-      <div className="group grid gap-x-8 gap-y-3 border-b border-ink-900/10 py-8 sm:grid-cols-[0.7fr_1.6fr] sm:py-9 lg:gap-x-12">
+      <Link
+        to={articlePath(article)}
+        className="group grid gap-x-8 gap-y-3 border-b border-ink-900/10 py-8 sm:grid-cols-[0.7fr_1.6fr] sm:py-9 lg:gap-x-12"
+      >
         <div>
           <span className="inline-flex w-fit items-center rounded-full border border-teal-100 bg-teal-50 px-3 py-1 text-xs font-medium text-teal-700">
-            {category}
+            {article.category}
           </span>
         </div>
         <div>
           <h3 className="text-xl font-bold leading-snug tracking-tight text-ink-900 transition-colors duration-300 group-hover:text-teal-800 sm:text-2xl text-balance">
-            {title}
+            {article.title}
           </h3>
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink-500">{description}</p>
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink-500">{article.excerpt}</p>
           <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 transition-colors duration-300 group-hover:text-teal-800">
             Continue reading
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" strokeWidth={1.75} />
           </span>
         </div>
-      </div>
+      </Link>
     </motion.article>
   );
 }
@@ -94,8 +73,8 @@ export function KnowledgeHubPreview() {
           viewport={{ once: true, margin: '-80px' }}
           className="mx-auto max-w-4xl border-t border-ink-900/10"
         >
-          {ARTICLES.map((article) => (
-            <ArticleRow key={article.title} {...article} />
+          {ARTICLES.slice(0, 3).map((article) => (
+            <ArticleRow key={article.slug} article={article} />
           ))}
         </motion.div>
       </Container>

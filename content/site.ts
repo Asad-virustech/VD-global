@@ -1,5 +1,5 @@
-import { Linkedin, Twitter, Facebook, Compass, Clock, ShieldCheck } from 'lucide-react';
-import type { NavItem, FooterColumn, TrustCard, SocialLink } from '../types';
+import { Linkedin, Compass, Clock, ShieldCheck } from 'lucide-react';
+import type { NavItem, FooterColumn, FooterLink, TrustCard, SocialLink } from '../types';
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: '/', description: 'Overview of VD Global' },
@@ -11,13 +11,23 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Contact', href: '/contact', description: 'Start a conversation' },
 ];
 
+/**
+ * Single source of truth for company contact details. Every surface (footer,
+ * contact methods, forms) consumes these values — update them here only.
+ */
 export const FIRM = {
   name: 'VD Global',
   tagline: 'Authority Advisory',
   description:
     'An authority advisory firm helping founders and businesses build recognition, credibility, and trust through ethical PR, media strategy, and Wikipedia advisory.',
-  email: 'hello@vdglobals.com',
-  location: 'Remote · Global',
+  email: 'vdglobals365@gmail.com',
+  phone: '+1 (469) 956-5230',
+  phoneHref: 'tel:+14699565230',
+  location: 'Remote · Global · Texas, USA',
+  /** Full label for display. */
+  responseTime: 'Within 24–48 hours',
+  /** Bare window for embedding in trust chips ("Response within {responseWindow}"). */
+  responseWindow: '24–48 hours',
 };
 
 export const FINAL_CTA = {
@@ -40,9 +50,9 @@ export const FINAL_CTA_TRUST: TrustCard[] = [
   },
   {
     icon: Clock,
-    title: 'Response within 24 hours',
+    title: `Response within ${FIRM.responseWindow}`,
     description:
-      'Most Authority Assessments receive an initial response within one business day.',
+      'Most Authority Assessments receive an initial response within one to two business days.',
   },
   {
     icon: ShieldCheck,
@@ -65,10 +75,19 @@ export const FOOTER_NAV: FooterColumn = {
   ],
 };
 
+/**
+ * Real, public social profiles only. The footer hides the block entirely when
+ * this is empty, so no dead links ever ship.
+ */
 export const FOOTER_SOCIALS: SocialLink[] = [
-  { label: 'LinkedIn', href: '#', icon: Linkedin },
-  { label: 'X', href: '#', icon: Twitter },
-  { label: 'Facebook', href: '#', icon: Facebook },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/vdglobals/', icon: Linkedin },
+];
+
+/** Legal navigation shown in the footer baseline. Pages are scaffolded routes. */
+export const FOOTER_LEGAL: FooterLink[] = [
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Terms & Conditions', href: '/terms' },
+  { label: 'Cookie Policy', href: '/cookies' },
 ];
 
 export const FOOTER_COPYRIGHT = '© 2026 VD Global. All rights reserved.';

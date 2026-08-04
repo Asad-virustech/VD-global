@@ -4,7 +4,8 @@ import { SectionHeading } from '../../ui/SectionHeading';
 import { FaqAccordion } from '../../ui/FaqAccordion';
 import type { FaqItem } from '../../ui/FaqAccordion';
 
-const FAQS: FaqItem[] = [
+// eslint-disable-next-line react-refresh/only-export-components
+export const FAQS: FaqItem[] = [
   {
     question: 'How often are new insights published?',
     answer:
