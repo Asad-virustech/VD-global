@@ -1,7 +1,7 @@
 import { SITE_URL, OG_IMAGE_PATH, absoluteUrl } from '../content/seo';
 import type { PageSeo } from '../content/seo';
 import { pageGraph } from './schema';
-import type { ArticleMeta } from './schema';
+import type { ArticleMeta, ResourceMeta } from './schema';
 
 /**
  * Build-time helpers used by the Vite SEO plugin to prerender a correct <head>
@@ -54,7 +54,11 @@ export function renderSeoTags(page: PageSeo): string {
  * with the runtime hook, so on hydration the client reuses this node (adding FAQ
  * where applicable) rather than duplicating it.
  */
-export function renderPageJsonLd(page: PageSeo, article?: ArticleMeta): string {
-  const json = JSON.stringify(pageGraph(page, { article })).replace(/</g, '\\u003c');
+export function renderPageJsonLd(
+  page: PageSeo,
+  article?: ArticleMeta,
+  resource?: ResourceMeta,
+): string {
+  const json = JSON.stringify(pageGraph(page, { article, resource })).replace(/</g, '\\u003c');
   return `<script type="application/ld+json" id="page-jsonld">${json}</script>`;
 }

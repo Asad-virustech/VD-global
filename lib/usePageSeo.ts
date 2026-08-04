@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { SITE_URL, OG_IMAGE_PATH, absoluteUrl, getPageSeo } from '../content/seo';
 import type { PageSeo } from '../content/seo';
 import { pageGraph } from './schema';
-import type { FaqEntry, ArticleMeta } from './schema';
+import type { FaqEntry, ArticleMeta, ResourceMeta } from './schema';
 
 type UsePageSeoArgs = {
   /** Route path, e.g. '/about'. Used for canonical URL and PAGES lookup. */
@@ -16,6 +16,8 @@ type UsePageSeoArgs = {
   faq?: FaqEntry[];
   /** Article metadata — emitted as BlogPosting structured data. */
   article?: ArticleMeta;
+  /** Resource metadata — emitted as CreativeWork (downloadable) structured data. */
+  resource?: ResourceMeta;
 };
 
 const SITE_NAME = 'VD Globals';
@@ -63,7 +65,7 @@ function setCanonical(href: string) {
  * site-level entity graph lives statically in index.html; this enriches each
  * route for crawlers that execute JavaScript.
  */
-export function usePageSeo({ path, title, description, noindex, faq, article }: UsePageSeoArgs) {
+export function usePageSeo({ path, title, description, noindex, faq, article, resource }: UsePageSeoArgs) {
   const fallback: PageSeo = {
     path,
     title: title ?? SITE_NAME,
@@ -81,6 +83,7 @@ export function usePageSeo({ path, title, description, noindex, faq, article }: 
   // Stable deps without re-running on every render.
   const faqKey = faq ? faq.map((f) => f.question).join('|') : '';
   const articleKey = article ? article.title : '';
+  const resourceKey = resource ? resource.title : '';
 
   useEffect(() => {
     const previousTitle = document.title;
@@ -110,12 +113,12 @@ export function usePageSeo({ path, title, description, noindex, faq, article }: 
       script.id = JSONLD_ID;
       document.head.appendChild(script);
     }
-    script.textContent = JSON.stringify(pageGraph(page, { faq, article }));
+    script.textContent = JSON.stringify(pageGraph(page, { faq, article, resource }));
 
     return () => {
       document.title = previousTitle;
       document.getElementById(JSONLD_ID)?.remove();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [path, resolvedTitle, resolvedDescription, noindex, faqKey, articleKey]);
+  }, [path, resolvedTitle, resolvedDescription, noindex, faqKey, articleKey, resourceKey]);
 }

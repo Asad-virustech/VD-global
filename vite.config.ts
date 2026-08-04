@@ -5,6 +5,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { SITE_URL, ALL_PAGES, buildSitemap, buildRobots } from './content/seo';
 import { getArticleByPath } from './content/articles';
+import { getResourceByPath } from './content/resources';
 import { renderSeoTags, renderPageJsonLd } from './lib/prerender';
 
 /**
@@ -38,7 +39,21 @@ function seoPlugin(): Plugin {
           `<!--seo:start-->\n    ${renderSeoTags(page)}\n    <!--seo:end-->`,
         );
         const article = getArticleByPath(page.path);
-        const html = withSeo.replace('</head>', `    ${renderPageJsonLd(page, article)}\n  </head>`);
+        const resourceData = getResourceByPath(page.path);
+        const resource = resourceData
+          ? {
+              title: resourceData.title,
+              excerpt: resourceData.excerpt,
+              type: resourceData.type,
+              publishedDate: resourceData.publishedDate,
+              updatedDate: resourceData.updatedDate,
+              pdfFile: resourceData.pdfFile,
+            }
+          : undefined;
+        const html = withSeo.replace(
+          '</head>',
+          `    ${renderPageJsonLd(page, article, resource)}\n  </head>`,
+        );
         const outPath =
           page.path === '/' ? join(outDir, 'index.html') : join(outDir, page.path, 'index.html');
         mkdirSync(dirname(outPath), { recursive: true });

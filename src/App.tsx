@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { ScrollToTop } from './components/layout/ScrollToTop';
+import { BackToTop } from './components/layout/BackToTop';
 
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
@@ -10,6 +11,7 @@ const Solutions = lazy(() => import('./pages/Solutions'));
 const Assessment = lazy(() => import('./pages/Assessment'));
 const Knowledge = lazy(() => import('./pages/Knowledge'));
 const Article = lazy(() => import('./pages/Article'));
+const Resource = lazy(() => import('./pages/Resource'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -48,6 +50,7 @@ function App() {
               <Route path="/assessment" element={<Assessment />} />
               <Route path="/knowledge" element={<Knowledge />} />
               <Route path="/knowledge/:slug" element={<Article />} />
+              <Route path="/resources/:slug" element={<Resource />} />
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
@@ -58,6 +61,7 @@ function App() {
           </Suspense>
         </main>
         <Footer />
+        <BackToTop />
       </div>
     </BrowserRouter>
   );

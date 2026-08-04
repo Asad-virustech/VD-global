@@ -14,23 +14,28 @@ import {
 import { Section } from '../../ui/Section';
 import { Container } from '../../ui/Container';
 import { SectionHeading } from '../../ui/SectionHeading';
+import { ARTICLES } from '../../../../content/articles';
 
-type Topic = {
-  icon: LucideIcon;
-  label: string;
-  count: number;
-};
-
-const TOPICS: Topic[] = [
-  { icon: Compass, label: 'Authority Strategy', count: 12 },
-  { icon: BookOpen, label: 'Wikipedia', count: 9 },
-  { icon: Globe, label: 'Digital Reputation', count: 8 },
-  { icon: Newspaper, label: 'Strategic PR', count: 11 },
-  { icon: BadgeCheck, label: 'Executive Branding', count: 7 },
-  { icon: Lightbulb, label: 'Thought Leadership', count: 10 },
-  { icon: Megaphone, label: 'Media Visibility', count: 6 },
-  { icon: Search, label: 'Search Credibility', count: 5 },
+/**
+ * Topics map to article categories. Counts are computed live from the article
+ * data, never hardcoded, so the numbers are always real. A topic with no
+ * articles yet is simply not shown.
+ */
+const TOPIC_ICONS: { icon: LucideIcon; label: string }[] = [
+  { icon: Compass, label: 'Authority Strategy' },
+  { icon: BookOpen, label: 'Wikipedia' },
+  { icon: Newspaper, label: 'Strategic PR' },
+  { icon: BadgeCheck, label: 'Executive Branding' },
+  { icon: Lightbulb, label: 'Thought Leadership' },
+  { icon: Search, label: 'Search Credibility' },
+  { icon: Megaphone, label: 'Media Visibility' },
+  { icon: Globe, label: 'Digital Reputation' },
 ];
+
+const TOPICS = TOPIC_ICONS.map((t) => ({
+  ...t,
+  count: ARTICLES.filter((a) => a.category === t.label).length,
+})).filter((t) => t.count > 0);
 
 const wrap: Variants = {
   hidden: {},
@@ -42,20 +47,18 @@ const pill: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' as const } },
 };
 
-function TopicPill({ icon: Icon, label, count }: Topic) {
+function TopicPill({ icon: Icon, label, count }: { icon: LucideIcon; label: string; count: number }) {
   return (
-    <motion.button
-      type="button"
+    <motion.span
       variants={pill}
-      aria-label={`Browse ${label}, ${count} insights`}
-      className="group inline-flex items-center gap-2.5 rounded-full border border-ink-200 bg-white py-2.5 pl-4 pr-3 text-sm font-medium text-ink-700 shadow-soft transition-colors duration-300 hover:border-teal-300 hover:bg-teal-50 hover:text-teal-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
+      className="group inline-flex items-center gap-2.5 rounded-full border border-ink-200 bg-white py-2.5 pl-4 pr-3 text-sm font-medium text-ink-700 shadow-soft"
     >
       <Icon className="h-4 w-4 text-teal-600" strokeWidth={1.75} aria-hidden="true" />
       {label}
-      <span className="rounded-full bg-ink-100 px-2 py-0.5 text-[11px] font-semibold text-ink-500 transition-colors duration-300 group-hover:bg-teal-100 group-hover:text-teal-700">
+      <span className="rounded-full bg-ink-100 px-2 py-0.5 text-[11px] font-semibold text-ink-500">
         {count}
       </span>
-    </motion.button>
+    </motion.span>
   );
 }
 

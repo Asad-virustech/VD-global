@@ -47,6 +47,10 @@ type ButtonAsLink = CommonProps & {
 type ButtonAsAnchor = CommonProps & {
   as: 'a';
   href: string;
+  /** Force a download instead of navigation (optionally sets the filename). */
+  download?: boolean | string;
+  target?: string;
+  rel?: string;
 };
 
 type ButtonProps = ButtonAsButton | ButtonAsLink | ButtonAsAnchor;
@@ -65,7 +69,13 @@ export function Button(props: ButtonProps) {
 
   if (props.as === 'a') {
     return (
-      <a href={props.href} className={classes}>
+      <a
+        href={props.href}
+        className={classes}
+        download={props.download}
+        target={props.target}
+        rel={props.rel}
+      >
         {children}
       </a>
     );

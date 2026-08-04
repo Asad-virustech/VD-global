@@ -17,6 +17,15 @@ export type ArticleMeta = {
   category: string;
   publishedDate: string;
 };
+export type ResourceMeta = {
+  title: string;
+  excerpt: string;
+  type: string;
+  publishedDate: string;
+  updatedDate: string;
+  /** Site-relative path to the downloadable PDF. */
+  pdfFile: string;
+};
 
 function shortName(page: PageSeo): string {
   if (page.path === '/') return 'Home';
@@ -88,10 +97,39 @@ function articleNode(page: PageSeo, article: ArticleMeta) {
   };
 }
 
-/** Full per-page JSON-LD graph: WebPage + BreadcrumbList (+ BlogPosting, + FAQPage). */
-export function pageGraph(page: PageSeo, opts?: { faq?: FaqEntry[]; article?: ArticleMeta }) {
+function resourceNode(page: PageSeo, resource: ResourceMeta) {
+  const url = absoluteUrl(page.path);
+  return {
+    '@type': 'CreativeWork',
+    '@id': `${url}#resource`,
+    name: resource.title,
+    description: resource.excerpt,
+    url,
+    datePublished: resource.publishedDate,
+    dateModified: resource.updatedDate,
+    author: { '@id': ORG_ID },
+    publisher: { '@id': ORG_ID },
+    learningResourceType: resource.type,
+    isAccessibleForFree: true,
+    encodingFormat: 'application/pdf',
+    encoding: {
+      '@type': 'MediaObject',
+      encodingFormat: 'application/pdf',
+      contentUrl: `${SITE_URL}${resource.pdfFile}`,
+    },
+    mainEntityOfPage: { '@id': `${url}#webpage` },
+    inLanguage: 'en',
+  };
+}
+
+/** Full per-page JSON-LD graph: WebPage + BreadcrumbList (+ BlogPosting / CreativeWork, + FAQPage). */
+export function pageGraph(
+  page: PageSeo,
+  opts?: { faq?: FaqEntry[]; article?: ArticleMeta; resource?: ResourceMeta },
+) {
   const graph: object[] = [webPageNode(page), breadcrumbNode(page)];
   if (opts?.article) graph.push(articleNode(page, opts.article));
+  if (opts?.resource) graph.push(resourceNode(page, opts.resource));
   if (opts?.faq && opts.faq.length > 0) graph.push(faqNode(page, opts.faq));
   return { '@context': 'https://schema.org', '@graph': graph };
 }

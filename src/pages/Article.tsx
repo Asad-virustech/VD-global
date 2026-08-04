@@ -1,44 +1,17 @@
 import { motion } from 'framer-motion';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, Clock } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Clock } from 'lucide-react';
 import { usePageSeo } from '../../lib/usePageSeo';
 import { Section } from '../components/ui/Section';
 import { Container } from '../components/ui/Container';
 import { HeroBackdrop } from '../components/sections/HeroBackdrop';
 import { CtaBand } from '../components/sections/CtaBand';
+import { Prose } from '../components/ui/Prose';
+import { ReadingProgress } from '../components/ui/ReadingProgress';
+import { RelatedReading } from '../components/sections/knowledge/RelatedReading';
 import { ARTICLES, getArticle, readMinutes, articlePath } from '../../content/articles';
-import type { ArticleBlock } from '../../content/articles';
+import { getResource } from '../../content/resources';
 import NotFound from './NotFound';
-
-function Block({ block }: { block: ArticleBlock }) {
-  switch (block.type) {
-    case 'h2':
-      return (
-        <h2 className="mt-12 text-2xl font-bold leading-snug tracking-tight text-ink-900 sm:mt-14 sm:text-[1.75rem]">
-          {block.text}
-        </h2>
-      );
-    case 'p':
-      return <p className="mt-6 text-lg leading-relaxed text-ink-600">{block.text}</p>;
-    case 'ul':
-      return (
-        <ul className="mt-6 space-y-3">
-          {block.items.map((item) => (
-            <li key={item} className="flex items-start gap-3 text-lg leading-relaxed text-ink-600">
-              <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-500" aria-hidden="true" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      );
-    case 'quote':
-      return (
-        <blockquote className="my-10 border-l-2 border-teal-500 pl-6 text-xl font-semibold leading-snug tracking-tight text-ink-900 sm:text-2xl text-balance">
-          {block.text}
-        </blockquote>
-      );
-  }
-}
 
 export default function Article() {
   const { slug } = useParams();
@@ -61,10 +34,21 @@ export default function Article() {
 
   if (!article) return <NotFound />;
 
-  const coverVariant = Math.max(0, ARTICLES.findIndex((a) => a.slug === article.slug));
+  const idx = ARTICLES.findIndex((a) => a.slug === article.slug);
+  const coverVariant = Math.max(0, idx);
+  const prev = idx > 0 ? ARTICLES[idx - 1] : undefined;
+  const next = idx >= 0 && idx < ARTICLES.length - 1 ? ARTICLES[idx + 1] : undefined;
+
+  const relatedArticles = (article.related ?? [])
+    .map((s) => getArticle(s))
+    .filter((a): a is NonNullable<typeof a> => Boolean(a));
+  const referencedResources = (article.resources ?? [])
+    .map((s) => getResource(s))
+    .filter((r): r is NonNullable<typeof r> => Boolean(r));
 
   return (
     <article>
+      <ReadingProgress />
       {/* Cinematic cover — the brand's concentric-ring motif on deep night */}
       <section className="relative isolate overflow-hidden bg-ink-950 text-white">
         <HeroBackdrop variant={coverVariant} />
@@ -114,12 +98,46 @@ export default function Article() {
             transition={{ duration: 0.55, ease: 'easeOut' as const }}
             className="mx-auto max-w-2xl"
           >
-            {article.body.map((block, i) => (
-              <Block key={i} block={block} />
-            ))}
+            <Prose blocks={article.body} />
           </motion.div>
+
+          {(prev || next) && (
+            <nav
+              aria-label="More articles"
+              className="mx-auto mt-16 flex max-w-2xl flex-col gap-6 border-t border-ink-100 pt-8 sm:flex-row sm:justify-between sm:gap-8"
+            >
+              {prev ? (
+                <Link to={articlePath(prev)} className="group flex-1">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                    Previous
+                  </span>
+                  <span className="mt-1.5 flex items-start gap-1.5 text-base font-semibold leading-snug text-ink-900 transition-colors group-hover:text-teal-700">
+                    <ArrowLeft className="mt-1 h-4 w-4 shrink-0" strokeWidth={1.75} />
+                    {prev.title}
+                  </span>
+                </Link>
+              ) : (
+                <span className="hidden flex-1 sm:block" />
+              )}
+              {next ? (
+                <Link to={articlePath(next)} className="group flex-1 sm:text-right">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                    Next
+                  </span>
+                  <span className="mt-1.5 flex items-start gap-1.5 text-base font-semibold leading-snug text-ink-900 transition-colors group-hover:text-teal-700 sm:justify-end">
+                    {next.title}
+                    <ArrowRight className="mt-1 h-4 w-4 shrink-0" strokeWidth={1.75} />
+                  </span>
+                </Link>
+              ) : (
+                <span className="hidden flex-1 sm:block" />
+              )}
+            </nav>
+          )}
         </Container>
       </Section>
+
+      <RelatedReading articles={relatedArticles} resources={referencedResources} />
 
       <CtaBand
         eyebrow="Where authority begins"

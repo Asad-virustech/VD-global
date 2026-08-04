@@ -78,7 +78,7 @@ export function AssessmentFaq() {
           </p>
           <div className="mt-7">
             <Button as="link" to="/contact" size="lg" variant="primary">
-              Start your assessment
+              Talk with our team
               <ArrowRight className="h-4 w-4" />
             </Button>
           </div>

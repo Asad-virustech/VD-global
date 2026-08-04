@@ -53,7 +53,7 @@ export function AssessmentCta() {
             className="mt-9 flex flex-col items-center gap-4"
           >
             <Button as="link" to="/contact" size="lg" variant="primary">
-              Start your free authority assessment
+              Talk with our team
               <ArrowRight className="h-4 w-4" />
             </Button>
             <p className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-ink-400">

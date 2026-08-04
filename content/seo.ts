@@ -15,12 +15,13 @@
  * NOTE: `index.html` uses the literal token `__SITE_URL__`, which the Vite SEO
  * plugin replaces with this value at build time, so the domain lives here only.
  */
-export const SITE_URL = 'https://vd-global-kappa.vercel.app';
+export const SITE_URL = 'https://vdglobals.com';
 
 /** Social share image, served from /public. Absolute URL = SITE_URL + this. */
 export const OG_IMAGE_PATH = '/og-image.png';
 
 import { ARTICLES, articlePath } from './articles';
+import { RESOURCES, resourcePath } from './resources';
 
 export type PageSeo = {
   path: string;
@@ -141,12 +142,31 @@ export const ARTICLE_PAGES: PageSeo[] = ARTICLES.map((a) => ({
   index: true,
 }));
 
-/** Every indexable page: static routes plus articles. */
-export const ALL_PAGES: PageSeo[] = [...Object.values(PAGES), ...ARTICLE_PAGES];
+/** Resource Center routes, derived from the downloadable resource data. */
+export const RESOURCE_PAGES: PageSeo[] = RESOURCES.map((r) => ({
+  path: resourcePath(r),
+  title: `${r.title} — VD Globals`,
+  description: r.excerpt,
+  type: 'website' as const,
+  priority: 0.6,
+  changefreq: 'monthly' as const,
+  index: true,
+}));
 
-/** Look up a page's SEO by path (static route or article). */
+/** Every indexable page: static routes, articles, and resources. */
+export const ALL_PAGES: PageSeo[] = [
+  ...Object.values(PAGES),
+  ...ARTICLE_PAGES,
+  ...RESOURCE_PAGES,
+];
+
+/** Look up a page's SEO by path (static route, article, or resource). */
 export function getPageSeo(path: string): PageSeo | undefined {
-  return PAGES[path] ?? ARTICLE_PAGES.find((p) => p.path === path);
+  return (
+    PAGES[path] ??
+    ARTICLE_PAGES.find((p) => p.path === path) ??
+    RESOURCE_PAGES.find((p) => p.path === path)
+  );
 }
 
 /** Absolute URL for a path, from the single SITE_URL constant. */
