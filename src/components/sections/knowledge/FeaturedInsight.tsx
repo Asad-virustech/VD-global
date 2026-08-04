@@ -33,17 +33,42 @@ export function FeaturedInsight() {
             className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-teal-400 to-teal-600"
           />
           <div className="grid lg:grid-cols-5">
-            {/* Editorial panel */}
-            <div className="relative hidden overflow-hidden bg-ink-900 p-10 lg:col-span-2 lg:flex lg:flex-col lg:justify-between">
+            {/* Editorial panel — the "authority ripple": concentric rings radiating
+                from a bright teal core, the brand motif as a stunning thumbnail. */}
+            <div className="relative hidden overflow-hidden bg-ink-950 p-10 lg:col-span-2 lg:flex lg:flex-col lg:justify-between">
+              {/* Bold concentric rings */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  backgroundImage:
+                    'repeating-radial-gradient(circle at 50% 33%, rgba(45,212,191,0.20) 0px, rgba(45,212,191,0.20) 2px, transparent 2px, transparent 56px)',
+                  WebkitMaskImage: 'radial-gradient(circle at 50% 33%, #000 22%, transparent 82%)',
+                  maskImage: 'radial-gradient(circle at 50% 33%, #000 22%, transparent 82%)',
+                }}
+              />
+              {/* Bright teal core bloom */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    'radial-gradient(50% 42% at 50% 30%, rgba(20,184,166,0.55) 0%, rgba(13,148,136,0.16) 42%, transparent 72%)',
+                }}
+              />
+              {/* Secondary glow for depth */}
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute -top-16 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-teal-500/20 blur-[90px]"
+                className="pointer-events-none absolute -bottom-16 -left-12 h-52 w-52 rounded-full bg-teal-500/20 blur-[80px]"
               />
-              <span className="relative inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-teal-300">
+              {/* Film grain */}
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-noise opacity-40" />
+
+              <span className="relative inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-ink-950/40 px-3 py-1 text-xs font-medium text-teal-200 shadow-[inset_0_1px_0_0_rgb(255_255_255/0.08)] backdrop-blur-md">
                 <Star className="h-3.5 w-3.5" strokeWidth={2} />
                 Editor’s Pick
               </span>
-              <p className="relative mt-8 text-lg font-semibold leading-snug text-white/90 text-balance">
+              <p className="relative mt-8 text-lg font-semibold leading-snug text-white text-balance drop-shadow-[0_1px_12px_rgba(2,6,23,0.5)]">
                 “Authority is what remains after the attention fades.”
               </p>
             </div>

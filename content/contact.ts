@@ -73,7 +73,7 @@ export const CONTACT_METHODS: ContactMethod[] = [
   {
     icon: Linkedin,
     label: 'LinkedIn',
-    value: 'VD Global',
+    value: 'VD Globals',
     href: 'https://www.linkedin.com/company/vdglobals/',
     note: 'Follow the company page.',
   },
@@ -152,7 +152,7 @@ export const CONTACT_FAQS: ContactFaq[] = [
       'Yes. We’re a remote, globally oriented firm and work with founders and businesses across regions. Authority and reputation translate across borders.',
   },
   {
-    question: 'Can startups work with VD Global?',
+    question: 'Can startups work with VD Globals?',
     answer:
       'Often, yes, though the right first step for an early-stage company is usually different from an established one. We’ll be candid about what’s worth doing now and what’s better to revisit later.',
   },

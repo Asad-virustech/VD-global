@@ -10,7 +10,7 @@ const OPENING = [
 
 const CLOSING = [
   'Meanwhile, others attract attention they haven’t earned. It is louder, faster, and rarely built to last.',
-  'VD Global exists to close that gap the right way: to help credible businesses become recognized for the value they already deliver, through reputation that’s earned rather than inflated.',
+  'VD Globals exists to close that gap the right way: to help credible businesses become recognized for the value they already deliver, through reputation that’s earned rather than inflated.',
 ];
 
 export function WhyWeExist() {

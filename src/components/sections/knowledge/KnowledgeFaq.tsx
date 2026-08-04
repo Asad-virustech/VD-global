@@ -19,7 +19,7 @@ export const FAQS: FaqItem[] = [
   {
     question: 'Who writes the content?',
     answer:
-      'It’s written by the VD Global advisory team, the same people who do the work, and grounded in real engagements rather than generic marketing theory.',
+      'It’s written by the VD Globals advisory team, the same people who do the work, and grounded in real engagements rather than generic marketing theory.',
   },
   {
     question: 'Can I suggest topics?',

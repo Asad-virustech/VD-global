@@ -28,7 +28,7 @@ const SECTIONS: LegalSection[] = [
   },
   {
     heading: 'Contact',
-    body: 'This section will explain how to reach VD Global with any questions about these terms.',
+    body: 'This section will explain how to reach VD Globals with any questions about these terms.',
   },
 ];
 

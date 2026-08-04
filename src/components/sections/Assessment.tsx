@@ -33,7 +33,7 @@ const FEATURES: Feature[] = [
     icon: ShieldOff,
     title: 'No obligation',
     description:
-      'The assessment is educational first. There is no obligation to work with VD Global afterwards.',
+      'The assessment is educational first. There is no obligation to work with VD Globals afterwards.',
   },
 ];
 

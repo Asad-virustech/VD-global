@@ -1,7 +1,7 @@
 /**
  * Knowledge Hub articles. Data-driven and CMS-ready: pages and cards map over
  * this structure and hold no hardcoded article copy. All prose follows the
- * VD Global Editorial Style Guide. Publish dates are real (the date each piece
+ * VD Globals Editorial Style Guide. Publish dates are real (the date each piece
  * went live), never invented.
  */
 

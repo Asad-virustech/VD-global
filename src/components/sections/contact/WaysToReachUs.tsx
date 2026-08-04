@@ -3,25 +3,29 @@ import type { Variants } from 'framer-motion';
 import { Section } from '../../ui/Section';
 import { Container } from '../../ui/Container';
 import { SectionHeading } from '../../ui/SectionHeading';
+import { IconTile } from '../../ui/IconTile';
 import { CONTACT_METHODS } from '../../../../content/contact';
 import type { ContactMethod } from '../../../../content/contact';
 
 const [primary, ...secondary] = CONTACT_METHODS;
 
-const panel: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
-};
-
 const grid: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
 };
 
 const cell: Variants = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 0.5, ease: 'easeOut' as const } },
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
 };
+
+/** Faint concentric-ring "ripple" texture for the top-right corner of a card. */
+const rippleStyle = {
+  backgroundImage:
+    'repeating-radial-gradient(circle at 72% 26%, rgba(13,148,136,0.12) 0px, rgba(13,148,136,0.12) 1.5px, transparent 1.5px, transparent 15px)',
+  WebkitMaskImage: 'radial-gradient(circle at 72% 26%, #000, transparent 72%)',
+  maskImage: 'radial-gradient(circle at 72% 26%, #000, transparent 72%)',
+} as const;
 
 function MethodValue({ value, href, className }: { value: string; href?: string; className: string }) {
   const isRealLink = href && href !== '#';
@@ -39,30 +43,61 @@ function MethodValue({ value, href, className }: { value: string; href?: string;
   );
 }
 
-function SecondaryMethod({ icon: Icon, label, value, href, note }: ContactMethod) {
+function MethodCard({ method, feature = false }: { method: ContactMethod; feature?: boolean }) {
+  const Icon = method.icon;
   return (
-    <motion.div variants={cell} className="bg-white p-6 sm:p-7">
-      <div className="flex items-center justify-between">
-        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100">
-          <Icon className="h-5 w-5" strokeWidth={1.75} />
-        </span>
-      </div>
-      <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400">
-        {label}
-      </p>
-      <MethodValue
-        value={value}
-        href={href}
-        className="mt-1 block text-base font-semibold text-ink-900"
+    <motion.article
+      variants={cell}
+      whileHover={{ y: -4 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+      className={`group relative overflow-hidden rounded-3xl border border-teal-100 bg-white p-6 shadow-card transition-shadow duration-300 hover:shadow-card-hover sm:p-7 ${
+        feature ? 'sm:col-span-2' : ''
+      }`}
+    >
+      {/* Teal gradient wash */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-teal-50/80 via-white to-white"
       />
-      {note && <p className="mt-1.5 text-sm leading-relaxed text-ink-500">{note}</p>}
-    </motion.div>
+      {/* Soft corner glow, warms on hover */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-10 -top-12 h-36 w-36 rounded-full bg-teal-200/40 blur-2xl transition-colors duration-300 group-hover:bg-teal-300/50"
+      />
+      {/* Ring-ripple motif (the brand signature) */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-4 -top-4 h-44 w-44"
+        style={rippleStyle}
+      />
+
+      <div className={`relative ${feature ? 'flex items-start gap-5' : ''}`}>
+        <IconTile size="md" ring hover>
+          <Icon className="h-5 w-5" strokeWidth={1.75} />
+        </IconTile>
+        <div className={feature ? 'flex-1' : ''}>
+          <p
+            className={`text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400 ${
+              feature ? 'mt-1' : 'mt-4'
+            }`}
+          >
+            {method.label}
+          </p>
+          <MethodValue
+            value={method.value}
+            href={method.href}
+            className={`mt-1 block font-semibold text-ink-900 ${feature ? 'text-lg sm:text-xl' : 'text-base'}`}
+          />
+          {method.note && (
+            <p className="mt-1.5 text-sm leading-relaxed text-ink-500">{method.note}</p>
+          )}
+        </div>
+      </div>
+    </motion.article>
   );
 }
 
 export function WaysToReachUs() {
-  const PrimaryIcon = primary.icon;
-
   return (
     <Section className="surface-alt">
       <Container>
@@ -74,50 +109,18 @@ export function WaysToReachUs() {
           className="mb-12 sm:mb-14"
         />
 
-        {/* A single concierge "contact desk" — email promoted, the rest beneath */}
+        {/* Lively cards — email promoted as a wide feature, the rest in a 2×2 */}
         <motion.div
-          variants={panel}
+          variants={grid}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="mx-auto max-w-4xl overflow-hidden rounded-3xl border border-ink-100 bg-white shadow-card"
+          className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 sm:gap-5"
         >
-          <span aria-hidden="true" className="block h-1 bg-gradient-to-r from-teal-400 to-teal-600" />
-
-          {/* Primary — email */}
-          <div className="p-7 sm:p-9">
-            <div className="flex items-start gap-4 sm:gap-5">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-100">
-                <PrimaryIcon className="h-6 w-6" strokeWidth={1.75} />
-              </span>
-              <div className="min-w-0">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-400">
-                  {primary.label}
-                </p>
-                <MethodValue
-                  value={primary.value}
-                  href={primary.href}
-                  className="mt-1 block text-lg font-semibold text-ink-900 sm:text-xl"
-                />
-                {primary.note && (
-                  <p className="mt-1.5 text-sm leading-relaxed text-ink-500">{primary.note}</p>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Secondary — 2×2 hairline grid */}
-          <motion.div
-            variants={grid}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-80px' }}
-            className="grid gap-px border-t border-ink-100 bg-ink-100 sm:grid-cols-2"
-          >
-            {secondary.map((method) => (
-              <SecondaryMethod key={method.label} {...method} />
-            ))}
-          </motion.div>
+          <MethodCard method={primary} feature />
+          {secondary.map((method) => (
+            <MethodCard key={method.label} method={method} />
+          ))}
         </motion.div>
       </Container>
     </Section>

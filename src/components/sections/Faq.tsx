@@ -1,4 +1,4 @@
-﻿import { Section } from '../ui/Section';
+import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { SectionHeading } from '../ui/SectionHeading';
 import { FaqAccordion } from '../ui/FaqAccordion';
@@ -17,7 +17,7 @@ export const FAQS: FaqItem[] = [
       "That's exactly why we begin with an Authority Assessment. We first understand your goals, reputation, and current authority before recommending the right strategy.",
   },
   {
-    question: "Can I work with VD Global if I'm not ready for Wikipedia?",
+    question: "Can I work with VD Globals if I'm not ready for Wikipedia?",
     answer:
       "Yes. Many businesses benefit more from strategic PR, media visibility, guest publications, or credibility building before pursuing Wikipedia. We'll recommend the path that fits your current stage.",
   },

@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
 
 /**
- * The VD Global signature mark — a concentric-ring glyph, the brand's visual DNA
+ * The VD Globals signature mark — a concentric-ring glyph, the brand's visual DNA
  * in miniature. Recurs on section labels across the whole site so a section is
- * recognisable as VD Global without a logo. Inherits colour via `currentColor`.
+ * recognisable as VD Globals without a logo. Inherits colour via `currentColor`.
  */
 export function RingMark({ className = '' }: { className?: string }) {
   return (

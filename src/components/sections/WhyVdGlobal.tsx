@@ -113,7 +113,7 @@ export function WhyVdGlobal() {
         <Container>
           <SectionHeading
             align="center"
-            eyebrow="Why VD Global"
+            eyebrow="Why VD Globals"
             title="Authority isn’t built through shortcuts."
             description="It’s built through careful decisions, ethical execution, and consistency held for longer than most are willing to. Every recommendation we make is meant to create durable credibility, not temporary attention."
             className="mb-12 sm:mb-14"

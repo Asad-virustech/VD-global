@@ -54,7 +54,7 @@ const PRINCIPLES: Principle[] = [
 
 const QUOTE = {
   lines: ['Anyone can chase attention.', 'We build the trust that outlasts it.'],
-  attribution: 'VD Global',
+  attribution: 'VD Globals',
 };
 
 const CALLOUT = {

@@ -6,7 +6,7 @@ import { Button } from '../components/ui/Button';
 export default function NotFound() {
   usePageSeo({
     path: '/404',
-    title: 'Page not found — VD Global',
+    title: 'Page not found — VD Globals',
     description: 'The page you were looking for does not exist.',
     noindex: true,
   });

@@ -4,7 +4,7 @@ import type { LegalSection } from '../components/legal/LegalPage';
 const SECTIONS: LegalSection[] = [
   {
     heading: 'Overview',
-    body: 'This section will explain who VD Global is and how this policy applies to visitors to this website and to people who contact the firm.',
+    body: 'This section will explain who VD Globals is and how this policy applies to visitors to this website and to people who contact the firm.',
   },
   {
     heading: 'Information we collect',
@@ -28,7 +28,7 @@ const SECTIONS: LegalSection[] = [
   },
   {
     heading: 'Contact',
-    body: 'This section will explain how to reach VD Global with any privacy questions or requests.',
+    body: 'This section will explain how to reach VD Globals with any privacy questions or requests.',
   },
 ];
 

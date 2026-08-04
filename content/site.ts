@@ -2,7 +2,7 @@ import { Linkedin, Compass, Clock, ShieldCheck } from 'lucide-react';
 import type { NavItem, FooterColumn, FooterLink, TrustCard, SocialLink } from '../types';
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Home', href: '/', description: 'Overview of VD Global' },
+  { label: 'Home', href: '/', description: 'Overview of VD Globals' },
   { label: 'About', href: '/about', description: 'The firm and its approach' },
   { label: 'Solutions', href: '/solutions', description: 'Advisory services' },
   { label: 'Authority Assessment', href: '/assessment', description: 'Evaluate your authority positioning' },
@@ -16,7 +16,7 @@ export const NAV_ITEMS: NavItem[] = [
  * contact methods, forms) consumes these values — update them here only.
  */
 export const FIRM = {
-  name: 'VD Global',
+  name: 'VD Globals',
   tagline: 'Authority Advisory',
   description:
     'An authority advisory firm helping founders and businesses build recognition, credibility, and trust through ethical PR, media strategy, and Wikipedia advisory.',
@@ -90,4 +90,4 @@ export const FOOTER_LEGAL: FooterLink[] = [
   { label: 'Cookie Policy', href: '/cookies' },
 ];
 
-export const FOOTER_COPYRIGHT = '© 2026 VD Global. All rights reserved.';
+export const FOOTER_COPYRIGHT = '© 2026 VD Globals. All rights reserved.';

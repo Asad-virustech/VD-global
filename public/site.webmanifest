@@ -1,6 +1,6 @@
 {
-  "name": "VD Global",
-  "short_name": "VD Global",
+  "name": "VD Globals",
+  "short_name": "VD Globals",
   "description": "Authority advisory for founders and businesses.",
   "start_url": "/",
   "display": "standalone",

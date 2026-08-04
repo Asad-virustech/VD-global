@@ -18,7 +18,7 @@ type UsePageSeoArgs = {
   article?: ArticleMeta;
 };
 
-const SITE_NAME = 'VD Global';
+const SITE_NAME = 'VD Globals';
 const OG_IMAGE = `${SITE_URL}${OG_IMAGE_PATH}`;
 const JSONLD_ID = 'page-jsonld';
 

@@ -4,8 +4,9 @@ import { ArrowLeft, Clock } from 'lucide-react';
 import { usePageSeo } from '../../lib/usePageSeo';
 import { Section } from '../components/ui/Section';
 import { Container } from '../components/ui/Container';
+import { HeroBackdrop } from '../components/sections/HeroBackdrop';
 import { CtaBand } from '../components/sections/CtaBand';
-import { getArticle, readMinutes, articlePath } from '../../content/articles';
+import { ARTICLES, getArticle, readMinutes, articlePath } from '../../content/articles';
 import type { ArticleBlock } from '../../content/articles';
 import NotFound from './NotFound';
 
@@ -60,49 +61,63 @@ export default function Article() {
 
   if (!article) return <NotFound />;
 
+  const coverVariant = Math.max(0, ARTICLES.findIndex((a) => a.slug === article.slug));
+
   return (
     <article>
-      <Section className="surface-base pt-36 sm:pt-44">
-        <Container>
-          <div className="mx-auto max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: 'easeOut' as const }}
-            >
+      {/* Cinematic cover — the brand's concentric-ring motif on deep night */}
+      <section className="relative isolate overflow-hidden bg-ink-950 text-white">
+        <HeroBackdrop variant={coverVariant} />
+        <div className="container-px relative pb-16 pt-36 sm:pb-20 sm:pt-44">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' as const }}
+            className="mx-auto max-w-3xl"
+          >
+            <div>
               <Link
                 to="/knowledge"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 transition-colors hover:text-teal-800"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-300 transition-colors hover:text-teal-200"
               >
                 <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
                 Knowledge Hub
               </Link>
+            </div>
 
-              <p className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+            <div className="mt-7">
+              <span className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-teal-200 shadow-[inset_0_1px_0_0_rgb(255_255_255/0.08)] backdrop-blur-md">
+                <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
                 {article.category}
-              </p>
-              <h1 className="mt-4 text-[2rem] font-bold leading-[1.08] tracking-[-0.02em] text-ink-900 sm:text-[2.75rem] text-balance">
-                {article.title}
-              </h1>
-              <p className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-ink-400">
-                <Clock className="h-4 w-4 text-teal-600" strokeWidth={1.75} />
-                {readMinutes(article)} min read
-              </p>
-            </motion.div>
+              </span>
+            </div>
 
-            <hr className="mt-8 border-ink-900/10" />
+            <h1 className="mt-6 text-[2.25rem] font-bold leading-[1.05] tracking-[-0.02em] text-white sm:text-[3rem] lg:text-[3.5rem] text-balance">
+              {article.title}
+            </h1>
 
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: 'easeOut' as const, delay: 0.1 }}
-              className="max-w-2xl"
-            >
-              {article.body.map((block, i) => (
-                <Block key={i} block={block} />
-              ))}
-            </motion.div>
-          </div>
+            <p className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-ink-300">
+              <Clock className="h-4 w-4 text-teal-400" strokeWidth={1.75} />
+              {readMinutes(article)} min read
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Body — clean, readable measure on white */}
+      <Section className="surface-base">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.55, ease: 'easeOut' as const }}
+            className="mx-auto max-w-2xl"
+          >
+            {article.body.map((block, i) => (
+              <Block key={i} block={block} />
+            ))}
+          </motion.div>
         </Container>
       </Section>
 

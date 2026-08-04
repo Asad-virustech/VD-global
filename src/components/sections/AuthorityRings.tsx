@@ -15,7 +15,7 @@ function arcPath(r: number): string {
 }
 
 /**
- * VD Global's signature visual language: concentric authority rings (the hero
+ * VD Globals's signature visual language: concentric authority rings (the hero
  * motif) carried into content as a consulting framework — layers radiating from
  * a core of recognition out to long-term growth, each layer labelled on its
  * ring. A framework object, not a chart, not fake data.
