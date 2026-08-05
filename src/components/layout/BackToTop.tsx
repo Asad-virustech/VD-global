@@ -32,7 +32,7 @@ export function BackToTop() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 12, scale: 0.9 }}
           transition={{ duration: 0.2, ease: 'easeOut' as const }}
-          className="fixed bottom-6 left-6 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-gradient-to-b from-teal-500/90 to-teal-700/90 text-white shadow-teal-glow backdrop-blur-md transition-colors duration-200 hover:from-teal-400/90 hover:to-teal-600/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 sm:bottom-8 sm:left-8"
+          className="fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-gradient-to-b from-teal-500/90 to-teal-700/90 text-white shadow-teal-glow backdrop-blur-md transition-colors duration-200 hover:from-teal-400/90 hover:to-teal-600/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 sm:bottom-8 sm:right-8"
         >
           <ArrowUp className="h-5 w-5" strokeWidth={2} />
         </motion.button>
