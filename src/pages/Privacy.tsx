@@ -44,7 +44,7 @@ const SECTIONS: LegalSection[] = [
   },
   {
     heading: 'Third-party services',
-    body: 'A number of third parties help us run the site and understand how it is used. Formspree processes form submissions; Vercel hosts the website and provides analytics; Google Analytics and Microsoft Clarity provide website analytics; Tidio powers the live chat; and Google Fonts serves the typefaces, which means Google receives your IP address when the fonts load. Each service receives only what it needs to do its job, and each operates under its own privacy terms.',
+    body: 'A number of third parties help us run the site and understand how it is used. Formspree processes form submissions; Vercel hosts the website and provides analytics; Google Analytics and Microsoft Clarity provide website analytics; and Tidio powers the live chat. Each service receives only what it needs to do its job, and each operates under its own privacy terms. Our fonts are served from our own domain, so no third party receives your information through them.',
   },
   {
     heading: 'Search engines',

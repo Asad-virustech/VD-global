@@ -24,7 +24,7 @@ const SECTIONS: LegalSection[] = [
   },
   {
     heading: 'Third-party cookies',
-    body: 'Several of the services above are third parties that set their own cookies: Google Analytics, Microsoft Clarity, and Tidio. If you submit a form, it is processed by Formspree under its own policies. Google Fonts serves our fonts without setting cookies, though Google receives your IP address when they load. Each third party’s cookies are governed by its own policy.',
+    body: 'Several of the services above are third parties that set their own cookies: Google Analytics, Microsoft Clarity, and Tidio. If you submit a form, it is processed by Formspree under its own policies. Our fonts are served from our own domain, so they set no cookies and involve no third party. Each third party’s cookies are governed by its own policy.',
   },
   {
     heading: 'Your choice',
