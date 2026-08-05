@@ -10,9 +10,9 @@ export function ProblemSolvingFramework() {
       <Container>
         <SectionHeading
           align="center"
-          eyebrow="Our Problem-Solving Framework"
+          eyebrow="How every engagement begins"
           title="One method, every engagement."
-          description="However different the challenge, the way we work through it stays consistent: deliberate, evidence-led, and honest at every step."
+          description="However different the challenge, the way we work through it stays consistent: deliberate, evidence-led, and honest at every step. Every one of these stories started here."
           className="mb-12 sm:mb-14"
         />
 
