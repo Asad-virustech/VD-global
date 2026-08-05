@@ -1,3 +1,20 @@
+/* Self-hosted variable fonts (latin), one file per family. Preloaded in
+   index.html; font-display: optional avoids the swap-reflow that hurts CLS. */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: optional;
+  src: url('/fonts/manrope-var.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: optional;
+  src: url('/fonts/inter-var.woff2') format('woff2');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

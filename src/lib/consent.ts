@@ -59,13 +59,33 @@ export function loadTrackers(): void {
 
 let chatLoaded = false;
 
-/** Inject the Tidio live chat. Loads for everyone (functional), idempotent. */
-export function loadChat(): void {
-  if (chatLoaded || typeof document === 'undefined') return;
+function injectChat(): void {
+  if (chatLoaded) return;
   chatLoaded = true;
-
   const tidio = document.createElement('script');
   tidio.async = true;
   tidio.src = 'https://code.tidio.co/ukvybkvut4by8himio6nevd5gvsbh5ad.js';
   document.body.appendChild(tidio);
+}
+
+/**
+ * Load the Tidio live chat for everyone (functional), but deferred: on the
+ * first user interaction, or after the browser goes idle. This keeps the heavy
+ * chat script off the critical rendering path so it doesn't delay first paint.
+ */
+export function loadChat(): void {
+  if (chatLoaded || typeof document === 'undefined') return;
+
+  const events: Array<keyof WindowEventMap> = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+  const start = () => {
+    events.forEach((e) => window.removeEventListener(e, start));
+    injectChat();
+  };
+  events.forEach((e) => window.addEventListener(e, start, { once: true, passive: true }));
+
+  // Idle fallback so the widget still appears for a visitor who never interacts.
+  const idle = (window as unknown as { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => void })
+    .requestIdleCallback;
+  if (idle) idle(() => start(), { timeout: 6000 });
+  else setTimeout(start, 6000);
 }
