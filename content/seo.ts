@@ -40,7 +40,7 @@ const FIRM_NAME = 'VD Globals';
 export const PAGES: Record<string, PageSeo> = {
   '/': {
     path: '/',
-    title: 'VD Globals — Authority Advisory for Founders and Businesses',
+    title: 'VD Globals | Authority Advisory for Founders and Businesses',
     description:
       'An authority advisory firm helping founders and businesses build recognition, credibility, and trust through ethical PR, media strategy, and Wikipedia advisory.',
     type: 'website',
@@ -50,7 +50,7 @@ export const PAGES: Record<string, PageSeo> = {
   },
   '/about': {
     path: '/about',
-    title: 'About — VD Globals',
+    title: 'About | VD Globals',
     description: `${FIRM_NAME} is an authority advisory firm that helps credible founders and businesses earn recognition, credibility, and trust through honest, long-term advisory.`,
     type: 'website',
     priority: 0.8,
@@ -59,7 +59,7 @@ export const PAGES: Record<string, PageSeo> = {
   },
   '/solutions': {
     path: '/solutions',
-    title: 'Solutions — VD Globals',
+    title: 'Solutions | VD Globals',
     description: `${FIRM_NAME} helps businesses build long-term authority through strategy, PR, Wikipedia advisory, executive positioning, digital reputation, and thought leadership. Advisory-first, never predefined packages.`,
     type: 'website',
     priority: 0.9,
@@ -68,7 +68,7 @@ export const PAGES: Record<string, PageSeo> = {
   },
   '/assessment': {
     path: '/assessment',
-    title: 'Authority Assessment — VD Globals',
+    title: 'Authority Assessment | VD Globals',
     description: `Understand how your business is currently perceived. ${FIRM_NAME}'s complimentary Authority Assessment evaluates your credibility, media presence, search visibility, and reputation, with practical, honest recommendations.`,
     type: 'website',
     priority: 0.9,
@@ -77,7 +77,7 @@ export const PAGES: Record<string, PageSeo> = {
   },
   '/knowledge': {
     path: '/knowledge',
-    title: 'Knowledge Hub — VD Globals',
+    title: 'Knowledge Hub | VD Globals',
     description: `A knowledge library from ${FIRM_NAME}: practical insights on authority, reputation, media visibility, Wikipedia readiness, and long-term credibility. Education-first, free to read.`,
     type: 'website',
     priority: 0.7,
@@ -86,7 +86,7 @@ export const PAGES: Record<string, PageSeo> = {
   },
   '/case-studies': {
     path: '/case-studies',
-    title: 'Case Studies — VD Globals',
+    title: 'Case Studies | VD Globals',
     description: `How ${FIRM_NAME} approaches real authority challenges: the strategic thinking behind strengthening credibility, visibility, and long-term reputation. Educational scenarios, no fabricated metrics.`,
     type: 'website',
     priority: 0.7,
@@ -95,7 +95,7 @@ export const PAGES: Record<string, PageSeo> = {
   },
   '/contact': {
     path: '/contact',
-    title: 'Contact — VD Globals',
+    title: 'Contact | VD Globals',
     description: `Start a conversation with ${FIRM_NAME}. Request a complimentary consultation to discuss your authority goals. Advisory-first, no obligation.`,
     type: 'website',
     priority: 0.8,
@@ -104,7 +104,7 @@ export const PAGES: Record<string, PageSeo> = {
   },
   '/privacy': {
     path: '/privacy',
-    title: 'Privacy Policy — VD Globals',
+    title: 'Privacy Policy | VD Globals',
     description: 'How VD Globals handles the information you share through this website.',
     type: 'website',
     priority: 0.3,
@@ -113,7 +113,7 @@ export const PAGES: Record<string, PageSeo> = {
   },
   '/terms': {
     path: '/terms',
-    title: 'Terms & Conditions — VD Globals',
+    title: 'Terms & Conditions | VD Globals',
     description: 'The terms governing use of the VD Globals website.',
     type: 'website',
     priority: 0.3,
@@ -122,7 +122,7 @@ export const PAGES: Record<string, PageSeo> = {
   },
   '/cookies': {
     path: '/cookies',
-    title: 'Cookie Policy — VD Globals',
+    title: 'Cookie Policy | VD Globals',
     description: 'How VD Globals uses cookies and similar technologies.',
     type: 'website',
     priority: 0.3,
@@ -134,7 +134,7 @@ export const PAGES: Record<string, PageSeo> = {
 /** Article routes, derived from the Knowledge Hub article data. */
 export const ARTICLE_PAGES: PageSeo[] = ARTICLES.map((a) => ({
   path: articlePath(a),
-  title: `${a.title} — VD Globals`,
+  title: `${a.title} | VD Globals`,
   description: a.excerpt,
   type: 'article' as const,
   priority: 0.6,
@@ -145,7 +145,7 @@ export const ARTICLE_PAGES: PageSeo[] = ARTICLES.map((a) => ({
 /** Resource Center routes, derived from the downloadable resource data. */
 export const RESOURCE_PAGES: PageSeo[] = RESOURCES.map((r) => ({
   path: resourcePath(r),
-  title: `${r.title} — VD Globals`,
+  title: `${r.title} | VD Globals`,
   description: r.excerpt,
   type: 'website' as const,
   priority: 0.6,
