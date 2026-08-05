@@ -1,9 +1,11 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { ScrollToTop } from './components/layout/ScrollToTop';
 import { BackToTop } from './components/layout/BackToTop';
+import { CookieConsent } from './components/layout/CookieConsent';
 
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
@@ -68,6 +70,8 @@ function App() {
         </main>
         <Footer />
         <BackToTop />
+        <CookieConsent />
+        <Analytics />
       </div>
     </BrowserRouter>
   );

@@ -8,27 +8,31 @@ const SECTIONS: LegalSection[] = [
   },
   {
     heading: 'The short version',
-    body: 'This website does not set cookies of its own, and it does not use analytics, advertising, or tracking cookies. There is no cookie banner because, for our own use, there is nothing to consent to.',
+    body: 'This website uses a small number of cookies and similar technologies: analytics cookies that help us understand how the site is used, and cookies set by our live chat widget. It does not use advertising or cross-site tracking cookies.',
   },
   {
     heading: 'Essential cookies',
-    body: 'Essential cookies are the ones a site needs to function or stay secure. This site is served as static pages and does not rely on cookies to work, so it sets no essential cookies of its own. Our host, Vercel, may use limited, strictly necessary measures to deliver the site securely.',
+    body: 'Essential cookies are the ones a site needs to function or stay secure. This site is served as static pages and does not rely on cookies of its own to work. Our host, Vercel, and our live chat provider may use limited, strictly necessary items to deliver the site and the chat securely.',
   },
   {
     heading: 'Functional cookies',
-    body: 'Functional cookies remember preferences, such as settings or choices you have made. This site does not currently use any functional cookies.',
+    body: 'Functional cookies remember preferences and enable features. Our live chat widget, provided by Tidio, may set cookies so it can function and remember your conversation. Without them, the chat may not work properly.',
   },
   {
     heading: 'Analytics cookies',
-    body: 'Analytics cookies measure how visitors use a site. We do not use them. There is no Google Analytics or other analytics service running here. If we add analytics in future, we will update this policy and this section first.',
+    body: 'We use analytics cookies to understand how visitors use the site. Google Analytics, Vercel Analytics, and Microsoft Clarity set cookies or similar identifiers to measure visits, traffic sources, and how people interact with pages, including anonymised session activity for heatmaps. We use this in aggregate to improve the site, not to identify you.',
   },
   {
     heading: 'Third-party cookies',
-    body: 'Some third parties we rely on may set their own cookies when you interact with their service. In particular, if you submit a form, it is processed by Formspree, which operates under its own cookie and privacy policies. The fonts on this site are served by Google Fonts; this does not set cookies, though Google does receive your IP address when the fonts load.',
+    body: 'Several of the services above are third parties that set their own cookies: Google Analytics, Microsoft Clarity, and Tidio. If you submit a form, it is processed by Formspree under its own policies. Google Fonts serves our fonts without setting cookies, though Google receives your IP address when they load. Each third party’s cookies are governed by its own policy.',
+  },
+  {
+    heading: 'Your choice',
+    body: 'When you first visit, we ask before loading cookie-based analytics: Google Analytics and Microsoft Clarity load only if you accept, and are not loaded at all if you decline. Vercel Analytics is cookieless and runs either way, and the live chat is a functional tool available to everyone. You can change your choice at any time using the “Cookie settings” link in the footer.',
   },
   {
     heading: 'Managing cookies and browser controls',
-    body: 'Because this site sets no cookies of its own, there is nothing here to turn off. You can still control cookies generally through your browser settings, where you can block or delete cookies from any site. Your browser’s help pages explain how, and doing so will not stop this site from working.',
+    body: 'Beyond the choice above, you can control cookies through your browser settings, where you can block or delete cookies from any site. You can also opt out of Google Analytics specifically using Google’s browser add-on. Blocking analytics or chat cookies will not stop the site from working, though the live chat may not function without them.',
   },
   {
     heading: 'Changes to this policy',

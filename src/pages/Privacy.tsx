@@ -16,15 +16,15 @@ const SECTIONS: LegalSection[] = [
   },
   {
     heading: 'Analytics',
-    body: 'We do not currently use website analytics. There is no Google Analytics, no tracking pixels, and no third-party analytics service running on this site. If that ever changes, we will update this policy before it does.',
+    body: 'We use analytics to understand how visitors use the site so we can improve it: Google Analytics, Vercel Analytics, and Microsoft Clarity. These services collect information such as the pages you visit, how you arrived, your approximate location, and your device and browser. Microsoft Clarity may also record anonymised session activity, such as mouse movement and clicks, to produce heatmaps. We use this information in aggregate to improve the site, not to identify you personally. We do not use advertising or cross-site tracking.',
   },
   {
     heading: 'Cookies',
-    body: 'This site does not set cookies of its own, and it uses no advertising or tracking cookies. Our full approach, including the third parties involved, is described in the Cookie Policy.',
+    body: 'This site uses cookies and similar technologies, including analytics cookies and cookies set by our live chat widget. It does not use advertising cookies. Our full approach, including how to control them, is described in the Cookie Policy.',
   },
   {
     heading: 'How we use your information',
-    body: 'We use what you share to respond to your enquiry, provide the advisory information you ask for, send the newsletter if you subscribed, and keep a reasonable record of our correspondence. We do not sell your information, and we do not share it for advertising.',
+    body: 'We use what you share to respond to your enquiry, provide the advisory information you ask for, send the newsletter if you subscribed, keep a reasonable record of our correspondence, and understand how the site is used so we can improve it. We do not sell your information, and we do not share it for advertising.',
   },
   {
     heading: 'Form submissions and Formspree',
@@ -39,8 +39,12 @@ const SECTIONS: LegalSection[] = [
     body: 'When you email us or send an enquiry, your message and email address reach us through our email provider and are kept there so we can respond and maintain a record of our correspondence.',
   },
   {
+    heading: 'Live chat',
+    body: 'Our website offers a live chat widget, provided by Tidio. If you use it, the messages you send and basic technical details are processed by Tidio so we can talk with you and follow up. Tidio handles that information under its own privacy policy.',
+  },
+  {
     heading: 'Third-party services',
-    body: 'A small number of third parties help us run the site. Formspree processes form submissions, Vercel hosts the website, and Google Fonts serves the typefaces you see, which means Google receives your IP address when the fonts load. Each service receives only what it needs to do its job, and each operates under its own privacy terms.',
+    body: 'A number of third parties help us run the site and understand how it is used. Formspree processes form submissions; Vercel hosts the website and provides analytics; Google Analytics and Microsoft Clarity provide website analytics; Tidio powers the live chat; and Google Fonts serves the typefaces, which means Google receives your IP address when the fonts load. Each service receives only what it needs to do its job, and each operates under its own privacy terms.',
   },
   {
     heading: 'Search engines',

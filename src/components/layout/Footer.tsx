@@ -144,6 +144,13 @@ export function Footer() {
                   {link.label}
                 </Link>
               ))}
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event('vdg:cookie-settings'))}
+                className="transition-colors duration-200 hover:text-teal-300"
+              >
+                Cookie settings
+              </button>
             </nav>
           </div>
           <Link
